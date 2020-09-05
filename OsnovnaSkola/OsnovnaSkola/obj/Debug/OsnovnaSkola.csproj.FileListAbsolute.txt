@@ -1,0 +1,70 @@
+C:\Users\Bozo\Desktop\Baze Specifikacije\OsnovnaSkola\OsnovnaSkola\bin\Debug\OsnovnaSkola.dll.config
+C:\Users\Bozo\Desktop\Baze Specifikacije\OsnovnaSkola\OsnovnaSkola\bin\Debug\OsnovnaSkola.dll
+C:\Users\Bozo\Desktop\Baze Specifikacije\OsnovnaSkola\OsnovnaSkola\bin\Debug\OsnovnaSkola.pdb
+C:\Users\Bozo\Desktop\Baze Specifikacije\OsnovnaSkola\OsnovnaSkola\bin\Debug\EntityFramework.dll
+C:\Users\Bozo\Desktop\Baze Specifikacije\OsnovnaSkola\OsnovnaSkola\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Bozo\Desktop\Baze Specifikacije\OsnovnaSkola\OsnovnaSkola\bin\Debug\System.Data.SqlClient.dll
+C:\Users\Bozo\Desktop\Baze Specifikacije\OsnovnaSkola\OsnovnaSkola\bin\Debug\EntityFramework.xml
+C:\Users\Bozo\Desktop\Baze Specifikacije\OsnovnaSkola\OsnovnaSkola\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Bozo\Desktop\Baze Specifikacije\OsnovnaSkola\OsnovnaSkola\bin\Debug\System.Data.SqlClient.xml
+C:\Users\Bozo\Desktop\Baze Specifikacije\OsnovnaSkola\OsnovnaSkola\obj\Debug\OsnovnaSkola.csproj.CoreCompileInputs.cache
+C:\Users\Bozo\Desktop\Baze Specifikacije\OsnovnaSkola\OsnovnaSkola\obj\Debug\OsnovnaSkola.csproj.CopyComplete
+C:\Users\Bozo\Desktop\Baze Specifikacije\OsnovnaSkola\OsnovnaSkola\obj\Debug\OsnovnaSkola.dll
+C:\Users\Bozo\Desktop\Baze Specifikacije\OsnovnaSkola\OsnovnaSkola\obj\Debug\OsnovnaSkola.pdb
+C:\Users\Bozo\Desktop\Baze Specifikacije\OsnovnaSkola\OsnovnaSkola\obj\Debug\OsnovnaSkola.csprojAssemblyReference.cache
+C:\Users\Bozo\Desktop\Baze Specifikacije\bazeProjekat\BazePodataka2\OsnovnaSkola\OsnovnaSkola\bin\Debug\OsnovnaSkola.dll.config
+C:\Users\Bozo\Desktop\Baze Specifikacije\bazeProjekat\BazePodataka2\OsnovnaSkola\OsnovnaSkola\bin\Debug\OsnovnaSkola.dll
+C:\Users\Bozo\Desktop\Baze Specifikacije\bazeProjekat\BazePodataka2\OsnovnaSkola\OsnovnaSkola\bin\Debug\OsnovnaSkola.pdb
+C:\Users\Bozo\Desktop\Baze Specifikacije\bazeProjekat\BazePodataka2\OsnovnaSkola\OsnovnaSkola\bin\Debug\EntityFramework.dll
+C:\Users\Bozo\Desktop\Baze Specifikacije\bazeProjekat\BazePodataka2\OsnovnaSkola\OsnovnaSkola\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Bozo\Desktop\Baze Specifikacije\bazeProjekat\BazePodataka2\OsnovnaSkola\OsnovnaSkola\bin\Debug\System.Data.SqlClient.dll
+C:\Users\Bozo\Desktop\Baze Specifikacije\bazeProjekat\BazePodataka2\OsnovnaSkola\OsnovnaSkola\bin\Debug\EntityFramework.xml
+C:\Users\Bozo\Desktop\Baze Specifikacije\bazeProjekat\BazePodataka2\OsnovnaSkola\OsnovnaSkola\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Bozo\Desktop\Baze Specifikacije\bazeProjekat\BazePodataka2\OsnovnaSkola\OsnovnaSkola\bin\Debug\System.Data.SqlClient.xml
+C:\Users\Bozo\Desktop\Baze Specifikacije\bazeProjekat\BazePodataka2\OsnovnaSkola\OsnovnaSkola\obj\Debug\OsnovnaSkola.csprojAssemblyReference.cache
+C:\Users\Bozo\Desktop\Baze Specifikacije\bazeProjekat\BazePodataka2\OsnovnaSkola\OsnovnaSkola\obj\Debug\OsnovnaSkola.csproj.CoreCompileInputs.cache
+C:\Users\Bozo\Desktop\Baze Specifikacije\bazeProjekat\BazePodataka2\OsnovnaSkola\OsnovnaSkola\obj\Debug\OsnovnaSkola.csproj.CopyComplete
+C:\Users\Bozo\Desktop\Baze Specifikacije\bazeProjekat\BazePodataka2\OsnovnaSkola\OsnovnaSkola\obj\Debug\OsnovnaSkola.dll
+C:\Users\Bozo\Desktop\Baze Specifikacije\bazeProjekat\BazePodataka2\OsnovnaSkola\OsnovnaSkola\obj\Debug\OsnovnaSkola.pdb
+C:\Users\Bozo\Desktop\Projekat\Projekat\OsnovnaSkola\OsnovnaSkola\bin\Debug\OsnovnaSkola.dll.config
+C:\Users\Bozo\Desktop\Projekat\Projekat\OsnovnaSkola\OsnovnaSkola\bin\Debug\OsnovnaSkola.dll
+C:\Users\Bozo\Desktop\Projekat\Projekat\OsnovnaSkola\OsnovnaSkola\bin\Debug\OsnovnaSkola.pdb
+C:\Users\Bozo\Desktop\Projekat\Projekat\OsnovnaSkola\OsnovnaSkola\bin\Debug\EntityFramework.dll
+C:\Users\Bozo\Desktop\Projekat\Projekat\OsnovnaSkola\OsnovnaSkola\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Bozo\Desktop\Projekat\Projekat\OsnovnaSkola\OsnovnaSkola\bin\Debug\System.Data.SqlClient.dll
+C:\Users\Bozo\Desktop\Projekat\Projekat\OsnovnaSkola\OsnovnaSkola\bin\Debug\EntityFramework.xml
+C:\Users\Bozo\Desktop\Projekat\Projekat\OsnovnaSkola\OsnovnaSkola\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Bozo\Desktop\Projekat\Projekat\OsnovnaSkola\OsnovnaSkola\bin\Debug\System.Data.SqlClient.xml
+C:\Users\Bozo\Desktop\Projekat\Projekat\OsnovnaSkola\OsnovnaSkola\obj\Debug\OsnovnaSkola.csprojAssemblyReference.cache
+C:\Users\Bozo\Desktop\Projekat\Projekat\OsnovnaSkola\OsnovnaSkola\obj\Debug\OsnovnaSkola.csproj.CoreCompileInputs.cache
+C:\Users\Bozo\Desktop\Projekat\Projekat\OsnovnaSkola\OsnovnaSkola\obj\Debug\OsnovnaSkola.csproj.CopyComplete
+C:\Users\Bozo\Desktop\Projekat\Projekat\OsnovnaSkola\OsnovnaSkola\obj\Debug\OsnovnaSkola.dll
+C:\Users\Bozo\Desktop\Projekat\Projekat\OsnovnaSkola\OsnovnaSkola\obj\Debug\OsnovnaSkola.pdb
+C:\Users\Bozo\Desktop\Projekat-e25bd076e49fb447c63ec649795a67a58b291715\OsnovnaSkola\OsnovnaSkola\obj\Debug\OsnovnaSkola.csproj.CoreCompileInputs.cache
+C:\Users\Bozo\Desktop\Projekat-e25bd076e49fb447c63ec649795a67a58b291715\OsnovnaSkola\OsnovnaSkola\obj\Debug\OsnovnaSkola.pdb
+C:\Users\Bozo\Desktop\Projekat-e25bd076e49fb447c63ec649795a67a58b291715\OsnovnaSkola\OsnovnaSkola\bin\Debug\OsnovnaSkola.dll.config
+C:\Users\Bozo\Desktop\Projekat-e25bd076e49fb447c63ec649795a67a58b291715\OsnovnaSkola\OsnovnaSkola\bin\Debug\OsnovnaSkola.dll
+C:\Users\Bozo\Desktop\Projekat-e25bd076e49fb447c63ec649795a67a58b291715\OsnovnaSkola\OsnovnaSkola\bin\Debug\OsnovnaSkola.pdb
+C:\Users\Bozo\Desktop\Projekat-e25bd076e49fb447c63ec649795a67a58b291715\OsnovnaSkola\OsnovnaSkola\bin\Debug\EntityFramework.dll
+C:\Users\Bozo\Desktop\Projekat-e25bd076e49fb447c63ec649795a67a58b291715\OsnovnaSkola\OsnovnaSkola\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Bozo\Desktop\Projekat-e25bd076e49fb447c63ec649795a67a58b291715\OsnovnaSkola\OsnovnaSkola\bin\Debug\System.Data.SqlClient.dll
+C:\Users\Bozo\Desktop\Projekat-e25bd076e49fb447c63ec649795a67a58b291715\OsnovnaSkola\OsnovnaSkola\bin\Debug\EntityFramework.xml
+C:\Users\Bozo\Desktop\Projekat-e25bd076e49fb447c63ec649795a67a58b291715\OsnovnaSkola\OsnovnaSkola\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Bozo\Desktop\Projekat-e25bd076e49fb447c63ec649795a67a58b291715\OsnovnaSkola\OsnovnaSkola\bin\Debug\System.Data.SqlClient.xml
+C:\Users\Bozo\Desktop\Projekat-e25bd076e49fb447c63ec649795a67a58b291715\OsnovnaSkola\OsnovnaSkola\obj\Debug\OsnovnaSkola.csproj.CopyComplete
+C:\Users\Bozo\Desktop\Projekat-e25bd076e49fb447c63ec649795a67a58b291715\OsnovnaSkola\OsnovnaSkola\obj\Debug\OsnovnaSkola.dll
+C:\Users\Bozo\Desktop\Projekat-e25bd076e49fb447c63ec649795a67a58b291715\OsnovnaSkola\OsnovnaSkola\obj\Debug\OsnovnaSkola.csprojAssemblyReference.cache
+C:\Users\Bozo\Desktop\Projekat-e25bd076e49fb447c63ec649795a67a58b291715\ZVersion\OsnovnaSkola\OsnovnaSkola\bin\Debug\OsnovnaSkola.dll.config
+C:\Users\Bozo\Desktop\Projekat-e25bd076e49fb447c63ec649795a67a58b291715\ZVersion\OsnovnaSkola\OsnovnaSkola\bin\Debug\OsnovnaSkola.dll
+C:\Users\Bozo\Desktop\Projekat-e25bd076e49fb447c63ec649795a67a58b291715\ZVersion\OsnovnaSkola\OsnovnaSkola\bin\Debug\OsnovnaSkola.pdb
+C:\Users\Bozo\Desktop\Projekat-e25bd076e49fb447c63ec649795a67a58b291715\ZVersion\OsnovnaSkola\OsnovnaSkola\bin\Debug\EntityFramework.dll
+C:\Users\Bozo\Desktop\Projekat-e25bd076e49fb447c63ec649795a67a58b291715\ZVersion\OsnovnaSkola\OsnovnaSkola\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Bozo\Desktop\Projekat-e25bd076e49fb447c63ec649795a67a58b291715\ZVersion\OsnovnaSkola\OsnovnaSkola\bin\Debug\System.Data.SqlClient.dll
+C:\Users\Bozo\Desktop\Projekat-e25bd076e49fb447c63ec649795a67a58b291715\ZVersion\OsnovnaSkola\OsnovnaSkola\bin\Debug\EntityFramework.xml
+C:\Users\Bozo\Desktop\Projekat-e25bd076e49fb447c63ec649795a67a58b291715\ZVersion\OsnovnaSkola\OsnovnaSkola\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Bozo\Desktop\Projekat-e25bd076e49fb447c63ec649795a67a58b291715\ZVersion\OsnovnaSkola\OsnovnaSkola\bin\Debug\System.Data.SqlClient.xml
+C:\Users\Bozo\Desktop\Projekat-e25bd076e49fb447c63ec649795a67a58b291715\ZVersion\OsnovnaSkola\OsnovnaSkola\obj\Debug\OsnovnaSkola.csprojAssemblyReference.cache
+C:\Users\Bozo\Desktop\Projekat-e25bd076e49fb447c63ec649795a67a58b291715\ZVersion\OsnovnaSkola\OsnovnaSkola\obj\Debug\OsnovnaSkola.csproj.CoreCompileInputs.cache
+C:\Users\Bozo\Desktop\Projekat-e25bd076e49fb447c63ec649795a67a58b291715\ZVersion\OsnovnaSkola\OsnovnaSkola\obj\Debug\OsnovnaSkola.csproj.CopyComplete
+C:\Users\Bozo\Desktop\Projekat-e25bd076e49fb447c63ec649795a67a58b291715\ZVersion\OsnovnaSkola\OsnovnaSkola\obj\Debug\OsnovnaSkola.dll
+C:\Users\Bozo\Desktop\Projekat-e25bd076e49fb447c63ec649795a67a58b291715\ZVersion\OsnovnaSkola\OsnovnaSkola\obj\Debug\OsnovnaSkola.pdb
