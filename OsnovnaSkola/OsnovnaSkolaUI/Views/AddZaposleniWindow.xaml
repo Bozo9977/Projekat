@@ -48,7 +48,7 @@
         <!--<Label  Content="{Binding ErrorPassword}" HorizontalAlignment="Left" Height="30" Margin="170,483,0,0" VerticalAlignment="Top" Width="227" FontFamily="Segoe UI" Foreground="red" FontSize="14"/>-->
         <!--<Label  Content="{Binding CheckUsername}" HorizontalAlignment="Left" Height="30" Margin="170,384,0,0" VerticalAlignment="Top" Width="227" FontFamily="Segoe UI" Foreground="red" FontSize="14"/>-->
         <Button Content="CHANGE" Visibility="{Binding Visible2}" Command="{Binding ChangeInfoCommand}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="221" Margin="176,584,0,0" Height="63" FontFamily="Segoe UI" Foreground="#FFFBFB9F" Background="Transparent" BorderBrush="White" FontSize="36" FontWeight="Bold"/>
-        <Label  Content="E-mejl:" HorizontalAlignment="Left" Height="36" Margin="170,419,0,0" VerticalAlignment="Top" Width="227" FontFamily="Segoe UI" Foreground="#FFFBFB9F" FontSize="22" HorizontalContentAlignment="Center"/>
+        <Label  Content="Korisničko ime:" HorizontalAlignment="Left" Height="36" Margin="170,419,0,0" VerticalAlignment="Top" Width="227" FontFamily="Segoe UI" Foreground="#FFFBFB9F" FontSize="22" HorizontalContentAlignment="Center"/>
         <TextBox  Template="{StaticResource TextBoxBaseControlTemplate}" HorizontalAlignment="Left" Height="39" Margin="170,455,0,0" TextWrapping="Wrap" Text="{Binding NoviZaposleni.KorisnickoIme, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="227" Background="#FF2E2E2E" Foreground="#FFA7A9A8" FontSize="22"/>
         <Label  Content="{Binding ErrorKorisnickoIme}" HorizontalAlignment="Left" Height="30" Margin="170,499,0,0" VerticalAlignment="Top" Width="227" FontFamily="Segoe UI" Foreground="red" FontSize="14"/>
 

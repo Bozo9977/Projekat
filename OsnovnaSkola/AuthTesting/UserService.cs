@@ -34,11 +34,11 @@ namespace AuthTesting
             (userManager.PasswordValidator as PasswordValidator).RequireUppercase = false;
         }
 
-        public bool CreateUser(string ime, string prezime, string email, string lozinka, bool ucitelj)
+        public bool CreateUser(string ime, string prezime, string kIme, string lozinka, bool ucitelj)
         {
-            var user = new ApplicationUser { ime = ime, prezime = prezime, Email = email, UserName = email };
+            var user = new ApplicationUser { ime = ime, prezime = prezime, UserName = kIme };
             var result =  this.userManager.Create(user, lozinka);
-            var createdUser =  userManager.FindByEmail(email);
+            var createdUser =  userManager.FindByName(kIme);
 
             if (result.Succeeded == false)
             {
@@ -92,7 +92,7 @@ namespace AuthTesting
             {
                 
 
-                ApplicationUser user = userManager.FindByEmail(email);
+                ApplicationUser user = userManager.FindByName(email);
 
                 if(user != null && userManager.CheckPassword(user, lozinka))
                 {

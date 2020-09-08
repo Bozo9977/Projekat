@@ -17,9 +17,9 @@
     </Window.Resources>
 
     <Grid x:Name="LoginGrid" Background="Black" Margin="0,0,0,-1" Style="{StaticResource FocusTextBox}">
-        <Label Content="Please login" HorizontalContentAlignment="Center" Height="66" Margin="21,10,23,0" VerticalAlignment="Top"  FontSize="26" FontFamily="Segoe UI" Foreground="#FFFBFB9F"/>
+        <Label Content="Prijava na sistem" HorizontalContentAlignment="Center" Height="66" Margin="21,10,23,0" VerticalAlignment="Top"  FontSize="26" FontFamily="Segoe UI" Foreground="#FFFBFB9F"/>
 
-        <Label Content="Email:" HorizontalContentAlignment="Center" HorizontalAlignment="Left" Height="34" Margin="113,93,0,0" VerticalAlignment="Top" Width="244" FontFamily="Segoe UI" Foreground="#FFFBFB9F" FontSize="20" />
+        <Label Content="Korisničko ime:" HorizontalContentAlignment="Center" HorizontalAlignment="Left" Height="34" Margin="113,93,0,0" VerticalAlignment="Top" Width="244" FontFamily="Segoe UI" Foreground="#FFFBFB9F" FontSize="20" />
         <TextBox x:Name="ImeBox" HorizontalAlignment="Left" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" Text="{Binding Ime, UpdateSourceTrigger=PropertyChanged}"  FontFamily="Khmer UI" FontSize="20" TextWrapping="Wrap" Width="244" Margin="113,137,0,0" Background="#FF2E2E2E" BorderBrush="#FF282829" Foreground="#FFFBFB9F" Height="39" VerticalAlignment="Top">
             <TextBox.InputBindings>
                 <KeyBinding Command="{Binding LoginCommand}" Key="Enter"/>
@@ -36,7 +36,7 @@
 
         <Label Content="{Binding PrezimeError, UpdateSourceTrigger=PropertyChanged}" Name="prezimeError" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" HorizontalAlignment="Left" Height="34" Margin="21,323,0,0" VerticalAlignment="Top" Width="440" FontFamily="Segoe UI" Foreground="red" FontSize="16" />
 
-        <Button  Content="LOGIN" IsDefault="True" Command="{Binding LoginCommand}" HorizontalAlignment="Left"  FontSize="24" VerticalAlignment="Top" Width="130" Margin="168,382,0,0" Height="48" RenderTransformOrigin="0.769,0.381"  FontFamily="Segoe UI" Background="Transparent" BorderBrush="White" Foreground="#FFFBFB9F" FontWeight="Bold"/>
+        <Button  Content="PRIJAVA" IsDefault="True" Command="{Binding LoginCommand}" HorizontalAlignment="Left"  FontSize="24" VerticalAlignment="Top" Width="130" Margin="168,382,0,0" Height="48" RenderTransformOrigin="0.769,0.381"  FontFamily="Segoe UI" Background="Transparent" BorderBrush="White" Foreground="#FFFBFB9F" FontWeight="Bold"/>
 
     </Grid>
 </Window>
