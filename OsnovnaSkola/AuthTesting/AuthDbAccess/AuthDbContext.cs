@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 using System.Configuration;
 using System.Data.SqlClient;
 
-namespace AuthTesting
+namespace AuthTesting.AuthDbAccess
 {
     public class AuthDbContext: IdentityDbContext<ApplicationUser>
     {

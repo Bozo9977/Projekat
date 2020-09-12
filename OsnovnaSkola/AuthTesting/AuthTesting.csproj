@@ -104,12 +104,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ApplicationUser.cs" />
+    <Compile Include="AuthDbAccess\ApplicationUser.cs" />
     <Compile Include="AuthDbAccess\ApplicationUserIM.cs" />
-    <Compile Include="AuthDbContext.cs" />
+    <Compile Include="AuthDbAccess\AuthDbContext.cs" />
     <Compile Include="AuthService.cs" />
-    <Compile Include="InitializeAuthDb.cs" />
-    <Compile Include="IUserService.cs" />
+    <Compile Include="AuthDbAccess\InitializeAuthDb.cs" />
+    <Compile Include="AuthDbAccess\IUserService.cs" />
     <Compile Include="Mig\202009051045265_initial.cs" />
     <Compile Include="Mig\202009051045265_initial.designer.cs">
       <DependentUpon>202009051045265_initial.cs</DependentUpon>
@@ -121,8 +121,8 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
-    <Compile Include="Roles.cs" />
-    <Compile Include="UserService.cs" />
+    <Compile Include="AuthDbAccess\Roles.cs" />
+    <Compile Include="AuthDbAccess\UserService.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

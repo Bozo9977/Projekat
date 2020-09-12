@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNet.Identity;
+﻿using AuthTesting.AuthDbAccess;
+using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.DependencyInjection.Extensions;

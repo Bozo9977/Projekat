@@ -8,7 +8,7 @@ using System.Runtime.InteropServices.WindowsRuntime;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AuthTesting
+namespace AuthTesting.AuthDbAccess
 {
     public class UserService: IUserService
     {

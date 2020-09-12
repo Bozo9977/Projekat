@@ -4,8 +4,8 @@
     using System.Data.Entity;
     using System.Data.Entity.Migrations;
     using System.Linq;
-
-    internal sealed class Configuration : DbMigrationsConfiguration<AuthTesting.AuthDbContext>
+    using AuthDbAccess;
+    internal sealed class Configuration : DbMigrationsConfiguration<AuthDbContext>
     {
         public Configuration()
         {
@@ -13,7 +13,7 @@
             MigrationsDirectory = @"Mig";
         }
 
-        protected override void Seed(AuthTesting.AuthDbContext context)
+        protected override void Seed(AuthDbContext context)
         {
             //  This method will be called after migrating to the latest version.
 

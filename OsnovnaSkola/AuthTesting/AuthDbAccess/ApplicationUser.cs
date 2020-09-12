@@ -5,10 +5,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AuthTesting
+namespace AuthTesting.AuthDbAccess
 {
-
-    public class Roles: IdentityRole
+    public class ApplicationUser: IdentityUser
     {
+        public string ime { get; set; }
+        public string prezime { get; set; }
     }
 }

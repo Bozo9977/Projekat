@@ -6,7 +6,7 @@ using System.ServiceModel;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AuthTesting
+namespace AuthTesting.AuthDbAccess
 {
     [ServiceContract]
     public interface IUserService
