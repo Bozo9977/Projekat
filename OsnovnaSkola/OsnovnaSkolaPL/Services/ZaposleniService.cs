@@ -237,6 +237,7 @@ namespace OsnovnaSkolaPL.Services
 
                 foreach(var item in zaposleni)
                 {
+                    //if(use)
                     retVal.Add(new ZaposleniIM()
                     {
                         ime = users.SingleOrDefault(x=>x.Email == item.korisnicko_ime).ime,

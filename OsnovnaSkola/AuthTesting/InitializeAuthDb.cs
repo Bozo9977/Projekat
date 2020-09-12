@@ -53,7 +53,7 @@ namespace AuthTesting
                     ApplicationUser user = new ApplicationUser();
                     user.ime = "Admin";
                     user.prezime = "Admin";
-                    user.UserName = "admin@gmail.com";
+                    user.UserName = "admin";
                     user.Email = "admin@gmail.com";
 
                     IdentityResult result = await userManager.CreateAsync(user, "admin");

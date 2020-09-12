@@ -102,7 +102,7 @@ namespace AuthTesting
                     {
                         retVal.ime = user.ime;
                         retVal.prezime = user.prezime;
-                        retVal.Email = user.Email;
+                        retVal.Email = user.UserName;
                         retVal.Uloga = roles[0];
                         
                     }
@@ -133,7 +133,7 @@ namespace AuthTesting
                 {
                     ime = user.ime,
                     prezime = user.prezime,
-                    Email = user.Email,
+                    Email = user.UserName,
                     Uloga =  userManager.GetRoles(user.Id)[0]
                 });
             }
@@ -143,12 +143,12 @@ namespace AuthTesting
 
         public ApplicationUserIM GetUser(string email)
         {
-            ApplicationUser user = userManager.FindByEmail(email);
+            ApplicationUser user = userManager.FindByName(email);
             ApplicationUserIM retVal = new ApplicationUserIM()
             {
                 ime = user.ime,
                 prezime = user.prezime,
-                Email = user.Email,
+                Email = user.UserName,
                 Uloga = userManager.GetRoles(user.Id)[0]
             };
 
