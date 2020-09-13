@@ -48,7 +48,7 @@ namespace AuthTesting.AuthDbAccess
 
             try
             {
-                if (userManager.FindByNameAsync("admin@gmail.com").Result == null)
+                if (userManager.FindByNameAsync("admin").Result == null)
                 {
                     ApplicationUser user = new ApplicationUser();
                     user.ime = "Admin";

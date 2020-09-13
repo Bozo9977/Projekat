@@ -26,7 +26,7 @@ namespace OsnovnaSkolaPL.Services
             Zaposleni z = null;
 
             
-            if(!AuthChannel.Instance.UserProxy.CreateUser(zaposleni.ime, zaposleni.prezime, zaposleni.KorisnickoIme, zaposleni.KorisnickoIme, zaposleni.Ucitelj))
+            if(!AuthChannel.Instance.UserProxy.CreateUser(zaposleni.ime, zaposleni.prezime, zaposleni.KorisnickoIme, zaposleni.Ucitelj))
             {
                 return false;
             }

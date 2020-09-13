@@ -14,7 +14,7 @@ namespace AuthTesting.AuthDbAccess
         [OperationContract]
         Task SeedData();
         [OperationContract]
-        bool CreateUser(string ime, string prezime, string kIme, string lozinka, bool ucitelj);
+        bool CreateUser(string ime, string prezime, string kIme, bool ucitelj);
         [OperationContract]
         ApplicationUserIM Login(string korisnickoIme, string lozinka);
         [OperationContract]

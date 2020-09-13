@@ -3,7 +3,11 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
+using System.Net;
+using System.Net.Mail;
+using System.Runtime.InteropServices;
 using System.Runtime.InteropServices.WindowsRuntime;
 using System.Text;
 using System.Threading.Tasks;
@@ -34,10 +38,12 @@ namespace AuthTesting.AuthDbAccess
             (userManager.PasswordValidator as PasswordValidator).RequireUppercase = false;
         }
 
-        public bool CreateUser(string ime, string prezime, string kIme, string lozinka, bool ucitelj)
+        public bool CreateUser(string ime, string prezime, string kIme, bool ucitelj)
         {
             var user = new ApplicationUser { ime = ime, prezime = prezime, UserName = kIme };
-            var result =  this.userManager.Create(user, lozinka);
+            int password = GenerateNewPassword();
+            var result =  this.userManager.Create(user, password.ToString());
+   
             var createdUser =  userManager.FindByName(kIme);
 
             if (result.Succeeded == false)
@@ -73,16 +79,32 @@ namespace AuthTesting.AuthDbAccess
             }
         }
 
-        public bool Exists(string username, string lozinka)
+        private static int GenerateNewPassword()
         {
-            if (userManager.FindByNameAsync("admin@gmail.com") != null)
+            Random random = new Random();
+            int randNo = random.Next(100000001, 999999999);
+            string to = "bokimaric97@gmail.com";
+            string from = "bokimaric97@gmail.com";
+            MailMessage message = new MailMessage(from, to);
+            message.Subject = "Lozinka";
+            message.Body = $"Vaša lozinka je: " + randNo.ToString() +
+                "\nMolimo Vas da je obavezno promenite pri prvoj prijavi na sistem, radi sigurnosti Vašeg naloga.";
+            try
             {
-                return true;
+                SmtpClient smtpClient = new SmtpClient("smtp.gmail.com", 587);
+                smtpClient.EnableSsl = true;
+                smtpClient.DeliveryMethod = SmtpDeliveryMethod.Network;
+                //smtpClient.UseDefaultCredentials = true;
+                smtpClient.UseDefaultCredentials = false;
+                smtpClient.Credentials = new NetworkCredential(from, "Geografija9977");
+                smtpClient.Send(message);
+                //smtpClient.Send(message.From.ToString(), message.To.ToString(), message.Subject, message.Body);
             }
-            else
+            catch (Exception ex)
             {
-                return false;
+                Console.WriteLine("Ex: " + ex);
             }
+            return randNo;
         }
 
         public ApplicationUserIM Login(string email, string lozinka)
