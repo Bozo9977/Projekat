@@ -25,6 +25,8 @@ namespace AuthTesting.AuthDbAccess
         bool ChangeUser(ApplicationUserIM user);
         [OperationContract]
         bool DeleteUser(string email);
+        [OperationContract]
+        bool ChangePassword(ApplicationUserIM user, string novaLozinka);
         
     }
 }

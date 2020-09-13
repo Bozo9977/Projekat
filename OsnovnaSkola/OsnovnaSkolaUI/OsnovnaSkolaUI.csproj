@@ -81,6 +81,7 @@
     <Compile Include="ViewModel\AddRazredniViewModel.cs" />
     <Compile Include="ViewModel\AddUcenikViewModel.cs" />
     <Compile Include="ViewModel\AddZaposleniViewModel.cs" />
+    <Compile Include="ViewModel\ChangePasswordViewModel.cs" />
     <Compile Include="ViewModel\LoginViewModel.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
     <Compile Include="ViewModel\OblastiPredmetaViewModel.cs" />
@@ -125,6 +126,9 @@
     </Compile>
     <Compile Include="Views\OceniRadoveWindow.xaml.cs">
       <DependentUpon>OceniRadoveWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\PasswordChangeWindow.xaml.cs">
+      <DependentUpon>PasswordChangeWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\UcenikOdeljenjeWindow.xaml.cs">
       <DependentUpon>UcenikOdeljenjeWindow.xaml</DependentUpon>
@@ -193,6 +197,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\OceniRadoveWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\PasswordChangeWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

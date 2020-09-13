@@ -24,5 +24,7 @@ namespace OsnovnaSkolaPL.IntermediaryModels
         public bool Nastavnik { get; set; }
         [DataMember]
         public string KorisnickoIme { get; set; }
+        [DataMember]
+        public bool PrvoLogovanje { get; set; }
     }
 }

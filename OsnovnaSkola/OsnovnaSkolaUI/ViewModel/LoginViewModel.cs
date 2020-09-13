@@ -1,6 +1,7 @@
 ﻿using OsnovnaSkola;
 using OsnovnaSkolaPL.Helpers;
 using OsnovnaSkolaPL.IntermediaryModels;
+using OsnovnaSkolaUI.Views;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Input;
 
 namespace OsnovnaSkolaUI.ViewModel
 {
@@ -99,8 +101,23 @@ namespace OsnovnaSkolaUI.ViewModel
                     LoggedInZaposleni.Instance = zap;
                     if (!String.IsNullOrWhiteSpace(LoggedInZaposleni.Instance.ime))
                     {
-                        new MainWindow().Show();
-                        Window.Close();
+                        if (!CheckData(LoggedInZaposleni.Instance.Id_zaposlenog))
+                        {
+
+                        }
+                        else
+                        {
+                            if (LoggedInZaposleni.Instance.PrvoLogovanje)
+                            {
+                                new PasswordChange().Show();
+                                Window.Close();
+                            }
+                            else
+                            {
+                                new MainWindow().Show();
+                                Window.Close();
+                            }   
+                        }
                     }
                     else
                     {
@@ -114,5 +131,26 @@ namespace OsnovnaSkolaUI.ViewModel
                 }
             }
         }
+
+        private  bool CheckData(int loggedinID)
+        {
+            if(LoggedInZaposleni.Instance.ime == "Admin")
+            {
+                return true;
+            }
+            else if (Channel.Instance.PredmetiProxy.GetPredmetiForZaposleni(loggedinID).Count == 0 ||
+                Channel.Instance.OdeljenjaProxy.GetOdeljenjaForZaposleni(loggedinID).Count == 0)
+            {
+                MessageBox.Show($"Vaš nalog nije inicijalizovan, sačekajte da Vam se dodele predmeti/odeljenja." +
+                    $"\nKontaktirajte Vašeg sistem administratora.", "Greška!", MessageBoxButton.OK, MessageBoxImage.Error);
+                Ime = (LoginGrid.FindName("PrezimeBox") as PasswordBox).Password = "";
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+        }
+
     }
 }

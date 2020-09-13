@@ -66,7 +66,7 @@ namespace OsnovnaSkola.DataAccess
 
                     lista.Add((z as Nastavnik).Predmet);
                 }
-                else
+                else if(z is Ucitelj)
                 {
                     short razred = (z as Ucitelj).Odeljenje.razred;
                     lista = db.Predmeti.Where(p => p.razred == razred).ToList();

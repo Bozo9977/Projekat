@@ -114,6 +114,10 @@
     <Compile Include="Mig\202009051045265_initial.designer.cs">
       <DependentUpon>202009051045265_initial.cs</DependentUpon>
     </Compile>
+    <Compile Include="Mig\202009131946589_FirstLogin.cs" />
+    <Compile Include="Mig\202009131946589_FirstLogin.designer.cs">
+      <DependentUpon>202009131946589_FirstLogin.cs</DependentUpon>
+    </Compile>
     <Compile Include="Mig\Configuration.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\Settings.Designer.cs">
@@ -135,6 +139,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Mig\202009051045265_initial.resx">
       <DependentUpon>202009051045265_initial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Mig\202009131946589_FirstLogin.resx">
+      <DependentUpon>202009131946589_FirstLogin.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

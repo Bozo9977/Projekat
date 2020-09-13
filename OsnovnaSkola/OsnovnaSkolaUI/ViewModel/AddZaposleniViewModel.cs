@@ -191,7 +191,7 @@ namespace OsnovnaSkolaUI.ViewModel
             }
             else if (String.IsNullOrEmpty(NoviZaposleni.KorisnickoIme))
             {
-                ErrorKorisnickoIme = "E-mejl ne može bit prazan.";
+                ErrorKorisnickoIme = "Korisničko ime ne može biti prazno.";
             }
             else
             {

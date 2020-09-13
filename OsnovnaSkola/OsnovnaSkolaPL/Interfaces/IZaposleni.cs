@@ -29,5 +29,7 @@ namespace OsnovnaSkolaPL.Interfaces
 
         [OperationContract]
         bool DodeliKontrolneTackeUcenicima(int idZaposlenog, int idOdeljenja, short ocena);
+        [OperationContract]
+        bool ChangePassword(ZaposleniIM zaposleni, string novaLozinka);
     }
 }

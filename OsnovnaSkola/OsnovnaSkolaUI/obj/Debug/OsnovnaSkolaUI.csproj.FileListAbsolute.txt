@@ -293,3 +293,5 @@ C:\Users\Bozo\Desktop\Projekat\Projekat\OsnovnaSkola\OsnovnaSkolaUI\bin\Debug\Au
 C:\Users\Bozo\Desktop\Projekat\Projekat\OsnovnaSkola\OsnovnaSkolaUI\bin\Debug\AuthTesting.exe.config
 C:\Users\Bozo\Desktop\Projekat\Projekat\OsnovnaSkola\OsnovnaSkolaUI\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.xml
 C:\Users\Bozo\Desktop\Projekat\Projekat\OsnovnaSkola\OsnovnaSkolaUI\bin\Debug\Microsoft.AspNet.Identity.Core.xml
+C:\Users\Bozo\Desktop\Projekat\Projekat\OsnovnaSkola\OsnovnaSkolaUI\obj\Debug\Views\PasswordChangeWindow.g.cs
+C:\Users\Bozo\Desktop\Projekat\Projekat\OsnovnaSkola\OsnovnaSkolaUI\obj\Debug\Views\PasswordChangeWindow.baml

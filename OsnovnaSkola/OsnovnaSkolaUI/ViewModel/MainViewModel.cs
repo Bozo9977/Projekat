@@ -561,6 +561,7 @@ namespace OsnovnaSkolaUI.ViewModel
 
         public void OnZhangeZaposleni()
         {
+            
             Predmeti = Channel.Instance.PredmetiProxy.GetPredmetiForZaposleni(LoggedIn.Id_zaposlenog);
             Predavanja = Channel.Instance.PredavanjaProxy.GetPredavanjaForZaposleni(LoggedIn);
             Casovi = Channel.Instance.CasovyProxy.GetCasoviForZaposleni(LoggedIn.Id_zaposlenog);

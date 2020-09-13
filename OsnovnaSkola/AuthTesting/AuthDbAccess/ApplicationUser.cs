@@ -11,5 +11,6 @@ namespace AuthTesting.AuthDbAccess
     {
         public string ime { get; set; }
         public string prezime { get; set; }
+        public bool FirstLogin { get; set; }
     }
 }

@@ -40,7 +40,7 @@ namespace AuthTesting.AuthDbAccess
 
         public bool CreateUser(string ime, string prezime, string kIme, bool ucitelj)
         {
-            var user = new ApplicationUser { ime = ime, prezime = prezime, UserName = kIme };
+            var user = new ApplicationUser { ime = ime, prezime = prezime, UserName = kIme, FirstLogin = true };
             int password = GenerateNewPassword();
             var result =  this.userManager.Create(user, password.ToString());
    
@@ -124,9 +124,9 @@ namespace AuthTesting.AuthDbAccess
                     {
                         retVal.ime = user.ime;
                         retVal.prezime = user.prezime;
-                        retVal.Email = user.UserName;
+                        retVal.KorisnickoIme = user.UserName;
                         retVal.Uloga = roles[0];
-                        
+                        retVal.FirstLogin = user.FirstLogin;
                     }
                 }
 
@@ -155,7 +155,7 @@ namespace AuthTesting.AuthDbAccess
                 {
                     ime = user.ime,
                     prezime = user.prezime,
-                    Email = user.UserName,
+                    KorisnickoIme = user.UserName,
                     Uloga =  userManager.GetRoles(user.Id)[0]
                 });
             }
@@ -163,14 +163,14 @@ namespace AuthTesting.AuthDbAccess
             return retVal;
         }
 
-        public ApplicationUserIM GetUser(string email)
+        public ApplicationUserIM GetUser(string kIme)
         {
-            ApplicationUser user = userManager.FindByName(email);
+            ApplicationUser user = userManager.FindByName(kIme);
             ApplicationUserIM retVal = new ApplicationUserIM()
             {
                 ime = user.ime,
                 prezime = user.prezime,
-                Email = user.UserName,
+                KorisnickoIme = user.UserName,
                 Uloga = userManager.GetRoles(user.Id)[0]
             };
 
@@ -179,12 +179,14 @@ namespace AuthTesting.AuthDbAccess
 
         public bool ChangeUser(ApplicationUserIM user)
         {
-            ApplicationUser toChange = userManager.FindByEmail(user.Email);
+            ApplicationUser toChange = userManager.FindByName(user.KorisnickoIme);
 
             if(toChange!= null)
             {
                 toChange.ime = user.ime;
                 toChange.prezime = user.prezime;
+                toChange.UserName = user.KorisnickoIme;
+                
 
                 var res = userManager.Update(toChange);
                 return res.Succeeded;
@@ -197,9 +199,19 @@ namespace AuthTesting.AuthDbAccess
 
         public bool DeleteUser(string email)
         {
-            ApplicationUser user = userManager.FindByEmail(email);
+            ApplicationUser user = userManager.FindByName(email);
             var res = userManager.Delete(user);
             return res.Succeeded;
+        }
+
+        public bool ChangePassword(ApplicationUserIM user, string novaLozinka)
+        {
+            ApplicationUser u = userManager.FindByName(user.KorisnickoIme);
+            
+            var token = userManager.GeneratePasswordResetToken(u.Id);
+            var result = userManager.ResetPassword(u.Id, token, novaLozinka);
+
+            return result.Succeeded;
         }
     }
 }

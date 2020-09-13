@@ -17,6 +17,8 @@ namespace AuthTesting.AuthDbAccess
         [DataMember]
         public string Uloga { get; set; }
         [DataMember]
-        public string Email { get; set; }
+        public string KorisnickoIme { get; set; }
+        [DataMember]
+        public bool FirstLogin { get; set; }
     }
 }

@@ -316,3 +316,4 @@ C:\Users\Bozo\Desktop\Projekat\Projekat\OsnovnaSkola\AuthTesting\obj\Debug\AuthT
 C:\Users\Bozo\Desktop\Projekat\Projekat\OsnovnaSkola\AuthTesting\obj\Debug\AuthTesting.csproj.CopyComplete
 C:\Users\Bozo\Desktop\Projekat\Projekat\OsnovnaSkola\AuthTesting\obj\Debug\AuthTesting.exe
 C:\Users\Bozo\Desktop\Projekat\Projekat\OsnovnaSkola\AuthTesting\obj\Debug\AuthTesting.pdb
+C:\Users\Bozo\Desktop\Projekat\Projekat\OsnovnaSkola\AuthTesting\obj\Debug\AuthTesting.Mig.FirstLogin.resources

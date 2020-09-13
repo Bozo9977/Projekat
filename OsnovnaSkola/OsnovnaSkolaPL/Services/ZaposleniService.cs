@@ -51,6 +51,11 @@ namespace OsnovnaSkolaPL.Services
             return dao.Insert(z);
         }
 
+        public bool ChangePassword(ZaposleniIM zaposleni, string novaLozinka)
+        {
+            ApplicationUserIM user = AuthChannel.Instance.UserProxy.GetUser(zaposleni.KorisnickoIme);
+            return AuthChannel.Instance.UserProxy.ChangePassword(user, novaLozinka);
+        }
 
         public bool ChangeZaposleni(ZaposleniIM zaposleniToChange)
         {
@@ -61,10 +66,12 @@ namespace OsnovnaSkolaPL.Services
                 Zaposleni z = dao.FindById(zaposleniToChange.Id_zaposlenog);
                 appUser.ime = zaposleniToChange.ime;
                 appUser.prezime = zaposleniToChange.prezime;
+                appUser.KorisnickoIme = zaposleniToChange.KorisnickoIme;
 
                 if (AuthChannel.Instance.UserProxy.ChangeUser(appUser))
                 {
                     z.zvanje = zaposleniToChange.zvanje;
+                    z.korisnicko_ime = zaposleniToChange.KorisnickoIme;
                     return dao.Update(z);
                 }
                 else
@@ -240,9 +247,9 @@ namespace OsnovnaSkolaPL.Services
                     //if(use)
                     retVal.Add(new ZaposleniIM()
                     {
-                        ime = users.SingleOrDefault(x=>x.Email == item.korisnicko_ime).ime,
-                        zvanje = users.SingleOrDefault(x => x.Email == item.korisnicko_ime).Uloga,
-                        prezime = users.SingleOrDefault(x => x.Email == item.korisnicko_ime).prezime,
+                        ime = users.SingleOrDefault(x=>x.KorisnickoIme == item.korisnicko_ime).ime,
+                        zvanje = users.SingleOrDefault(x => x.KorisnickoIme == item.korisnicko_ime).Uloga,
+                        prezime = users.SingleOrDefault(x => x.KorisnickoIme == item.korisnicko_ime).prezime,
                         Id_zaposlenog = item.Id_zaposlenog,
                         Ucitelj = (item is Ucitelj),
                         Nastavnik = !(item is Ucitelj)
@@ -264,7 +271,7 @@ namespace OsnovnaSkolaPL.Services
             if (appUser.Uloga != "Administrator")
             {
                 List<Zaposleni> zaposleni = dao.GetAll();
-                Zaposleni existing = zaposleni.SingleOrDefault(x => x.korisnicko_ime == appUser.Email);
+                Zaposleni existing = zaposleni.SingleOrDefault(x => x.korisnicko_ime == appUser.KorisnickoIme);
                 if (existing != null)
                 {
                     if (existing is Ucitelj)
@@ -275,8 +282,9 @@ namespace OsnovnaSkolaPL.Services
                             prezime = appUser.prezime,
                             zvanje = existing.zvanje,
                             Id_zaposlenog = existing.Id_zaposlenog,
-                            KorisnickoIme = appUser.Email,
-                            Ucitelj = true
+                            KorisnickoIme = appUser.KorisnickoIme,
+                            Ucitelj = true,
+                            PrvoLogovanje = appUser.FirstLogin
                         };
                     }
                     else
@@ -287,7 +295,7 @@ namespace OsnovnaSkolaPL.Services
                             prezime = appUser.prezime,
                             zvanje = existing.zvanje,
                             Id_zaposlenog = existing.Id_zaposlenog,
-                            KorisnickoIme = appUser.Email,
+                            KorisnickoIme = appUser.KorisnickoIme,
                             Ucitelj = false
                         };
                     }
