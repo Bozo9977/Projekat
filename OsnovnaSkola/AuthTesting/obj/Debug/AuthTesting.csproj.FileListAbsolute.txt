@@ -317,3 +317,14 @@ C:\Users\Bozo\Desktop\Projekat\Projekat\OsnovnaSkola\AuthTesting\obj\Debug\AuthT
 C:\Users\Bozo\Desktop\Projekat\Projekat\OsnovnaSkola\AuthTesting\obj\Debug\AuthTesting.exe
 C:\Users\Bozo\Desktop\Projekat\Projekat\OsnovnaSkola\AuthTesting\obj\Debug\AuthTesting.pdb
 C:\Users\Bozo\Desktop\Projekat\Projekat\OsnovnaSkola\AuthTesting\obj\Debug\AuthTesting.Mig.FirstLogin.resources
+C:\Users\Bozo\Desktop\Projekat\Projekat\OsnovnaSkola\AuthTesting\bin\Debug\Microsoft.AspNet.Identity.Owin.dll
+C:\Users\Bozo\Desktop\Projekat\Projekat\OsnovnaSkola\AuthTesting\bin\Debug\Microsoft.Owin.dll
+C:\Users\Bozo\Desktop\Projekat\Projekat\OsnovnaSkola\AuthTesting\bin\Debug\Microsoft.Owin.Security.Cookies.dll
+C:\Users\Bozo\Desktop\Projekat\Projekat\OsnovnaSkola\AuthTesting\bin\Debug\Microsoft.Owin.Security.dll
+C:\Users\Bozo\Desktop\Projekat\Projekat\OsnovnaSkola\AuthTesting\bin\Debug\Microsoft.Owin.Security.OAuth.dll
+C:\Users\Bozo\Desktop\Projekat\Projekat\OsnovnaSkola\AuthTesting\bin\Debug\Owin.dll
+C:\Users\Bozo\Desktop\Projekat\Projekat\OsnovnaSkola\AuthTesting\bin\Debug\Microsoft.AspNet.Identity.Owin.xml
+C:\Users\Bozo\Desktop\Projekat\Projekat\OsnovnaSkola\AuthTesting\bin\Debug\Microsoft.Owin.xml
+C:\Users\Bozo\Desktop\Projekat\Projekat\OsnovnaSkola\AuthTesting\bin\Debug\Microsoft.Owin.Security.xml
+C:\Users\Bozo\Desktop\Projekat\Projekat\OsnovnaSkola\AuthTesting\bin\Debug\Microsoft.Owin.Security.Cookies.xml
+C:\Users\Bozo\Desktop\Projekat\Projekat\OsnovnaSkola\AuthTesting\bin\Debug\Microsoft.Owin.Security.OAuth.xml

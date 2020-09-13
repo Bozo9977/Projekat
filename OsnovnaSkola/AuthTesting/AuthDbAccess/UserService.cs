@@ -1,6 +1,8 @@
 ﻿using AuthTesting.AuthDbAccess;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
+using Microsoft.AspNet.Identity.Owin;
+using Microsoft.Owin.Security.DataProtection;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -207,9 +209,20 @@ namespace AuthTesting.AuthDbAccess
         public bool ChangePassword(ApplicationUserIM user, string novaLozinka)
         {
             ApplicationUser u = userManager.FindByName(user.KorisnickoIme);
-            
+
+            var provider = new DpapiDataProtectionProvider("AuthTesting");
+            userManager.UserTokenProvider = new DataProtectorTokenProvider<ApplicationUser, string>(provider.Create("UserToken")) as IUserTokenProvider<ApplicationUser, string>;
+
+
+
             var token = userManager.GeneratePasswordResetToken(u.Id);
             var result = userManager.ResetPassword(u.Id, token, novaLozinka);
+
+            if (result.Succeeded)
+            {
+                u.FirstLogin = false;
+                result = userManager.Update(u);
+            }
 
             return result.Succeeded;
         }

@@ -295,3 +295,16 @@ C:\Users\Bozo\Desktop\Projekat\Projekat\OsnovnaSkola\OsnovnaSkolaUI\bin\Debug\Mi
 C:\Users\Bozo\Desktop\Projekat\Projekat\OsnovnaSkola\OsnovnaSkolaUI\bin\Debug\Microsoft.AspNet.Identity.Core.xml
 C:\Users\Bozo\Desktop\Projekat\Projekat\OsnovnaSkola\OsnovnaSkolaUI\obj\Debug\Views\PasswordChangeWindow.g.cs
 C:\Users\Bozo\Desktop\Projekat\Projekat\OsnovnaSkola\OsnovnaSkolaUI\obj\Debug\Views\PasswordChangeWindow.baml
+C:\Users\Bozo\Desktop\Projekat\Projekat\OsnovnaSkola\OsnovnaSkolaUI\bin\Debug\Microsoft.Owin.Security.dll
+C:\Users\Bozo\Desktop\Projekat\Projekat\OsnovnaSkola\OsnovnaSkolaUI\bin\Debug\Microsoft.AspNet.Identity.Owin.dll
+C:\Users\Bozo\Desktop\Projekat\Projekat\OsnovnaSkola\OsnovnaSkolaUI\bin\Debug\Microsoft.Owin.dll
+C:\Users\Bozo\Desktop\Projekat\Projekat\OsnovnaSkola\OsnovnaSkolaUI\bin\Debug\Owin.dll
+C:\Users\Bozo\Desktop\Projekat\Projekat\OsnovnaSkola\OsnovnaSkolaUI\bin\Debug\Microsoft.Owin.Security.OAuth.dll
+C:\Users\Bozo\Desktop\Projekat\Projekat\OsnovnaSkola\OsnovnaSkolaUI\bin\Debug\Microsoft.Owin.Security.Cookies.dll
+C:\Users\Bozo\Desktop\Projekat\Projekat\OsnovnaSkola\OsnovnaSkolaUI\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Bozo\Desktop\Projekat\Projekat\OsnovnaSkola\OsnovnaSkolaUI\bin\Debug\Microsoft.Owin.Security.xml
+C:\Users\Bozo\Desktop\Projekat\Projekat\OsnovnaSkola\OsnovnaSkolaUI\bin\Debug\Microsoft.AspNet.Identity.Owin.xml
+C:\Users\Bozo\Desktop\Projekat\Projekat\OsnovnaSkola\OsnovnaSkolaUI\bin\Debug\Microsoft.Owin.xml
+C:\Users\Bozo\Desktop\Projekat\Projekat\OsnovnaSkola\OsnovnaSkolaUI\bin\Debug\Microsoft.Owin.Security.OAuth.xml
+C:\Users\Bozo\Desktop\Projekat\Projekat\OsnovnaSkola\OsnovnaSkolaUI\bin\Debug\Microsoft.Owin.Security.Cookies.xml
+C:\Users\Bozo\Desktop\Projekat\Projekat\OsnovnaSkola\OsnovnaSkolaUI\bin\Debug\Newtonsoft.Json.xml

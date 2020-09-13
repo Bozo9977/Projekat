@@ -622,3 +622,14 @@ C:\Users\Bozo\Desktop\Projekat\Projekat\OsnovnaSkola\OsnovnaSkolaPL\bin\Debug\ru
 C:\Users\Bozo\Desktop\Projekat\Projekat\OsnovnaSkola\OsnovnaSkolaPL\bin\Debug\zh-Hans\Microsoft.Data.SqlClient.resources.dll
 C:\Users\Bozo\Desktop\Projekat\Projekat\OsnovnaSkola\OsnovnaSkolaPL\bin\Debug\zh-Hant\Microsoft.Data.SqlClient.resources.dll
 C:\Users\Bozo\Desktop\Projekat\Projekat\OsnovnaSkola\OsnovnaSkolaPL\obj\Debug\OsnovnaSkolaPL.exe.config
+C:\Users\Bozo\Desktop\Projekat\Projekat\OsnovnaSkola\OsnovnaSkolaPL\bin\Debug\Microsoft.Owin.Security.dll
+C:\Users\Bozo\Desktop\Projekat\Projekat\OsnovnaSkola\OsnovnaSkolaPL\bin\Debug\Microsoft.AspNet.Identity.Owin.dll
+C:\Users\Bozo\Desktop\Projekat\Projekat\OsnovnaSkola\OsnovnaSkolaPL\bin\Debug\Microsoft.Owin.dll
+C:\Users\Bozo\Desktop\Projekat\Projekat\OsnovnaSkola\OsnovnaSkolaPL\bin\Debug\Owin.dll
+C:\Users\Bozo\Desktop\Projekat\Projekat\OsnovnaSkola\OsnovnaSkolaPL\bin\Debug\Microsoft.Owin.Security.OAuth.dll
+C:\Users\Bozo\Desktop\Projekat\Projekat\OsnovnaSkola\OsnovnaSkolaPL\bin\Debug\Microsoft.Owin.Security.Cookies.dll
+C:\Users\Bozo\Desktop\Projekat\Projekat\OsnovnaSkola\OsnovnaSkolaPL\bin\Debug\Microsoft.Owin.Security.xml
+C:\Users\Bozo\Desktop\Projekat\Projekat\OsnovnaSkola\OsnovnaSkolaPL\bin\Debug\Microsoft.AspNet.Identity.Owin.xml
+C:\Users\Bozo\Desktop\Projekat\Projekat\OsnovnaSkola\OsnovnaSkolaPL\bin\Debug\Microsoft.Owin.xml
+C:\Users\Bozo\Desktop\Projekat\Projekat\OsnovnaSkola\OsnovnaSkolaPL\bin\Debug\Microsoft.Owin.Security.OAuth.xml
+C:\Users\Bozo\Desktop\Projekat\Projekat\OsnovnaSkola\OsnovnaSkolaPL\bin\Debug\Microsoft.Owin.Security.Cookies.xml
