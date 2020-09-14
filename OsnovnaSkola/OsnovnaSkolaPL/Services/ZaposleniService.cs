@@ -296,7 +296,8 @@ namespace OsnovnaSkolaPL.Services
                             zvanje = existing.zvanje,
                             Id_zaposlenog = existing.Id_zaposlenog,
                             KorisnickoIme = appUser.KorisnickoIme,
-                            Ucitelj = false
+                            Ucitelj = false,
+                            PrvoLogovanje = appUser.FirstLogin
                         };
                     }
                 }

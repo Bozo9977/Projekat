@@ -61,7 +61,7 @@ namespace OsnovnaSkolaUI.ViewModel
                 }
                 else
                 {
-                    if (Channel.Instance.OdeljenjaProxy.ValidateUciteljExistance(SelectedOdeljenje.Id_odeljenja))
+                    if (Channel.Instance.OdeljenjaProxy.ValidateUciteljExistance(SelectedOdeljenje.Id_odeljenja) && LoggedInZaposleni.Instance.Ucitelj)
                     {
                         if(MessageBox.Show("Učitelj već postoji, da li želite da ga zamenite?","Pažnja!",MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
                         {

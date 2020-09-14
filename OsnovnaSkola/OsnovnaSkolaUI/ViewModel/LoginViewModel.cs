@@ -138,8 +138,15 @@ namespace OsnovnaSkolaUI.ViewModel
             {
                 return true;
             }
-            else if (Channel.Instance.PredmetiProxy.GetPredmetiForZaposleni(loggedinID).Count == 0 ||
-                Channel.Instance.OdeljenjaProxy.GetOdeljenjaForZaposleni(loggedinID).Count == 0)
+            else if (!LoggedInZaposleni.Instance.Ucitelj && Channel.Instance.PredmetiProxy.GetPredmetiForZaposleni(loggedinID).Count == 0)
+            {
+                MessageBox.Show($"Vaš nalog nije inicijalizovan, sačekajte da Vam se dodele predmeti/odeljenja." +
+                    $"\nKontaktirajte Vašeg sistem administratora.", "Greška!", MessageBoxButton.OK, MessageBoxImage.Error);
+                Ime = (LoginGrid.FindName("PrezimeBox") as PasswordBox).Password = "";
+                return false;
+            }
+            else if(LoggedInZaposleni.Instance.Ucitelj && (Channel.Instance.PredmetiProxy.GetPredmetiForZaposleni(loggedinID).Count == 0 ||
+                Channel.Instance.OdeljenjaProxy.GetOdeljenjaForZaposleni(loggedinID).Count == 0))
             {
                 MessageBox.Show($"Vaš nalog nije inicijalizovan, sačekajte da Vam se dodele predmeti/odeljenja." +
                     $"\nKontaktirajte Vašeg sistem administratora.", "Greška!", MessageBoxButton.OK, MessageBoxImage.Error);

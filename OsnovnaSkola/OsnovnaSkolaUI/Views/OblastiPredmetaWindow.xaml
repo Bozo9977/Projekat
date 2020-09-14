@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:OsnovnaSkolaUI.Views"
         mc:Ignorable="d"
-        Title="Change Oblast" Height="450" Width="711.5" WindowStartupLocation="CenterScreen">
+        Title="Oblasti" Height="450" Width="711.5" WindowStartupLocation="CenterScreen">
     <Grid Background="Black">
         <DataGrid  ItemsSource="{Binding Oblasti, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" SelectedItem="{Binding SelectedOblast}" ColumnWidth="*" AutoGenerateColumns="False" IsReadOnly="True" Margin="0,0,0,97">
             <DataGrid.Columns>
