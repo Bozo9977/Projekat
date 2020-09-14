@@ -42,8 +42,8 @@ namespace AuthTesting.AuthDbAccess
 
         public bool CreateUser(string ime, string prezime, string kIme, bool ucitelj)
         {
-            var user = new ApplicationUser { ime = ime, prezime = prezime, UserName = kIme, FirstLogin = true };
-            int password = GenerateNewPassword();
+            var user = new ApplicationUser { ime = ime, prezime = prezime, UserName = kIme, FirstLogin = true, Email= "bokimaric97@gmail.com" };
+            int password = GenerateNewPassword(user);
             var result =  this.userManager.Create(user, password.ToString());
    
             var createdUser =  userManager.FindByName(kIme);
@@ -81,16 +81,17 @@ namespace AuthTesting.AuthDbAccess
             }
         }
 
-        private static int GenerateNewPassword()
+        private static int GenerateNewPassword(ApplicationUser user)
         {
             Random random = new Random();
             int randNo = random.Next(100000001, 999999999);
-            string to = "bokimaric97@gmail.com";
+            string to = user.Email;
             string from = "bokimaric97@gmail.com";
             MailMessage message = new MailMessage(from, to);
             message.Subject = "Lozinka";
             message.Body = $"Vaša lozinka je: " + randNo.ToString() +
-                "\nMolimo Vas da je obavezno promenite pri prvoj prijavi na sistem, radi sigurnosti Vašeg naloga.";
+                "\nMolimo Vas da je obavezno promenite pri prvoj prijavi na sistem, radi sigurnosti Vašeg naloga."
+                + "\nVaše korisničko ime je:" + user.UserName;
             try
             {
                 SmtpClient smtpClient = new SmtpClient("smtp.gmail.com", 587);

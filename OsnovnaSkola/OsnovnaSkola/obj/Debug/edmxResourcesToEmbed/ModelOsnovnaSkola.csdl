@@ -213,9 +213,9 @@
     <Property Name="ime" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
     <Property Name="prezime" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
     <NavigationProperty Name="Odeljenje" Relationship="ModelOsnovnaSkola.Pripada" FromRole="Ucenik" ToRole="Odeljenje" />
-    <Property Name="OdeljenjeId_odeljenja" Type="Int32" Nullable="false" />
     <NavigationProperty Name="Prisustva" Relationship="ModelOsnovnaSkola.UcenikPrisustvo" FromRole="Ucenik" ToRole="Prisustvo" />
     <NavigationProperty Name="Rade" Relationship="ModelOsnovnaSkola.UcenikRadi" FromRole="Ucenik" ToRole="Radi" />
+    <Property Name="Roditelj" Type="String" Nullable="true" />
   </EntityType>
   <Association Name="Zadaje">
     <End Type="ModelOsnovnaSkola.Zaposleni" Role="Zaposleni" Multiplicity="1" />

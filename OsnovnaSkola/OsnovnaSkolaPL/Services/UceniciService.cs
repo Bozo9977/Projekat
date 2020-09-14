@@ -25,7 +25,7 @@ namespace OsnovnaSkolaPL.Services
             {
                 ime = newUcenik.ime,
                 prezime = newUcenik.prezime,
-
+                Roditelj = "bokimaric97@gmail.com"
             };
 
             return dao.Insert(ucenik);

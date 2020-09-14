@@ -188,7 +188,7 @@
     <Property Name="Id_ucenika" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="ime" Type="nvarchar(max)" Nullable="false" />
     <Property Name="prezime" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="OdeljenjeId_odeljenja" Type="int" Nullable="false" />
+    <Property Name="Roditelj" Type="nvarchar(max)" Nullable="true" />
     <Property Name="Odeljenje_Id_odeljenja" Type="int" Nullable="true" />
   </EntityType>
   <EntityType Name="Imaju">

@@ -99,7 +99,7 @@
           <ScalarProperty Name="Id_ucenika" ColumnName="Id_ucenika" />
           <ScalarProperty Name="ime" ColumnName="ime" />
           <ScalarProperty Name="prezime" ColumnName="prezime" />
-          <ScalarProperty Name="OdeljenjeId_odeljenja" ColumnName="OdeljenjeId_odeljenja" />
+          <ScalarProperty Name="Roditelj" ColumnName="Roditelj" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

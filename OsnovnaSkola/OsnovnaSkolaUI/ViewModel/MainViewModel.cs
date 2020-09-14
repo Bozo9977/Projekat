@@ -43,6 +43,7 @@ namespace OsnovnaSkolaUI.ViewModel
         public MyICommand ChangeDomaciCommand { get; set; }
         public MyICommand CreateKontrolniCommand { get; set; }
         public MyICommand OceniCommand { get; set; }
+        public MyICommand ChangePasswordCommand { get; set; }
 
         #endregion
 
@@ -243,7 +244,7 @@ namespace OsnovnaSkolaUI.ViewModel
             
             OceniCommand = new MyICommand(OnOceniRadove);
 
-
+            ChangePasswordCommand = new MyICommand(PromenaLozinke);
         }
 
         public void OnOceniRadove()
@@ -257,6 +258,11 @@ namespace OsnovnaSkolaUI.ViewModel
             {
                 MessageBox.Show("Prvo izaberite kontrolnu tačku.", "Greška!", MessageBoxButton.OK, MessageBoxImage.Warning);
             }
+        }
+
+        public void PromenaLozinke()
+        {
+            new PasswordChange().Show();
         }
 
         public void OnDodajPredmet()

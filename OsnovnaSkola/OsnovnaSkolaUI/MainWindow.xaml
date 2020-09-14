@@ -16,7 +16,8 @@
 
             <Label Content="Zvanje"  FontWeight="Bold" HorizontalAlignment="Left" Margin="10,89,0,0" VerticalAlignment="Top" Foreground="gold" RenderTransformOrigin="0.405,-1.945"/>
             <TextBlock x:Name="Zvanje" HorizontalAlignment="Left" Margin="10,115,0,0" TextWrapping="Wrap" Text="{Binding LoggedIn.zvanje}" VerticalAlignment="Top" Width="124" Foreground="#FFFBFB9F"/>
-            <Button Content="Change" Command="{Binding ChangeInfoCommand}" Visibility="{Binding IsAdmin}" Background="Black" HorizontalAlignment="Center" Margin="10,136,1211,0" VerticalAlignment="Top" Width="132" FontSize="22" Foreground="#FFFBFB9F" BorderBrush="gold" Height="40"/>
+            <Button Content="Promeni" Command="{Binding ChangeInfoCommand}" Visibility="{Binding IsAdmin}" Background="Black" HorizontalAlignment="Center" Margin="10,136,1236,0" VerticalAlignment="Top" Width="107" FontSize="22" Foreground="#FFFBFB9F" BorderBrush="gold" Height="40"/>
+            <Button Content="Promeni Lozinku" Command="{Binding ChangePasswordCommand}"  Background="Black" HorizontalAlignment="Center" Margin="10,181,1177,0" VerticalAlignment="Top" Width="166" FontSize="22" Foreground="#FFFBFB9F" BorderBrush="gold" Height="40"/>
         </Grid>
 
 
@@ -180,7 +181,7 @@
                 </DataGrid>
             </TabItem>
 
-            
+
 
 
             <!--Predmeti-->
@@ -500,7 +501,7 @@
                                 </DataTemplate>
                             </DataGridTemplateColumn.CellTemplate>
                         </DataGridTemplateColumn>
-                        
+
                     </DataGrid.Columns>
                 </DataGrid>
             </TabItem>
@@ -560,9 +561,9 @@
                     </DataGrid.Columns>
                 </DataGrid>
             </TabItem>
-            
-            
-            
+
+
+
 
         </TabControl>
 

@@ -193,7 +193,7 @@
     <Property Name="Id_ucenika" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="ime" Type="nvarchar(max)" Nullable="false" />
     <Property Name="prezime" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="OdeljenjeId_odeljenja" Type="int" Nullable="false" />
+    <Property Name="Roditelj" Type="nvarchar(max)" Nullable="true" />
     <Property Name="Odeljenje_Id_odeljenja" Type="int" Nullable="true" />
   </EntityType>
   <EntityType Name="Imaju">
@@ -794,9 +794,9 @@
           <Property Name="ime" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
           <Property Name="prezime" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
           <NavigationProperty Name="Odeljenje" Relationship="ModelOsnovnaSkola.Pripada" FromRole="Ucenik" ToRole="Odeljenje" />
-          <Property Name="OdeljenjeId_odeljenja" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Prisustva" Relationship="ModelOsnovnaSkola.UcenikPrisustvo" FromRole="Ucenik" ToRole="Prisustvo" />
           <NavigationProperty Name="Rade" Relationship="ModelOsnovnaSkola.UcenikRadi" FromRole="Ucenik" ToRole="Radi" />
+          <Property Name="Roditelj" Type="String" Nullable="true" />
         </EntityType>
         <Association Name="Zadaje">
           <End Type="ModelOsnovnaSkola.Zaposleni" Role="Zaposleni" Multiplicity="1" />
@@ -1188,7 +1188,7 @@
           <ScalarProperty Name="Id_ucenika" ColumnName="Id_ucenika" />
           <ScalarProperty Name="ime" ColumnName="ime" />
           <ScalarProperty Name="prezime" ColumnName="prezime" />
-          <ScalarProperty Name="OdeljenjeId_odeljenja" ColumnName="OdeljenjeId_odeljenja" />
+          <ScalarProperty Name="Roditelj" ColumnName="Roditelj" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
