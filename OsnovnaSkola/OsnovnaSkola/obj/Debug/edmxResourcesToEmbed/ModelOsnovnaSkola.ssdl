@@ -13,6 +13,8 @@
     <EntitySet Name="Prisustva" EntityType="ModelOsnovnaSkola.Store.Prisustva" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="Rade" EntityType="ModelOsnovnaSkola.Store.Rade" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="NastavnikOdeljenjes" EntityType="ModelOsnovnaSkola.Store.NastavnikOdeljenjes" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Ucionicas" EntityType="ModelOsnovnaSkola.Store.Ucionicas" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ZauzetostUcionices" EntityType="ModelOsnovnaSkola.Store.ZauzetostUcionices" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="Zaposlenici_Nastavnik" EntityType="ModelOsnovnaSkola.Store.Zaposlenici_Nastavnik" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="Zaposlenici_Ucitelj" EntityType="ModelOsnovnaSkola.Store.Zaposlenici_Ucitelj" store:Type="Tables" Schema="dbo" />
     <EntitySet Name="Kontrolna_tacka_Domaci" EntityType="ModelOsnovnaSkola.Store.Kontrolna_tacka_Domaci" store:Type="Tables" Schema="dbo" />
@@ -102,6 +104,14 @@
       <End Role="Cas" EntitySet="Cas" />
       <End Role="Kontrolna_tackaCas" EntitySet="Kontrolna_tackaCas" />
     </AssociationSet>
+    <AssociationSet Name="UcionicaZauzetostUcionice" Association="ModelOsnovnaSkola.Store.UcionicaZauzetostUcionice">
+      <End Role="Ucionica" EntitySet="Ucionicas" />
+      <End Role="ZauzetostUcionice" EntitySet="ZauzetostUcionices" />
+    </AssociationSet>
+    <AssociationSet Name="CasZauzetostUcionice" Association="ModelOsnovnaSkola.Store.CasZauzetostUcionice">
+      <End Role="Cas" EntitySet="Cas" />
+      <End Role="ZauzetostUcionice" EntitySet="ZauzetostUcionices" />
+    </AssociationSet>
     <AssociationSet Name="FK_Nastavnik_inherits_Zaposleni" Association="ModelOsnovnaSkola.Store.FK_Nastavnik_inherits_Zaposleni">
       <End Role="Zaposleni" EntitySet="Zaposlenici" />
       <End Role="Nastavnik" EntitySet="Zaposlenici_Nastavnik" />
@@ -159,10 +169,10 @@
     </Key>
     <Property Name="Id_casa" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="pocetak" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="kraj" Type="nvarchar(max)" Nullable="false" />
     <Property Name="datum" Type="datetime" Nullable="false" />
     <Property Name="OblastId_oblasti" Type="int" Nullable="true" />
     <Property Name="ZaposleniId_zaposlenog" Type="int" Nullable="false" />
+    <Property Name="ZauzetostUcionice_Id_zauzetosti" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="Predmeti">
     <Key>
@@ -227,6 +237,20 @@
     <Property Name="NastavnikId_zaposlenog" Type="int" Nullable="false" />
     <Property Name="OdeljenjeId_odeljenja" Type="int" Nullable="false" />
     <Property Name="Razredni" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Ucionicas">
+    <Key>
+      <PropertyRef Name="Id_ucionice" />
+    </Key>
+    <Property Name="Id_ucionice" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="broj_ucenika" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ZauzetostUcionices">
+    <Key>
+      <PropertyRef Name="Id_zauzetosti" />
+    </Key>
+    <Property Name="Id_zauzetosti" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UcionicaId_ucionice" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="Zaposlenici_Nastavnik">
     <Key>
@@ -489,6 +513,30 @@
       </Principal>
       <Dependent Role="Odeljenje">
         <PropertyRef Name="Ucitelj_Id_zaposlenog" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="UcionicaZauzetostUcionice">
+    <End Role="Ucionica" Type="ModelOsnovnaSkola.Store.Ucionicas" Multiplicity="1" />
+    <End Role="ZauzetostUcionice" Type="ModelOsnovnaSkola.Store.ZauzetostUcionices" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Ucionica">
+        <PropertyRef Name="Id_ucionice" />
+      </Principal>
+      <Dependent Role="ZauzetostUcionice">
+        <PropertyRef Name="UcionicaId_ucionice" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="CasZauzetostUcionice">
+    <End Role="Cas" Type="ModelOsnovnaSkola.Store.Cas" Multiplicity="*" />
+    <End Role="ZauzetostUcionice" Type="ModelOsnovnaSkola.Store.ZauzetostUcionices" Multiplicity="1" />
+    <ReferentialConstraint>
+      <Principal Role="ZauzetostUcionice">
+        <PropertyRef Name="Id_zauzetosti" />
+      </Principal>
+      <Dependent Role="Cas">
+        <PropertyRef Name="ZauzetostUcionice_Id_zauzetosti" />
       </Dependent>
     </ReferentialConstraint>
   </Association>

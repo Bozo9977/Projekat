@@ -111,7 +111,7 @@ namespace OsnovnaSkolaUI.ViewModel
                 ButtonContent = "Izmeni";
                 //SelectedDatum = DateTime.Today;
                 SelectedDatum = cas.datum;
-                Kraj = cas.kraj;
+                
                 Pocetak = cas.pocetak;
                 DeletionEnabled = "Visible";
             }
@@ -148,7 +148,6 @@ namespace OsnovnaSkolaUI.ViewModel
                 {
                     SelectedCas.datum = SelectedDatum.Date;
                     SelectedCas.pocetak = Pocetak;
-                    SelectedCas.kraj = Kraj;
                    
 
                     if (Channel.Instance.CasovyProxy.ChangeCas(SelectedCas))
@@ -166,7 +165,7 @@ namespace OsnovnaSkolaUI.ViewModel
                     {
                         datum = SelectedDatum.Date,
                         pocetak = Pocetak,
-                        kraj = Kraj,
+                        
                         OblastId_oblasti = Oblast.Id_oblasti,
                         ZaposleniId_zaposlenog = LoggedInZaposleni.Instance.Id_zaposlenog
                     };

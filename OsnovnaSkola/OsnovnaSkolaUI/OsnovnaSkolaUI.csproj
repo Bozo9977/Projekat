@@ -46,11 +46,14 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Data" />
     <Reference Include="System.Data.SqlClient, Version=4.6.1.2, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Data.SqlClient.4.8.2\lib\net461\System.Data.SqlClient.dll</HintPath>
     </Reference>
     <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -80,6 +83,7 @@
     <Compile Include="ViewModel\AddPredmetViewModel.cs" />
     <Compile Include="ViewModel\AddRazredniViewModel.cs" />
     <Compile Include="ViewModel\AddUcenikViewModel.cs" />
+    <Compile Include="ViewModel\AddUcionicaViewModel.cs" />
     <Compile Include="ViewModel\AddZaposleniViewModel.cs" />
     <Compile Include="ViewModel\ChangePasswordViewModel.cs" />
     <Compile Include="ViewModel\LoginViewModel.cs" />
@@ -114,6 +118,9 @@
     </Compile>
     <Compile Include="Views\AddUcenikWindow.xaml.cs">
       <DependentUpon>AddUcenikWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\AddUcionicaWindow.xaml.cs">
+      <DependentUpon>AddUcionicaWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\AddZaposleniWindow.xaml.cs">
       <DependentUpon>AddZaposleniWindow.xaml</DependentUpon>
@@ -181,6 +188,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\AddUcenikWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\AddUcionicaWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

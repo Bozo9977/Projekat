@@ -142,10 +142,16 @@
     <Compile Include="Ucenik.cs">
       <DependentUpon>ModelOsnovnaSkola.tt</DependentUpon>
     </Compile>
+    <Compile Include="Ucionica.cs">
+      <DependentUpon>ModelOsnovnaSkola.tt</DependentUpon>
+    </Compile>
     <Compile Include="Ucitelj.cs">
       <DependentUpon>ModelOsnovnaSkola.tt</DependentUpon>
     </Compile>
     <Compile Include="Zaposleni.cs">
+      <DependentUpon>ModelOsnovnaSkola.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ZauzetostUcionice.cs">
       <DependentUpon>ModelOsnovnaSkola.tt</DependentUpon>
     </Compile>
   </ItemGroup>

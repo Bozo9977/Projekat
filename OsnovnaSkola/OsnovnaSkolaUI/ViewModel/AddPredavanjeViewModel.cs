@@ -13,7 +13,7 @@ namespace OsnovnaSkolaUI.ViewModel
     public class AddPredavanjeViewModel: BindableBase
     {
         private string opis;
-        private string date;
+        //private string date;
         private string opisError;
         private string dateError;
         private DateTime datum;

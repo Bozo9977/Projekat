@@ -59,6 +59,10 @@ public partial class ModelOsnovnaSkolaContainer : DbContext
 
     public virtual DbSet<NastavnikOdeljenje> NastavnikOdeljenjes { get; set; }
 
+    public virtual DbSet<Ucionica> Ucionicas { get; set; }
+
+    public virtual DbSet<ZauzetostUcionice> ZauzetostUcionices { get; set; }
+
 
     public virtual int DodajKontrolnuTackuUceniku(Nullable<int> idUcenika, Nullable<int> idZaposlenog, Nullable<int> idKontrolneTacke, Nullable<short> ocena, ObjectParameter success)
     {

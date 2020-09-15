@@ -2,7 +2,7 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, 2012 and Azure
 -- --------------------------------------------------
--- Date Created: 09/14/2020 12:16:53
+-- Date Created: 09/15/2020 18:20:10
 -- Generated from EDMX file: C:\Users\Bozo\Desktop\Projekat\Projekat\OsnovnaSkola\OsnovnaSkola\ModelOsnovnaSkola.edmx
 -- --------------------------------------------------
 
@@ -80,6 +80,12 @@ GO
 IF OBJECT_ID(N'[dbo].[FK_Kontrolna_tackaCas_Cas]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[Kontrolna_tackaCas] DROP CONSTRAINT [FK_Kontrolna_tackaCas_Cas];
 GO
+IF OBJECT_ID(N'[dbo].[FK_UcionicaZauzetostUcionice]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[ZauzetostUcionices] DROP CONSTRAINT [FK_UcionicaZauzetostUcionice];
+GO
+IF OBJECT_ID(N'[dbo].[FK_CasZauzetostUcionice]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[Cas] DROP CONSTRAINT [FK_CasZauzetostUcionice];
+GO
 IF OBJECT_ID(N'[dbo].[FK_Nastavnik_inherits_Zaposleni]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[Zaposlenici_Nastavnik] DROP CONSTRAINT [FK_Nastavnik_inherits_Zaposleni];
 GO
@@ -132,6 +138,12 @@ IF OBJECT_ID(N'[dbo].[Rade]', 'U') IS NOT NULL
 GO
 IF OBJECT_ID(N'[dbo].[NastavnikOdeljenjes]', 'U') IS NOT NULL
     DROP TABLE [dbo].[NastavnikOdeljenjes];
+GO
+IF OBJECT_ID(N'[dbo].[Ucionicas]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[Ucionicas];
+GO
+IF OBJECT_ID(N'[dbo].[ZauzetostUcionices]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[ZauzetostUcionices];
 GO
 IF OBJECT_ID(N'[dbo].[Zaposlenici_Nastavnik]', 'U') IS NOT NULL
     DROP TABLE [dbo].[Zaposlenici_Nastavnik];
@@ -191,10 +203,10 @@ GO
 CREATE TABLE [dbo].[Cas] (
     [Id_casa] int IDENTITY(1,1) NOT NULL,
     [pocetak] nvarchar(max)  NOT NULL,
-    [kraj] nvarchar(max)  NOT NULL,
     [datum] datetime  NOT NULL,
     [OblastId_oblasti] int  NULL,
-    [ZaposleniId_zaposlenog] int  NOT NULL
+    [ZaposleniId_zaposlenog] int  NOT NULL,
+    [ZauzetostUcionice_Id_zauzetosti] int  NOT NULL
 );
 GO
 
@@ -254,6 +266,21 @@ CREATE TABLE [dbo].[NastavnikOdeljenjes] (
     [NastavnikId_zaposlenog] int  NOT NULL,
     [OdeljenjeId_odeljenja] int  NOT NULL,
     [Razredni] bit  NOT NULL
+);
+GO
+
+-- Creating table 'Ucionicas'
+CREATE TABLE [dbo].[Ucionicas] (
+    [Id_ucionice] int IDENTITY(1,1) NOT NULL,
+    [broj_ucenika] int  NULL,
+    [naziv] nvarchar(max)  NOT NULL
+);
+GO
+
+-- Creating table 'ZauzetostUcionices'
+CREATE TABLE [dbo].[ZauzetostUcionices] (
+    [Id_zauzetosti] int IDENTITY(1,1) NOT NULL,
+    [UcionicaId_ucionice] int  NOT NULL
 );
 GO
 
@@ -366,6 +393,18 @@ GO
 ALTER TABLE [dbo].[NastavnikOdeljenjes]
 ADD CONSTRAINT [PK_NastavnikOdeljenjes]
     PRIMARY KEY CLUSTERED ([NastavnikId_zaposlenog], [OdeljenjeId_odeljenja] ASC);
+GO
+
+-- Creating primary key on [Id_ucionice] in table 'Ucionicas'
+ALTER TABLE [dbo].[Ucionicas]
+ADD CONSTRAINT [PK_Ucionicas]
+    PRIMARY KEY CLUSTERED ([Id_ucionice] ASC);
+GO
+
+-- Creating primary key on [Id_zauzetosti] in table 'ZauzetostUcionices'
+ALTER TABLE [dbo].[ZauzetostUcionices]
+ADD CONSTRAINT [PK_ZauzetostUcionices]
+    PRIMARY KEY CLUSTERED ([Id_zauzetosti] ASC);
 GO
 
 -- Creating primary key on [Id_zaposlenog] in table 'Zaposlenici_Nastavnik'
@@ -685,6 +724,36 @@ GO
 CREATE INDEX [IX_FK_Kontrolna_tackaCas_Cas]
 ON [dbo].[Kontrolna_tackaCas]
     ([Casovi_Id_casa]);
+GO
+
+-- Creating foreign key on [UcionicaId_ucionice] in table 'ZauzetostUcionices'
+ALTER TABLE [dbo].[ZauzetostUcionices]
+ADD CONSTRAINT [FK_UcionicaZauzetostUcionice]
+    FOREIGN KEY ([UcionicaId_ucionice])
+    REFERENCES [dbo].[Ucionicas]
+        ([Id_ucionice])
+    ON DELETE NO ACTION ON UPDATE NO ACTION;
+GO
+
+-- Creating non-clustered index for FOREIGN KEY 'FK_UcionicaZauzetostUcionice'
+CREATE INDEX [IX_FK_UcionicaZauzetostUcionice]
+ON [dbo].[ZauzetostUcionices]
+    ([UcionicaId_ucionice]);
+GO
+
+-- Creating foreign key on [ZauzetostUcionice_Id_zauzetosti] in table 'Cas'
+ALTER TABLE [dbo].[Cas]
+ADD CONSTRAINT [FK_CasZauzetostUcionice]
+    FOREIGN KEY ([ZauzetostUcionice_Id_zauzetosti])
+    REFERENCES [dbo].[ZauzetostUcionices]
+        ([Id_zauzetosti])
+    ON DELETE NO ACTION ON UPDATE NO ACTION;
+GO
+
+-- Creating non-clustered index for FOREIGN KEY 'FK_CasZauzetostUcionice'
+CREATE INDEX [IX_FK_CasZauzetostUcionice]
+ON [dbo].[Cas]
+    ([ZauzetostUcionice_Id_zauzetosti]);
 GO
 
 -- Creating foreign key on [Id_zaposlenog] in table 'Zaposlenici_Nastavnik'

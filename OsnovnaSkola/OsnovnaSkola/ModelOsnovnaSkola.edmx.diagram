@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="28fbda95b3ec4775aed521afa1c93401" Name="Diagram1" ZoomLevel="15" >
+      <Diagram DiagramId="28fbda95b3ec4775aed521afa1c93401" Name="Diagram1" ZoomLevel="101" >
         <EntityTypeShape EntityType="ModelOsnovnaSkola.Zaposleni" Width="1.5" PointX="22" PointY="27.25" />
         <EntityTypeShape EntityType="ModelOsnovnaSkola.Ucitelj" Width="1.5" PointX="24" PointY="30.75" />
         <InheritanceConnector EntityType="ModelOsnovnaSkola.Ucitelj" />
@@ -46,10 +46,14 @@
         <AssociationConnector Association="ModelOsnovnaSkola.PredmetNastavnik" />
         <AssociationConnector Association="ModelOsnovnaSkola.UciteljOdeljenje" />
         <AssociationConnector Association="ModelOsnovnaSkola.Kontrolna_tackaCas" ManuallyRouted="true" >
-          <ConnectorPoint PointX="37.570315625" PointY="24.672587890625003" />
-          <ConnectorPoint PointX="37.570315625" PointY="29.46875" />
+          <ConnectorPoint PointX="37.54883140625" PointY="24.672587890625003" />
+          <ConnectorPoint PointX="37.54883140625" PointY="29.46875" />
           <ConnectorPoint PointX="52.125" PointY="29.46875" />
         </AssociationConnector>
+        <EntityTypeShape EntityType="ModelOsnovnaSkola.Ucionica" Width="1.5" PointX="60.625" PointY="29.125" />
+        <EntityTypeShape EntityType="ModelOsnovnaSkola.ZauzetostUcionice" Width="1.5" PointX="56.5" PointY="30.125" />
+        <AssociationConnector Association="ModelOsnovnaSkola.UcionicaZauzetostUcionice" />
+        <AssociationConnector Association="ModelOsnovnaSkola.CasZauzetostUcionice" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

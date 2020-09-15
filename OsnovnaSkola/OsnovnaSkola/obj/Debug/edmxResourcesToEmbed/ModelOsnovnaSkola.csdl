@@ -104,6 +104,16 @@
       <Parameter Name="idZaposlenog" Mode="In" Type="Int32" />
       <Parameter Name="idKontrolneTacke" Mode="In" Type="Int32" />
     </FunctionImport>
+    <EntitySet Name="Ucionicas" EntityType="ModelOsnovnaSkola.Ucionica" />
+    <EntitySet Name="ZauzetostUcionices" EntityType="ModelOsnovnaSkola.ZauzetostUcionice" />
+    <AssociationSet Name="UcionicaZauzetostUcionice" Association="ModelOsnovnaSkola.UcionicaZauzetostUcionice">
+      <End Role="Ucionica" EntitySet="Ucionicas" />
+      <End Role="ZauzetostUcionice" EntitySet="ZauzetostUcionices" />
+    </AssociationSet>
+    <AssociationSet Name="CasZauzetostUcionice" Association="ModelOsnovnaSkola.CasZauzetostUcionice">
+      <End Role="Cas" EntitySet="Cas" />
+      <End Role="ZauzetostUcionice" EntitySet="ZauzetostUcionices" />
+    </AssociationSet>
   </EntityContainer>
   <EntityType Name="Zaposleni">
     <Key>
@@ -173,7 +183,6 @@
     </Key>
     <Property Name="Id_casa" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="pocetak" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
-    <Property Name="kraj" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
     <Property Name="datum" Type="DateTime" Nullable="false" Precision="3" />
     <NavigationProperty Name="Oblast" Relationship="ModelOsnovnaSkola.Predjena" FromRole="Cas" ToRole="Oblast" />
     <Property Name="OblastId_oblasti" Type="Int32" Nullable="true" />
@@ -182,6 +191,7 @@
     <NavigationProperty Name="Zaposleni" Relationship="ModelOsnovnaSkola.Drzi" FromRole="Cas" ToRole="Zaposleni" />
     <Property Name="ZaposleniId_zaposlenog" Type="Int32" Nullable="false" />
     <NavigationProperty Name="Kontrolna_tacka" Relationship="ModelOsnovnaSkola.Kontrolna_tackaCas" FromRole="Cas" ToRole="Kontrolna_tacka" />
+    <NavigationProperty Name="ZauzetostUcionice" Relationship="ModelOsnovnaSkola.CasZauzetostUcionice" FromRole="Cas" ToRole="ZauzetostUcionice" />
   </EntityType>
   <EntityType Name="Predmet">
     <Key>
@@ -503,4 +513,37 @@
     <Property Type="Int32" Name="UcenikId_ucenika" Nullable="true" />
     <Property Type="Int32" Name="ZaposleniId_zaposlenog" Nullable="true" />
   </ComplexType>
+  <EntityType Name="Ucionica">
+    <Key>
+      <PropertyRef Name="Id_ucionice" />
+    </Key>
+    <Property Name="Id_ucionice" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="broj_ucenika" Type="String" Nullable="false" />
+    <NavigationProperty Name="ZauzetostUcionices" Relationship="ModelOsnovnaSkola.UcionicaZauzetostUcionice" FromRole="Ucionica" ToRole="ZauzetostUcionice" />
+  </EntityType>
+  <EntityType Name="ZauzetostUcionice">
+    <Key>
+      <PropertyRef Name="Id_zauzetosti" />
+    </Key>
+    <Property Name="Id_zauzetosti" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <NavigationProperty Name="Ucionica" Relationship="ModelOsnovnaSkola.UcionicaZauzetostUcionice" FromRole="ZauzetostUcionice" ToRole="Ucionica" />
+    <Property Name="UcionicaId_ucionice" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Cas" Relationship="ModelOsnovnaSkola.CasZauzetostUcionice" FromRole="ZauzetostUcionice" ToRole="Cas" />
+  </EntityType>
+  <Association Name="UcionicaZauzetostUcionice">
+    <End Type="ModelOsnovnaSkola.Ucionica" Role="Ucionica" Multiplicity="1" />
+    <End Type="ModelOsnovnaSkola.ZauzetostUcionice" Role="ZauzetostUcionice" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Ucionica">
+        <PropertyRef Name="Id_ucionice" />
+      </Principal>
+      <Dependent Role="ZauzetostUcionice">
+        <PropertyRef Name="UcionicaId_ucionice" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="CasZauzetostUcionice">
+    <End Type="ModelOsnovnaSkola.Cas" Role="Cas" Multiplicity="1" />
+    <End Type="ModelOsnovnaSkola.ZauzetostUcionice" Role="ZauzetostUcionice" Multiplicity="1" />
+  </Association>
 </Schema>

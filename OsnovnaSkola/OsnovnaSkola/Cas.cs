@@ -35,8 +35,6 @@ public partial class Cas
 
     public string pocetak { get; set; }
 
-    public string kraj { get; set; }
-
     public System.DateTime datum { get; set; }
 
     public Nullable<int> OblastId_oblasti { get; set; }
@@ -60,6 +58,8 @@ public partial class Cas
     [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
 
     public virtual ICollection<Kontrolna_tacka> Kontrolna_tacka { get; set; }
+
+    public virtual ZauzetostUcionice ZauzetostUcionice { get; set; }
 
 }
 

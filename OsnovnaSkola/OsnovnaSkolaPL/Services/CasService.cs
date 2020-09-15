@@ -19,7 +19,7 @@ namespace OsnovnaSkolaPL.Services
             {
                 datum=cas.datum,
                 pocetak=cas.pocetak,
-                kraj = cas.kraj,
+                //kraj = cas.kraj,
                 OblastId_oblasti = cas.OblastId_oblasti,
                 ZaposleniId_zaposlenog = cas.ZaposleniId_zaposlenog,
             };
@@ -30,7 +30,7 @@ namespace OsnovnaSkolaPL.Services
         {
             Cas c = dao.FindById(cas.Id_casa);
             c.pocetak = cas.pocetak;
-            c.kraj = cas.kraj;
+            //c.kraj = cas.kraj;
             c.datum = cas.datum;
 
             return dao.Update(c);
@@ -49,7 +49,7 @@ namespace OsnovnaSkolaPL.Services
 
             foreach(var item in lista)
             {
-                retVal.Add(new CasIM() { datum = item.datum, Id_casa = item.Id_casa, kraj = item.kraj, pocetak = item.pocetak, OblastId_oblasti = item.OblastId_oblasti, ZaposleniId_zaposlenog = item.ZaposleniId_zaposlenog });
+                retVal.Add(new CasIM() { datum = item.datum, Id_casa = item.Id_casa, pocetak = item.pocetak, OblastId_oblasti = item.OblastId_oblasti, ZaposleniId_zaposlenog = item.ZaposleniId_zaposlenog });
             }
 
             return retVal;

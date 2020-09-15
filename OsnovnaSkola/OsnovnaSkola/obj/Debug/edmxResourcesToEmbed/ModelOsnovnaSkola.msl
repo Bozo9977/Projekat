@@ -68,7 +68,6 @@
         <MappingFragment StoreEntitySet="Cas">
           <ScalarProperty Name="Id_casa" ColumnName="Id_casa" />
           <ScalarProperty Name="pocetak" ColumnName="pocetak" />
-          <ScalarProperty Name="kraj" ColumnName="kraj" />
           <ScalarProperty Name="datum" ColumnName="datum" />
           <ScalarProperty Name="OblastId_oblasti" ColumnName="OblastId_oblasti" />
           <ScalarProperty Name="ZaposleniId_zaposlenog" ColumnName="ZaposleniId_zaposlenog" />
@@ -139,6 +138,22 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="Ucionicas">
+      <EntityTypeMapping TypeName="IsTypeOf(ModelOsnovnaSkola.Ucionica)">
+        <MappingFragment StoreEntitySet="Ucionicas">
+          <ScalarProperty Name="Id_ucionice" ColumnName="Id_ucionice" />
+          <ScalarProperty Name="broj_ucenika" ColumnName="broj_ucenika" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ZauzetostUcionices">
+      <EntityTypeMapping TypeName="IsTypeOf(ModelOsnovnaSkola.ZauzetostUcionice)">
+        <MappingFragment StoreEntitySet="ZauzetostUcionices">
+          <ScalarProperty Name="Id_zauzetosti" ColumnName="Id_zauzetosti" />
+          <ScalarProperty Name="UcionicaId_ucionice" ColumnName="UcionicaId_ucionice" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <AssociationSetMapping Name="Pripada" TypeName="ModelOsnovnaSkola.Pripada" StoreEntitySet="Ucenici">
       <EndProperty Name="Odeljenje">
         <ScalarProperty Name="Id_odeljenja" ColumnName="Odeljenje_Id_odeljenja" />
@@ -163,6 +178,14 @@
       </EndProperty>
       <EndProperty Name="Cas">
         <ScalarProperty Name="Id_casa" ColumnName="Casovi_Id_casa" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="CasZauzetostUcionice" TypeName="ModelOsnovnaSkola.CasZauzetostUcionice" StoreEntitySet="Cas">
+      <EndProperty Name="ZauzetostUcionice">
+        <ScalarProperty Name="Id_zauzetosti" ColumnName="ZauzetostUcionice_Id_zauzetosti" />
+      </EndProperty>
+      <EndProperty Name="Cas">
+        <ScalarProperty Name="Id_casa" ColumnName="Id_casa" />
       </EndProperty>
     </AssociationSetMapping>
   </EntityContainerMapping>
