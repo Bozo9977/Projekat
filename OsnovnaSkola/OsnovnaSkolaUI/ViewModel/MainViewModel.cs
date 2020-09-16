@@ -45,6 +45,8 @@ namespace OsnovnaSkolaUI.ViewModel
         public MyICommand OceniCommand { get; set; }
         public MyICommand ChangePasswordCommand { get; set; }
         public MyICommand AddUcionicaCommand { get; set; }
+        public MyICommand ChangeUcionicaCommand { get; set; }
+        public MyICommand DeleteUcionicaCommand { get; set; }
 
         #endregion
 
@@ -155,6 +157,17 @@ namespace OsnovnaSkolaUI.ViewModel
             }
         }
 
+        private List<UcionicaIM> ucionice { get; set; }
+        public List<UcionicaIM> Ucionice 
+        {
+            get { return ucionice; }
+            set
+            {
+                ucionice = value;
+                OnPropertyChanged("Ucionice");
+            }
+        }
+        public UcionicaIM SelectedUcionica { get; set; }
         public UcenikIM SelectedUcenik { get; set; }
         public OdeljenjeIM SelectedOdeljenje { get; set; }
         public ZaposleniIM loggedIn { get; set; }
@@ -248,12 +261,46 @@ namespace OsnovnaSkolaUI.ViewModel
             ChangePasswordCommand = new MyICommand(PromenaLozinke);
 
             AddUcionicaCommand = new MyICommand(NovaUcionica);
+            ChangeUcionicaCommand = new MyICommand(IzmeniUcionicu);
+            DeleteUcionicaCommand = new MyICommand(ObrisiUcionicu);
         }
 
         public void NovaUcionica()
         {
-            new AddUcionicaWindow(false).Show();
+            new AddUcionicaWindow(false, null).Show();
+            OnChange();
+        }
 
+        public void IzmeniUcionicu()
+        {
+            if(SelectedUcionica != null)
+            {
+                new AddUcionicaWindow(true, SelectedUcionica).ShowDialog();
+                OnChange();
+            }
+            else
+            {
+                MessageBox.Show("Prvo izaberite učionicu.", "Greška!", MessageBoxButton.OK, MessageBoxImage.Warning);
+            }
+        }
+
+        public void ObrisiUcionicu()
+        {
+            if (SelectedUcionica != null)
+            {
+                if (Channel.Instance.UcionicaProxy.DeleteUcionica(SelectedUcionica.Id_ucionice))
+                {
+                    OnChange();
+                }
+                else
+                {
+                    MessageBox.Show("Greška sa bazom. Kontaktirajte administratora sistema.", "Greška!", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Prvo izaberite učionicu.", "Greška!", MessageBoxButton.OK, MessageBoxImage.Warning);
+            }
         }
 
         public void OnOceniRadove()
@@ -565,7 +612,7 @@ namespace OsnovnaSkolaUI.ViewModel
                 Ucenici = Channel.Instance.UceniciProxy.GetIcenici();
                 Odeljenja = Channel.Instance.OdeljenjaProxy.GetOdeljenja();
                 Predmeti = Channel.Instance.PredmetiProxy.GetPredmeti();
-                
+                Ucionice = Channel.Instance.UcionicaProxy.GetAllUcionica();
             }
             catch (Exception e)
             {

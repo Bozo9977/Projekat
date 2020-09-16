@@ -30,7 +30,6 @@ namespace OsnovnaSkolaPL.Services
         {
             Cas c = dao.FindById(cas.Id_casa);
             c.pocetak = cas.pocetak;
-            //c.kraj = cas.kraj;
             c.datum = cas.datum;
 
             return dao.Update(c);

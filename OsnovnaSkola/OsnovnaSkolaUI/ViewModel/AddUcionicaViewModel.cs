@@ -55,24 +55,55 @@ namespace OsnovnaSkolaUI.ViewModel
         }
         #endregion
 
-        public AddUcionicaViewModel(bool change)
+        public AddUcionicaViewModel(bool change, UcionicaIM toChange)
         {
             
 
             if (change)
             {
+                AddUcionicaCommand = new MyICommand(IzmeniUcionicu);
+                NovaUcionica = toChange;
                 ButtonContent = "Promeni";
             }
             else
             {
+                AddUcionicaCommand = new MyICommand(DodajUcionicu);
                 NovaUcionica = new UcionicaIM();
                 ButtonContent = "Dodaj";
             }
 
-            AddUcionicaCommand = new MyICommand(DodajUcionicu);
+            
         }
 
+        public void IzmeniUcionicu()
+        {
+            NazivError = BrojError = "";
 
+            if (string.IsNullOrEmpty(NovaUcionica.naziv))
+            {
+                NazivError = "Naziv ne može biti prazan.";
+            }
+            else if (NovaUcionica.broj_ucenika == 0)
+            {
+                BrojError = "Broj učenika mora biti celobrojan.";
+            }
+            else if (NovaUcionica.broj_ucenika < 0)
+            {
+                BrojError = "Broj učenika mora biti pozitivan.";
+            }
+            else
+            {
+                if (Channel.Instance.UcionicaProxy.ChangeUcionica(NovaUcionica))
+                {
+                    Window.Close();
+                }
+                else
+                {
+                    MessageBox.Show("Greška sa bazom. Kontaktirajte administratora sistema.", "Greška!", MessageBoxButton.OK, MessageBoxImage.Error);
+                    Window.Close();
+                }
+            }
+        }
         public void DodajUcionicu()
         {
             NazivError = BrojError = "";
@@ -91,7 +122,7 @@ namespace OsnovnaSkolaUI.ViewModel
             }
             else
             {
-                UcionicaIM ucionica = NovaUcionica;
+               // UcionicaIM ucionica = NovaUcionica;
                 if (Channel.Instance.UcionicaProxy.AddUcionica(NovaUcionica))
                 {
                     Window.Close();

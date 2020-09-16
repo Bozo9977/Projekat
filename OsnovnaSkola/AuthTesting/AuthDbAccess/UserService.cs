@@ -45,8 +45,20 @@ namespace AuthTesting.AuthDbAccess
             var user = new ApplicationUser { ime = ime, prezime = prezime, UserName = kIme, FirstLogin = true, Email= "bokimaric97@gmail.com" };
             int password = GenerateNewPassword(user);
             var result =  this.userManager.Create(user, password.ToString());
-   
-            var createdUser =  userManager.FindByName(kIme);
+            
+            var createdUser = userManager.FindByName(kIme);
+            
+            if (result.Succeeded)
+            {
+                if (SendLoginEmail(user, password.ToString()))
+                {
+
+                }
+                else
+                {
+                    userManager.Delete(createdUser);
+                }
+            }
 
             if (result.Succeeded == false)
             {
@@ -58,6 +70,7 @@ namespace AuthTesting.AuthDbAccess
             }
             else
             {
+                
                 if (ucitelj)
                 {
                     result =  userManager.AddToRole(createdUser.Id, "Ucitelj");
@@ -71,6 +84,8 @@ namespace AuthTesting.AuthDbAccess
                 {
                     foreach (var error in result.Errors)
                         Console.WriteLine(error);
+
+                    userManager.Delete(createdUser);
                 }
                 else
                 {
@@ -85,31 +100,35 @@ namespace AuthTesting.AuthDbAccess
         {
             Random random = new Random();
             int randNo = random.Next(100000001, 999999999);
+            
+            return randNo;
+        }
+
+        private static bool SendLoginEmail(ApplicationUser user, string password)
+        {
             string to = user.Email;
             string from = "bokimaric97@gmail.com";
             MailMessage message = new MailMessage(from, to);
             message.Subject = "Lozinka";
-            message.Body = $"Vaša lozinka je: " + randNo.ToString() +
+            message.Body = $"Vaša lozinka je: " + password +
                 "\nMolimo Vas da je obavezno promenite pri prvoj prijavi na sistem, radi sigurnosti Vašeg naloga."
-                + "\nVaše korisničko ime je:" + user.UserName;
+                + "\nVaše korisničko ime je: " + user.UserName;
             try
             {
                 SmtpClient smtpClient = new SmtpClient("smtp.gmail.com", 587);
                 smtpClient.EnableSsl = true;
                 smtpClient.DeliveryMethod = SmtpDeliveryMethod.Network;
-                //smtpClient.UseDefaultCredentials = true;
                 smtpClient.UseDefaultCredentials = false;
                 smtpClient.Credentials = new NetworkCredential(from, "Geografija9977");
                 smtpClient.Send(message);
-                //smtpClient.Send(message.From.ToString(), message.To.ToString(), message.Subject, message.Body);
+                return true;
             }
-            catch (Exception ex)
+            catch (Exception e)
             {
-                Console.WriteLine("Ex: " + ex);
+                Console.WriteLine("Message: " + e.Message + "\nInner: " + e.InnerException);
+                return false;
             }
-            return randNo;
         }
-
         public ApplicationUserIM Login(string email, string lozinka)
         {
             ApplicationUserIM retVal = new ApplicationUserIM();

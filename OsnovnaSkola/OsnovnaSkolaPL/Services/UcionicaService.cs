@@ -25,6 +25,21 @@ namespace OsnovnaSkolaPL.Services
             return dao.Insert(ucionica);
         }
 
+        public bool ChangeUcionica(UcionicaIM toChange)
+        {
+            Ucionica u = dao.FindById(toChange.Id_ucionice);
+            
+            u.naziv = toChange.naziv;
+            u.broj_ucenika = toChange.broj_ucenika;
+
+            return dao.Update(u);
+        }
+
+        public bool DeleteUcionica(int id)
+        {
+            return dao.Delete(id);
+        }
+
         public List<UcionicaIM> GetAllUcionica()
         {
             List<Ucionica> list = dao.GetAll();

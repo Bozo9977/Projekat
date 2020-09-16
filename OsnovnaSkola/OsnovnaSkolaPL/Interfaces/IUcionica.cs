@@ -16,5 +16,9 @@ namespace OsnovnaSkolaPL.Interfaces
 
         [OperationContract]
         List<UcionicaIM> GetAllUcionica();
+        [OperationContract]
+        bool ChangeUcionica(UcionicaIM toChange);
+        [OperationContract]
+        bool DeleteUcionica(int id);
     }
 }

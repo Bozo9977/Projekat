@@ -1,4 +1,5 @@
-﻿using OsnovnaSkolaUI.ViewModel;
+﻿using OsnovnaSkolaPL.IntermediaryModels;
+using OsnovnaSkolaUI.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,10 +21,10 @@ namespace OsnovnaSkolaUI.Views
     /// </summary>
     public partial class AddUcionicaWindow : Window
     {
-        public AddUcionicaWindow(bool change)
+        public AddUcionicaWindow(bool change, UcionicaIM toChange)
         {
             InitializeComponent();
-            DataContext = new AddUcionicaViewModel(change) { Window = this };
+            DataContext = new AddUcionicaViewModel(change, toChange) { Window = this };
         }
     }
 }
