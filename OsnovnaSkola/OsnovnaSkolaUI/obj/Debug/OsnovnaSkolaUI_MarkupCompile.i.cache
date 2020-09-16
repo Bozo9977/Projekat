@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 C:\Users\Bozo\Desktop\Projekat\Projekat\OsnovnaSkola\OsnovnaSkolaUI\App.xaml
-18-640561316
+191385524427
 
-431161497117
+45553516238
 231977208393
-MainWindow.xaml;Views\AddCasWindow.xaml;Views\AddDomaciWindow.xaml;Views\AddKontrolniWindow.xaml;Views\AddOblastWindow.xaml;Views\AddOdeljenjeWindow.xaml;Views\AddPRedavanjeWindow.xaml;Views\AddPredmetWindow.xaml;Views\AddRazredniWindow.xaml;Views\AddUcenikWindow.xaml;Views\AddUcionicaWindow.xaml;Views\AddZaposleniWindow.xaml;Views\LoginWindow.xaml;Views\OblastiPredmetaWindow.xaml;Views\OceniRadoveWindow.xaml;Views\PasswordChangeWindow.xaml;Views\UcenikOdeljenjeWindow.xaml;Views\ZaposleniPredmetWindow.xaml;
+MainWindow.xaml;Views\AddCasWindow.xaml;Views\AddDomaciWindow.xaml;Views\AddKontrolniWindow.xaml;Views\AddOblastWindow.xaml;Views\AddOdeljenjeWindow.xaml;Views\AddPRedavanjeWindow.xaml;Views\AddPredmetWindow.xaml;Views\AddRazredniWindow.xaml;Views\AddUcenikWindow.xaml;Views\AddUcionicaWindow.xaml;Views\AddZaposleniWindow.xaml;Views\LoginWindow.xaml;Views\OblastiPredmetaWindow.xaml;Views\OblasUcioniceWindow.xaml;Views\OceniRadoveWindow.xaml;Views\PasswordChangeWindow.xaml;Views\UcenikOdeljenjeWindow.xaml;Views\ZaposleniPredmetWindow.xaml;
 
-True
+False
 

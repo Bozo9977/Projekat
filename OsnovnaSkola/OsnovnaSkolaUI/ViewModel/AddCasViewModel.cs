@@ -2,6 +2,7 @@
 using OsnovnaSkolaPL.IntermediaryModels;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -45,19 +46,7 @@ namespace OsnovnaSkolaUI.ViewModel
             }
         }
 
-        string kraj;
-        public string Kraj
-        {
-            get
-            {
-                return kraj;
-            }
-            set
-            {
-                kraj = value;
-                OnPropertyChanged("Kraj");
-            }
-        }
+        
 
         string dateError;
         public string DateError 
@@ -138,10 +127,6 @@ namespace OsnovnaSkolaUI.ViewModel
             {
                 PocetakError = "";
             }
-            else if (String.IsNullOrWhiteSpace(Kraj))
-            {
-                KrajError = "";
-            }
             else
             {
                 if (Izmena)
@@ -161,6 +146,15 @@ namespace OsnovnaSkolaUI.ViewModel
                 }
                 else
                 {
+                    TimeSpan ts = new TimeSpan();
+
+                    TimeSpan.TryParseExact(Pocetak, "h\\:mm", CultureInfo.CurrentUICulture, out ts);
+
+                    if (ts == TimeSpan.Zero)
+                    {
+
+                    }
+
                     CasIM noviCas = new CasIM()
                     {
                         datum = SelectedDatum.Date,

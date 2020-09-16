@@ -89,6 +89,7 @@
     <Compile Include="ViewModel\LoginViewModel.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
     <Compile Include="ViewModel\OblastiPredmetaViewModel.cs" />
+    <Compile Include="ViewModel\OblastUcioniceViewModel.cs" />
     <Compile Include="ViewModel\OceniRadoveViewModel.cs" />
     <Compile Include="ViewModel\UcenikOdeljenjeViewModel.cs" />
     <Compile Include="ViewModel\ZaposleniPredmetViewModel.cs" />
@@ -130,6 +131,9 @@
     </Compile>
     <Compile Include="Views\OblastiPredmetaWindow.xaml.cs">
       <DependentUpon>OblastiPredmetaWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\OblasUcioniceWindow.xaml.cs">
+      <DependentUpon>OblasUcioniceWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\OceniRadoveWindow.xaml.cs">
       <DependentUpon>OceniRadoveWindow.xaml</DependentUpon>
@@ -204,6 +208,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\OblastiPredmetaWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\OblasUcioniceWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

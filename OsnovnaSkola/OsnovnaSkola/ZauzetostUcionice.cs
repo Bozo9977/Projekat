@@ -22,6 +22,8 @@ public partial class ZauzetostUcionice
 
     public int UcionicaId_ucionice { get; set; }
 
+    public System.TimeSpan pocetak { get; set; }
+
 
 
     public virtual Ucionica Ucionica { get; set; }

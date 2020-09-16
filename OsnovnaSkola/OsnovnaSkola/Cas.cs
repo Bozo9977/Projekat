@@ -33,8 +33,6 @@ public partial class Cas
 
     public int Id_casa { get; set; }
 
-    public string pocetak { get; set; }
-
     public System.DateTime datum { get; set; }
 
     public Nullable<int> OblastId_oblasti { get; set; }

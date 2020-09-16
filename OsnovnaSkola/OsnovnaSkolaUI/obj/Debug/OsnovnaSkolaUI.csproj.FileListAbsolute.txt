@@ -310,3 +310,5 @@ C:\Users\Bozo\Desktop\Projekat\Projekat\OsnovnaSkola\OsnovnaSkolaUI\bin\Debug\Mi
 C:\Users\Bozo\Desktop\Projekat\Projekat\OsnovnaSkola\OsnovnaSkolaUI\bin\Debug\Newtonsoft.Json.xml
 C:\Users\Bozo\Desktop\Projekat\Projekat\OsnovnaSkola\OsnovnaSkolaUI\obj\Debug\Views\AddUcionicaWindow.g.cs
 C:\Users\Bozo\Desktop\Projekat\Projekat\OsnovnaSkola\OsnovnaSkolaUI\obj\Debug\Views\AddUcionicaWindow.baml
+C:\Users\Bozo\Desktop\Projekat\Projekat\OsnovnaSkola\OsnovnaSkolaUI\obj\Debug\Views\OblasUcioniceWindow.g.cs
+C:\Users\Bozo\Desktop\Projekat\Projekat\OsnovnaSkola\OsnovnaSkolaUI\obj\Debug\Views\OblasUcioniceWindow.baml

@@ -29,7 +29,7 @@ public partial class Ucionica
 
     public int Id_ucionice { get; set; }
 
-    public Nullable<int> broj_ucenika { get; set; }
+    public int broj_ucenika { get; set; }
 
     public string naziv { get; set; }
 
