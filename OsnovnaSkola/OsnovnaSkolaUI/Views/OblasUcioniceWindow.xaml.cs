@@ -1,4 +1,5 @@
-﻿using OsnovnaSkolaUI.ViewModel;
+﻿using OsnovnaSkolaPL.IntermediaryModels;
+using OsnovnaSkolaUI.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,10 +21,10 @@ namespace OsnovnaSkolaUI.Views
     /// </summary>
     public partial class OblasUcioniceWindow : Window
     {
-        public OblasUcioniceWindow()
+        public OblasUcioniceWindow(int predmetID)
         {
             InitializeComponent();
-            DataContext = new OblastUcioniceViewModel() { Window = this };
+            DataContext = new OblastUcioniceViewModel(predmetID) { Window = this };
         }
     }
 }

@@ -267,7 +267,7 @@ namespace OsnovnaSkolaUI.ViewModel
 
         public void NovaUcionica()
         {
-            new AddUcionicaWindow(false, null).Show();
+            new AddUcionicaWindow(false, null).ShowDialog();
             OnChange();
         }
 
@@ -364,7 +364,8 @@ namespace OsnovnaSkolaUI.ViewModel
         {
             if (SelectedPredmet != null)
             {
-                new OblastiPredmetaWindow(SelectedPredmet, false, true).ShowDialog();
+                //new OblastiPredmetaWindow(SelectedPredmet, false, true).ShowDialog();
+                new OblasUcioniceWindow(SelectedPredmet.Id_predmeta).ShowDialog();
                 OnZhangeZaposleni();
             }
             else
@@ -415,7 +416,7 @@ namespace OsnovnaSkolaUI.ViewModel
         }
         public void OnChangeCas()
         {
-            new AddCasWindow(null, SelectedCas).ShowDialog();
+            new AddCasWindow(null, null, SelectedCas).ShowDialog();
             OnZhangeZaposleni();
         }
         public void OnChangePredavanje()

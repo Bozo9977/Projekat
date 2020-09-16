@@ -168,8 +168,6 @@
       <PropertyRef Name="Id_casa" />
     </Key>
     <Property Name="Id_casa" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="pocetak" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="datum" Type="datetime" Nullable="false" />
     <Property Name="OblastId_oblasti" Type="int" Nullable="true" />
     <Property Name="ZaposleniId_zaposlenog" Type="int" Nullable="false" />
     <Property Name="ZauzetostUcionice_Id_zauzetosti" Type="int" Nullable="false" />
@@ -243,7 +241,7 @@
       <PropertyRef Name="Id_ucionice" />
     </Key>
     <Property Name="Id_ucionice" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="broj_ucenika" Type="int" Nullable="true" />
+    <Property Name="broj_ucenika" Type="int" Nullable="false" />
     <Property Name="naziv" Type="nvarchar(max)" Nullable="false" />
   </EntityType>
   <EntityType Name="ZauzetostUcionices">
@@ -252,6 +250,8 @@
     </Key>
     <Property Name="Id_zauzetosti" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="UcionicaId_ucionice" Type="int" Nullable="false" />
+    <Property Name="pocetak" Type="time" Nullable="false" />
+    <Property Name="datum" Type="datetime" Nullable="false" />
   </EntityType>
   <EntityType Name="Zaposlenici_Nastavnik">
     <Key>

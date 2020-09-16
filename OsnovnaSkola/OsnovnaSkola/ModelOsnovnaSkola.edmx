@@ -173,7 +173,6 @@
       <PropertyRef Name="Id_casa" />
     </Key>
     <Property Name="Id_casa" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="datum" Type="datetime" Nullable="false" />
     <Property Name="OblastId_oblasti" Type="int" Nullable="true" />
     <Property Name="ZaposleniId_zaposlenog" Type="int" Nullable="false" />
     <Property Name="ZauzetostUcionice_Id_zauzetosti" Type="int" Nullable="false" />
@@ -257,6 +256,7 @@
     <Property Name="Id_zauzetosti" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="UcionicaId_ucionice" Type="int" Nullable="false" />
     <Property Name="pocetak" Type="time" Nullable="false" />
+    <Property Name="datum" Type="datetime" Nullable="false" />
   </EntityType>
   <EntityType Name="Zaposlenici_Nastavnik">
     <Key>
@@ -812,7 +812,6 @@
             <PropertyRef Name="Id_casa" />
           </Key>
           <Property Name="Id_casa" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="datum" Type="DateTime" Nullable="false" Precision="3" />
           <NavigationProperty Name="Oblast" Relationship="ModelOsnovnaSkola.Predjena" FromRole="Cas" ToRole="Oblast" />
           <Property Name="OblastId_oblasti" Type="Int32" Nullable="true" />
           <NavigationProperty Name="Imaju" Relationship="ModelOsnovnaSkola.CasIma" FromRole="Cas" ToRole="Ima" />
@@ -1160,6 +1159,7 @@
           <Property Name="UcionicaId_ucionice" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Cas" Relationship="ModelOsnovnaSkola.CasZauzetostUcionice" FromRole="ZauzetostUcionice" ToRole="Cas" />
           <Property Name="pocetak" Type="Time" Nullable="false" />
+          <Property Name="datum" Type="DateTime" Nullable="false" />
         </EntityType>
         <Association Name="UcionicaZauzetostUcionice">
           <End Type="ModelOsnovnaSkola.Ucionica" Role="Ucionica" Multiplicity="1" />
@@ -1249,7 +1249,6 @@
       <EntityTypeMapping TypeName="IsTypeOf(ModelOsnovnaSkola.Cas)">
         <MappingFragment StoreEntitySet="Cas">
           <ScalarProperty Name="Id_casa" ColumnName="Id_casa" />
-          <ScalarProperty Name="datum" ColumnName="datum" />
           <ScalarProperty Name="OblastId_oblasti" ColumnName="OblastId_oblasti" />
           <ScalarProperty Name="ZaposleniId_zaposlenog" ColumnName="ZaposleniId_zaposlenog" />
         </MappingFragment>
@@ -1334,6 +1333,7 @@
           <ScalarProperty Name="Id_zauzetosti" ColumnName="Id_zauzetosti" />
           <ScalarProperty Name="UcionicaId_ucionice" ColumnName="UcionicaId_ucionice" />
           <ScalarProperty Name="pocetak" ColumnName="pocetak" />
+          <ScalarProperty Name="datum" ColumnName="datum" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

@@ -432,6 +432,17 @@
                             </DataGridTextColumn.ElementStyle>
                         </DataGridTextColumn>
 
+
+                        <DataGridTextColumn Header="Datum" TextBlock.TextAlignment="Center" Binding="{Binding datum}" IsReadOnly="True">
+                            <DataGridTextColumn.ElementStyle>
+                                <Style TargetType="TextBlock">
+                                    <Setter Property="TextWrapping" Value="Wrap" />
+                                    <Setter Property="HorizontalAlignment" Value="Center" />
+                                    <Setter Property="VerticalAlignment" Value="Center" />
+                                </Style>
+                            </DataGridTextColumn.ElementStyle>
+                        </DataGridTextColumn>
+
                         <DataGridTextColumn Header="Pocetak" TextBlock.TextAlignment="Center" Binding="{Binding pocetak}" IsReadOnly="True">
                             <DataGridTextColumn.ElementStyle>
                                 <Style TargetType="TextBlock">
@@ -442,18 +453,7 @@
                             </DataGridTextColumn.ElementStyle>
                         </DataGridTextColumn>
 
-
-                        <DataGridTextColumn Header="Kraj" TextBlock.TextAlignment="Center" Binding="{Binding kraj}" IsReadOnly="True">
-                            <DataGridTextColumn.ElementStyle>
-                                <Style TargetType="TextBlock">
-                                    <Setter Property="TextWrapping" Value="Wrap" />
-                                    <Setter Property="HorizontalAlignment" Value="Center" />
-                                    <Setter Property="VerticalAlignment" Value="Center" />
-                                </Style>
-                            </DataGridTextColumn.ElementStyle>
-                        </DataGridTextColumn>
-
-                        <DataGridTextColumn Header="Datum" TextBlock.TextAlignment="Center" Binding="{Binding datum}" IsReadOnly="True">
+                        <DataGridTextColumn Header="Učionica" TextBlock.TextAlignment="Center" Binding="{Binding ucionica}" IsReadOnly="True">
                             <DataGridTextColumn.ElementStyle>
                                 <Style TargetType="TextBlock">
                                     <Setter Property="TextWrapping" Value="Wrap" />

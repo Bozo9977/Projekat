@@ -13,12 +13,14 @@ namespace OsnovnaSkolaPL.IntermediaryModels
         [DataMember]
         public int Id_casa { get; set; }
         [DataMember]
-        public string pocetak { get; set; }
+        public TimeSpan pocetak { get; set; }
         [DataMember]
         public System.DateTime datum { get; set; }
         [DataMember]
         public Nullable<int> OblastId_oblasti { get; set; }
         [DataMember]
         public int ZaposleniId_zaposlenog { get; set; }
+        [DataMember]
+        public string ucionica { get; set; }
     }
 }

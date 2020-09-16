@@ -12,12 +12,13 @@ namespace OsnovnaSkolaPL.Interfaces
     public interface ICasovi
     {
         [OperationContract]
-        bool AddCas(CasIM cas);
+        string AddCas(CasIM cas, UcionicaIM ucionica);
         [OperationContract]
         List<CasIM> GetCasoviForZaposleni(int idZaposlenog);
         [OperationContract]
         bool ChangeCas(CasIM cas);
         [OperationContract]
         bool DeleteCas(int idCasa);
+        
     }
 }

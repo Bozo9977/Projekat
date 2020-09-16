@@ -46,8 +46,8 @@
         <AssociationConnector Association="ModelOsnovnaSkola.PredmetNastavnik" />
         <AssociationConnector Association="ModelOsnovnaSkola.UciteljOdeljenje" />
         <AssociationConnector Association="ModelOsnovnaSkola.Kontrolna_tackaCas" ManuallyRouted="true" >
-          <ConnectorPoint PointX="37.5434603515625" PointY="24.672587890625003" />
-          <ConnectorPoint PointX="37.5434603515625" PointY="29.46875" />
+          <ConnectorPoint PointX="37.54211758789063" PointY="24.672587890625003" />
+          <ConnectorPoint PointX="37.54211758789063" PointY="29.46875" />
           <ConnectorPoint PointX="52.125" PointY="29.46875" />
         </AssociationConnector>
         <EntityTypeShape EntityType="ModelOsnovnaSkola.Ucionica" Width="1.5" PointX="60.625" PointY="29.125" />

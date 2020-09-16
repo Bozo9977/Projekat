@@ -182,8 +182,6 @@
       <PropertyRef Name="Id_casa" />
     </Key>
     <Property Name="Id_casa" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="pocetak" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
-    <Property Name="datum" Type="DateTime" Nullable="false" Precision="3" />
     <NavigationProperty Name="Oblast" Relationship="ModelOsnovnaSkola.Predjena" FromRole="Cas" ToRole="Oblast" />
     <Property Name="OblastId_oblasti" Type="Int32" Nullable="true" />
     <NavigationProperty Name="Imaju" Relationship="ModelOsnovnaSkola.CasIma" FromRole="Cas" ToRole="Ima" />
@@ -518,7 +516,7 @@
       <PropertyRef Name="Id_ucionice" />
     </Key>
     <Property Name="Id_ucionice" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="broj_ucenika" Type="Int32" Nullable="true" />
+    <Property Name="broj_ucenika" Type="Int32" Nullable="false" />
     <NavigationProperty Name="ZauzetostUcionices" Relationship="ModelOsnovnaSkola.UcionicaZauzetostUcionice" FromRole="Ucionica" ToRole="ZauzetostUcionice" />
     <Property Name="naziv" Type="String" Nullable="false" />
   </EntityType>
@@ -530,6 +528,8 @@
     <NavigationProperty Name="Ucionica" Relationship="ModelOsnovnaSkola.UcionicaZauzetostUcionice" FromRole="ZauzetostUcionice" ToRole="Ucionica" />
     <Property Name="UcionicaId_ucionice" Type="Int32" Nullable="false" />
     <NavigationProperty Name="Cas" Relationship="ModelOsnovnaSkola.CasZauzetostUcionice" FromRole="ZauzetostUcionice" ToRole="Cas" />
+    <Property Name="pocetak" Type="Time" Nullable="false" />
+    <Property Name="datum" Type="DateTime" Nullable="false" />
   </EntityType>
   <Association Name="UcionicaZauzetostUcionice">
     <End Type="ModelOsnovnaSkola.Ucionica" Role="Ucionica" Multiplicity="1" />

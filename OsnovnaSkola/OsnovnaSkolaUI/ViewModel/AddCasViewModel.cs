@@ -17,6 +17,7 @@ namespace OsnovnaSkolaUI.ViewModel
         public MyICommand AddCasCommand { get; set; }
         public MyICommand DeleteCasCommand { get; set; }
         CasIM SelectedCas { get; set; }
+        UcionicaIM SelectedUcionica { get; set; }
 
         DateTime datum;
         public DateTime SelectedDatum 
@@ -91,7 +92,7 @@ namespace OsnovnaSkolaUI.ViewModel
         //string button;
         public string ButtonContent { get; set; }
         public string DeletionEnabled { get; set; }
-        public AddCasViewModel(OblastIM oblast, CasIM cas)
+        public AddCasViewModel(OblastIM oblast, UcionicaIM ucionica, CasIM cas)
         {
             if (cas != null)
             {
@@ -101,14 +102,15 @@ namespace OsnovnaSkolaUI.ViewModel
                 //SelectedDatum = DateTime.Today;
                 SelectedDatum = cas.datum;
                 
-                Pocetak = cas.pocetak;
+                Pocetak = cas.pocetak.ToString();
                 DeletionEnabled = "Visible";
             }
             else
             {
                 Oblast = oblast;
                 ButtonContent = "Dodaj";
-                SelectedDatum = DateTime.Today;
+                SelectedUcionica = ucionica;
+                SelectedDatum = DateTime.Today.AddDays(1);
                 DeletionEnabled = "Hidden";
             }
             //Pocetak = TimeSpan.N
@@ -119,20 +121,29 @@ namespace OsnovnaSkolaUI.ViewModel
         public void OnAddCas()
         {
             DateError = KrajError = PocetakError = "";
-            if(SelectedDatum == null)
+
+            TimeSpan ts = new TimeSpan();
+
+            TimeSpan.TryParseExact(Pocetak, "h\\:mm", CultureInfo.CurrentUICulture, out ts);
+
+
+            if (ts == TimeSpan.Zero)
             {
-                DateError = "";
+                PocetakError = "Vreme morate uneti u obliku: sat:minut.";
+            } else if (ts.Hours > 20)
+            {
+                PocetakError = "Časovi se ne mogu održavati posle 20:00h.";
             }
-            else if (String.IsNullOrWhiteSpace(Pocetak))
+            else if (ts.Hours < 7)
             {
-                PocetakError = "";
+                PocetakError = "Časovi se ne mogu održavati pre 07:00h.";
             }
             else
             {
                 if (Izmena)
                 {
                     SelectedCas.datum = SelectedDatum.Date;
-                    SelectedCas.pocetak = Pocetak;
+                    SelectedCas.pocetak = ts;
                    
 
                     if (Channel.Instance.CasovyProxy.ChangeCas(SelectedCas))
@@ -146,30 +157,25 @@ namespace OsnovnaSkolaUI.ViewModel
                 }
                 else
                 {
-                    TimeSpan ts = new TimeSpan();
-
-                    TimeSpan.TryParseExact(Pocetak, "h\\:mm", CultureInfo.CurrentUICulture, out ts);
-
-                    if (ts == TimeSpan.Zero)
-                    {
-
-                    }
+                    
 
                     CasIM noviCas = new CasIM()
                     {
                         datum = SelectedDatum.Date,
-                        pocetak = Pocetak,
+                        pocetak = ts,
                         
                         OblastId_oblasti = Oblast.Id_oblasti,
                         ZaposleniId_zaposlenog = LoggedInZaposleni.Instance.Id_zaposlenog
                     };
-                    if (Channel.Instance.CasovyProxy.AddCas(noviCas))
+                    string res;
+                    if (( res = Channel.Instance.CasovyProxy.AddCas(noviCas, SelectedUcionica)) == "")
+                    //if(!Channel.Instance.CasovyProxy.CheckZauzetostUcionice(SelectedCas, SelectedUcionica))
                     {
                         MessageBox.Show("Čas uspešno dodat.", "Uspeh!", MessageBoxButton.OK, MessageBoxImage.Information);
                     }
                     else
                     {
-                        MessageBox.Show("Greška prilikom dodavanja.", "Greška!", MessageBoxButton.OK, MessageBoxImage.Error);
+                        MessageBox.Show(res, "Greška!", MessageBoxButton.OK, MessageBoxImage.Error);
                     }
 
                 }

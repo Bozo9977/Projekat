@@ -21,10 +21,10 @@ namespace OsnovnaSkolaUI.Views
     /// </summary>
     public partial class AddCasWindow : Window
     {
-        public AddCasWindow(OblastIM oblast, CasIM cas)
+        public AddCasWindow(OblastIM oblast, UcionicaIM ucionica, CasIM cas)
         {
             InitializeComponent();
-            DataContext = new AddCasViewModel(oblast, cas) { Window = this };
+            DataContext = new AddCasViewModel(oblast, ucionica, cas) { Window = this };
         }
     }
 }
