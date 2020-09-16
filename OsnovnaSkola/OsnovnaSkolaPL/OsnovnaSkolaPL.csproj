@@ -184,6 +184,7 @@
     <Compile Include="Interfaces\IPredmeti.cs" />
     <Compile Include="Interfaces\IRadovi.cs" />
     <Compile Include="Interfaces\IUcenici.cs" />
+    <Compile Include="Interfaces\IUcionica.cs" />
     <Compile Include="Interfaces\IZaposleni.cs" />
     <Compile Include="IntermediaryModels\CasIM.cs" />
     <Compile Include="IntermediaryModels\DomaciIM.cs" />
@@ -195,6 +196,7 @@
     <Compile Include="IntermediaryModels\PredmetIM.cs" />
     <Compile Include="IntermediaryModels\RadiIM.cs" />
     <Compile Include="IntermediaryModels\UcenikIM.cs" />
+    <Compile Include="IntermediaryModels\UcionicaIM.cs" />
     <Compile Include="IntermediaryModels\ZaposleniIM.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -207,6 +209,7 @@
     <Compile Include="Services\PredmetiService.cs" />
     <Compile Include="Services\RadoviService.cs" />
     <Compile Include="Services\UceniciService.cs" />
+    <Compile Include="Services\UcionicaService.cs" />
     <Compile Include="Services\ZaposleniService.cs" />
   </ItemGroup>
   <ItemGroup>

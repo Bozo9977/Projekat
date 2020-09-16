@@ -518,8 +518,9 @@
       <PropertyRef Name="Id_ucionice" />
     </Key>
     <Property Name="Id_ucionice" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="broj_ucenika" Type="String" Nullable="false" />
+    <Property Name="broj_ucenika" Type="Int32" Nullable="true" />
     <NavigationProperty Name="ZauzetostUcionices" Relationship="ModelOsnovnaSkola.UcionicaZauzetostUcionice" FromRole="Ucionica" ToRole="ZauzetostUcionice" />
+    <Property Name="naziv" Type="String" Nullable="false" />
   </EntityType>
   <EntityType Name="ZauzetostUcionice">
     <Key>

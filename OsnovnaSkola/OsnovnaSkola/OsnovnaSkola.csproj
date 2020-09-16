@@ -73,6 +73,7 @@
     <Compile Include="DataAccess\RadiDAO.cs" />
     <Compile Include="DataAccess\RepoAccess.cs" />
     <Compile Include="DataAccess\UcenikDAO.cs" />
+    <Compile Include="DataAccess\UcionicaDAO.cs" />
     <Compile Include="DataAccess\UciteljDAO.cs" />
     <Compile Include="DataAccess\ZaposleniciDAO.cs" />
     <Compile Include="Domaci.cs">

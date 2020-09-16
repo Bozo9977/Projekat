@@ -44,6 +44,7 @@ namespace OsnovnaSkolaUI.ViewModel
         public MyICommand CreateKontrolniCommand { get; set; }
         public MyICommand OceniCommand { get; set; }
         public MyICommand ChangePasswordCommand { get; set; }
+        public MyICommand AddUcionicaCommand { get; set; }
 
         #endregion
 
@@ -245,6 +246,14 @@ namespace OsnovnaSkolaUI.ViewModel
             OceniCommand = new MyICommand(OnOceniRadove);
 
             ChangePasswordCommand = new MyICommand(PromenaLozinke);
+
+            AddUcionicaCommand = new MyICommand(NovaUcionica);
+        }
+
+        public void NovaUcionica()
+        {
+            new AddUcionicaWindow(false).Show();
+
         }
 
         public void OnOceniRadove()

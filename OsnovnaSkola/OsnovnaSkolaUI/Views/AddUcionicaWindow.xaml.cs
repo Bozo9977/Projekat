@@ -20,10 +20,10 @@ namespace OsnovnaSkolaUI.Views
     /// </summary>
     public partial class AddUcionicaWindow : Window
     {
-        public AddUcionicaWindow()
+        public AddUcionicaWindow(bool change)
         {
             InitializeComponent();
-            DataContext = new AddUcionicaViewModel() { Window = this };
+            DataContext = new AddUcionicaViewModel(change) { Window = this };
         }
     }
 }

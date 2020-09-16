@@ -243,7 +243,8 @@
       <PropertyRef Name="Id_ucionice" />
     </Key>
     <Property Name="Id_ucionice" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="broj_ucenika" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="broj_ucenika" Type="int" Nullable="true" />
+    <Property Name="naziv" Type="nvarchar(max)" Nullable="false" />
   </EntityType>
   <EntityType Name="ZauzetostUcionices">
     <Key>

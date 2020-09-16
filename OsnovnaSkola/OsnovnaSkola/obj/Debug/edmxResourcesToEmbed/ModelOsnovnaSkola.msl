@@ -143,6 +143,7 @@
         <MappingFragment StoreEntitySet="Ucionicas">
           <ScalarProperty Name="Id_ucionice" ColumnName="Id_ucionice" />
           <ScalarProperty Name="broj_ucenika" ColumnName="broj_ucenika" />
+          <ScalarProperty Name="naziv" ColumnName="naziv" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

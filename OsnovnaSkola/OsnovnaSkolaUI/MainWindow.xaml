@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:OsnovnaSkolaUI"
         mc:Ignorable="d"
-        Title="MainWindow" WindowStartupLocation="CenterScreen"  Height="662.65" Width="1359" ResizeMode="NoResize" WindowState="Maximized">
+        Title="MainWindow" WindowStartupLocation="CenterScreen"  Height="764.65" Width="1359" ResizeMode="NoResize" WindowState="Maximized">
     <Grid Background="Black">
         <Grid>
             <Label Content="Ime" FontWeight="Bold" HorizontalAlignment="Left" Margin="10,0,0,0" VerticalAlignment="Top" Foreground="gold"/>
@@ -589,6 +589,7 @@
         <Button Content="DodajCas" HorizontalAlignment="Left" Command="{Binding CreateCasCommand}" Visibility="{Binding IsAdmin}" Height="44" Margin="472,76,0,0" VerticalAlignment="Top" Width="122" Foreground="#FFFBFB9F" Background="Transparent"  FontFamily="Segoe UI" BorderBrush="White" FontSize="22" />
         <Button Content="DodajDomaci" HorizontalAlignment="Left" Command="{Binding CreateDomaciCommand}" Visibility="{Binding IsAdmin}" Height="44" Margin="613,76,0,0" VerticalAlignment="Top" Width="169" Foreground="#FFFBFB9F" Background="Transparent"  FontFamily="Segoe UI" BorderBrush="White" FontSize="22" />
         <Button Content="DodajKontrolni" HorizontalAlignment="Left" Command="{Binding CreateKontrolniCommand}" Visibility="{Binding IsAdmin}" Height="44" Margin="800,76,0,0" VerticalAlignment="Top" Width="170" Foreground="#FFFBFB9F" Background="Transparent"  FontFamily="Segoe UI" BorderBrush="White" FontSize="22" />
+        <Button Content="NovaUcionica" Command="{Binding AddUcionicaCommand}" Visibility="{Binding AuthorizeAdmin}" Background="Transparent"  FontFamily="Segoe UI" Foreground="#FFFBFB9F" BorderBrush="white" Width="162" FontSize="22" Margin="69,595,0,0" HorizontalAlignment="Left" Height="44" VerticalAlignment="Top" RenderTransformOrigin="0.47,5.777" />
 
     </Grid>
 </Window>

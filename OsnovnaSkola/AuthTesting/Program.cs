@@ -35,7 +35,7 @@ namespace AuthTesting
 
             AuthService aService = new AuthService();
             aService.Open();
-            Console.ReadKey();
+            Console.ReadLine();
             aService.Close();
 
         }
