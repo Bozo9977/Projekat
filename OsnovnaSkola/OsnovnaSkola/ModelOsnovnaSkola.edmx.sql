@@ -2,7 +2,7 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, 2012 and Azure
 -- --------------------------------------------------
--- Date Created: 09/17/2020 00:23:21
+-- Date Created: 09/18/2020 10:56:02
 -- Generated from EDMX file: C:\Users\Bozo\Desktop\Projekat\Projekat\OsnovnaSkola\OsnovnaSkola\ModelOsnovnaSkola.edmx
 -- --------------------------------------------------
 
@@ -280,7 +280,8 @@ CREATE TABLE [dbo].[ZauzetostUcionices] (
     [Id_zauzetosti] int IDENTITY(1,1) NOT NULL,
     [UcionicaId_ucionice] int  NOT NULL,
     [pocetak] time  NOT NULL,
-    [datum] datetime  NOT NULL
+    [datum] datetime  NOT NULL,
+    [OdeljenjeId_odeljenja] int  NOT NULL
 );
 GO
 
@@ -754,6 +755,21 @@ GO
 CREATE INDEX [IX_FK_CasZauzetostUcionice]
 ON [dbo].[Cas]
     ([ZauzetostUcionice_Id_zauzetosti]);
+GO
+
+-- Creating foreign key on [OdeljenjeId_odeljenja] in table 'ZauzetostUcionices'
+ALTER TABLE [dbo].[ZauzetostUcionices]
+ADD CONSTRAINT [FK_OdeljenjeZauzetostUcionice]
+    FOREIGN KEY ([OdeljenjeId_odeljenja])
+    REFERENCES [dbo].[Odeljenja]
+        ([Id_odeljenja])
+    ON DELETE NO ACTION ON UPDATE NO ACTION;
+GO
+
+-- Creating non-clustered index for FOREIGN KEY 'FK_OdeljenjeZauzetostUcionice'
+CREATE INDEX [IX_FK_OdeljenjeZauzetostUcionice]
+ON [dbo].[ZauzetostUcionices]
+    ([OdeljenjeId_odeljenja]);
 GO
 
 -- Creating foreign key on [Id_zaposlenog] in table 'Zaposlenici_Nastavnik'

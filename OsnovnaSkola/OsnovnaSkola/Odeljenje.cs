@@ -28,6 +28,8 @@ public partial class Odeljenje
 
         this.NastavnikOdeljenjes = new HashSet<NastavnikOdeljenje>();
 
+        this.ZauzetostUcionices = new HashSet<ZauzetostUcionice>();
+
     }
 
 
@@ -50,6 +52,10 @@ public partial class Odeljenje
     public virtual ICollection<NastavnikOdeljenje> NastavnikOdeljenjes { get; set; }
 
     public virtual Ucitelj Ucitelj { get; set; }
+
+    [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+
+    public virtual ICollection<ZauzetostUcionice> ZauzetostUcionices { get; set; }
 
 }
 

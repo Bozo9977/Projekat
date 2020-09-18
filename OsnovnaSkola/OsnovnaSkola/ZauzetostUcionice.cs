@@ -26,11 +26,15 @@ public partial class ZauzetostUcionice
 
     public System.DateTime datum { get; set; }
 
+    public int OdeljenjeId_odeljenja { get; set; }
+
 
 
     public virtual Ucionica Ucionica { get; set; }
 
     public virtual Cas Cas { get; set; }
+
+    public virtual Odeljenje Odeljenje { get; set; }
 
 }
 

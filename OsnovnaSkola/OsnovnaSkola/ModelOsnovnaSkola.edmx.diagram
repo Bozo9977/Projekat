@@ -54,6 +54,7 @@
         <EntityTypeShape EntityType="ModelOsnovnaSkola.ZauzetostUcionice" Width="1.5" PointX="56.5" PointY="30.125" />
         <AssociationConnector Association="ModelOsnovnaSkola.UcionicaZauzetostUcionice" />
         <AssociationConnector Association="ModelOsnovnaSkola.CasZauzetostUcionice" />
+        <AssociationConnector Association="ModelOsnovnaSkola.OdeljenjeZauzetostUcionice" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
