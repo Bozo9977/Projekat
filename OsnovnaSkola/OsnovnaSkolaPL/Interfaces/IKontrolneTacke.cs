@@ -12,7 +12,7 @@ namespace OsnovnaSkolaPL.Interfaces
     public interface IKontrolneTacke
     {
         [OperationContract]
-        bool AddDomaci(DomaciIM domaci);
+        bool AddDomaci(DomaciIM domaci, OblastIM oblast);
         [OperationContract]
         List<KontrolnaTackaIM> GetKTForZaposleni(int idZaposlenog);
         [OperationContract]
@@ -23,7 +23,7 @@ namespace OsnovnaSkolaPL.Interfaces
         bool DeleteDomaci(int domaciID);
 
         [OperationContract]
-        bool AddKontrolni(KontrolniIM kontrolni);
+        bool AddKontrolni(KontrolniIM kontrolni, OblastIM oblast);
         [OperationContract]
         KontrolniIM GetKontrolniById(int kontrolniID);
         [OperationContract]

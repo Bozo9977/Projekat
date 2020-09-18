@@ -24,8 +24,6 @@ public partial class Kontrolna_tacka
 
         this.Rade = new HashSet<Radi>();
 
-        this.Casovi = new HashSet<Cas>();
-
     }
 
 
@@ -43,9 +41,7 @@ public partial class Kontrolna_tacka
 
     public virtual ICollection<Radi> Rade { get; set; }
 
-    [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-
-    public virtual ICollection<Cas> Casovi { get; set; }
+    public virtual Oblast Oblast { get; set; }
 
 }
 

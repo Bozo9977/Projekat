@@ -21,10 +21,10 @@ namespace OsnovnaSkolaUI.Views
     /// </summary>
     public partial class OblastiPredmetaWindow : Window
     {
-        public OblastiPredmetaWindow(PredmetIM predmet, bool creatingPredavanje, bool creatingCas)
+        public OblastiPredmetaWindow(PredmetIM predmet, bool creatingPredavanje, bool creatingKT, KontrolnaTackaIM kt, int odeljenjeID)
         {
             InitializeComponent();
-            DataContext = new OblastiPredmetaViewModel(predmet, creatingPredavanje, creatingCas) { Window = this };
+            DataContext = new OblastiPredmetaViewModel(predmet, creatingPredavanje, creatingKT, kt, odeljenjeID) { Window = this };
         }
     }
 }

@@ -33,26 +33,31 @@ namespace OsnovnaSkolaUI.ViewModel
         public PredmetIM SelectedPredmet { get; set; }
         public string CreatingPredavanje { get; set; }
         public string IzmenaOblasti { get; set; }
-        bool CreatingCas { get; set; } = false;
-        public OblastiPredmetaViewModel(PredmetIM predmet, bool creatingPredavanje, bool creatingCas)
+        bool CreatingKT { get; set; } = false;
+        private KontrolnaTackaIM kontrolna_tacka;
+        private int odeljenjeID;
+        public OblastiPredmetaViewModel(PredmetIM predmet, bool creatingPredavanje, bool creatingKt, KontrolnaTackaIM kt, int odeljenjeID)
         {
-            Oblasti = Channel.Instance.PredmetiProxy.GetOblastiForPRedmet(predmet.Id_predmeta);
+            Oblasti = Channel.Instance.PredmetiProxy.GetOblastiForPredmetForKT(predmet.Id_predmeta);
             ChangeOblastCommand = new MyICommand(OnChangeOblast);
             DeleteOblastCommand = new MyICommand(OnDeleteOblast);
             SelectedPredmet = predmet;
-            if (creatingPredavanje || creatingCas)
+
+            if (creatingPredavanje || creatingKt)
             {
                 CreatingPredavanje = "Visible";
                 IzmenaOblasti = "Hidden";
-               
+                kontrolna_tacka = kt;
+                this.odeljenjeID = odeljenjeID;
             }
             else
             {
+                kontrolna_tacka = kt;
                 CreatingPredavanje = "Hidden";
                 IzmenaOblasti = "Visible";
             }
 
-            CreatingCas = creatingCas;
+            CreatingKT = creatingKt;
             CreatePredavanjeCommand = new MyICommand(OnCreatePredavanje);
         }
 
@@ -74,14 +79,46 @@ namespace OsnovnaSkolaUI.ViewModel
             
             if (SelectedOblast != null)
             {
-                if (CreatingCas)
+                if (CreatingKT)
                 {
                     //new UcenikOdeljenjeWindow(Se)
-                    new AddCasWindow(SelectedOblast, null, null).ShowDialog();
+                    //new AddCasWindow(SelectedOblast, null, null).ShowDialog();
+                    if(kontrolna_tacka is KontrolniIM)
+                    {
+                        if (Channel.Instance.KTProxy.AddKontrolni(kontrolna_tacka as KontrolniIM, SelectedOblast))
+                        {
+                            if (Channel.Instance.ZaposleniProxy.DodeliKontrolneTackeUcenicima(LoggedInZaposleni.Instance.Id_zaposlenog, odeljenjeID, 0))
+                            {
+
+                            }
+                            else
+                            {
+                                MessageBox.Show("Greška pri dodeljivanju KT ucenicima.", "Greška!", MessageBoxButton.OK, MessageBoxImage.Error);
+                            }
+                        }
+                        else
+                        {
+                            MessageBox.Show("Greška prilikom dodavanja.", "Greška!", MessageBoxButton.OK, MessageBoxImage.Error);
+                        }
+                    }else if(kontrolna_tacka is DomaciIM)
+                    {
+                        if(Channel.Instance.KTProxy.AddDomaci(kontrolna_tacka as DomaciIM, SelectedOblast))
+                        {
+                            if (Channel.Instance.ZaposleniProxy.DodeliKontrolneTackeUcenicima(LoggedInZaposleni.Instance.Id_zaposlenog, odeljenjeID, 0))
+                            {
+
+                            }
+                            else
+                            {
+                                MessageBox.Show("Greška pri dodeljivanju KT ucenicima.", "Greška!", MessageBoxButton.OK, MessageBoxImage.Error);
+                            }
+                        }
+                    }
+
                 }
                 else
                 {
-                    new AddPRedavanjeWindow(SelectedOblast, null).ShowDialog();
+                    //new AddPRedavanjeWindow(SelectedOblast, null).ShowDialog();
                 }
                 Window.Close();
             }

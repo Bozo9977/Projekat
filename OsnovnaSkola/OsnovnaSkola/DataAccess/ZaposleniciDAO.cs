@@ -56,11 +56,15 @@ namespace OsnovnaSkola.DataAccess
 
                 if(u!=null && k!=null && z!=null )
                 {
-                    z.Radovi.Add(new Radi() { Kontrolna_tackaId_kontrolne_tacke = idKontrolneTacke, ocena = ocena, UcenikId_ucenika = idUcenika, ZaposleniId_zaposlenog = z.Id_zaposlenog });
+                    Radi rad = new Radi() { Kontrolna_tackaId_kontrolne_tacke = idKontrolneTacke, ocena = ocena, UcenikId_ucenika = idUcenika, ZaposleniId_zaposlenog = z.Id_zaposlenog };
+                    z.Radovi.Add(rad);
                     db.Entry(z).State = EntityState.Modified;
                     db.SaveChanges();
 
-                    db.DodajKontrolnuTackuUceniku(idUcenika, idKontrolneTacke, idZaposlenog, ocena, success);
+                    u.Rade.Add(rad);
+                    db.Entry(u).State = EntityState.Modified;
+                    db.SaveChanges();
+                    //db.DodajKontrolnuTackuUceniku(idUcenika, idKontrolneTacke, idZaposlenog, ocena, success);
                     return true;
                 }
                 else

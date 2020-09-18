@@ -2,7 +2,7 @@
 -- --------------------------------------------------
 -- Entity Designer DDL Script for SQL Server 2005, 2008, 2012 and Azure
 -- --------------------------------------------------
--- Date Created: 09/18/2020 10:56:02
+-- Date Created: 09/18/2020 23:54:57
 -- Generated from EDMX file: C:\Users\Bozo\Desktop\Projekat\Projekat\OsnovnaSkola\OsnovnaSkola\ModelOsnovnaSkola.edmx
 -- --------------------------------------------------
 
@@ -74,17 +74,17 @@ GO
 IF OBJECT_ID(N'[dbo].[FK_UciteljOdeljenje]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[Odeljenja] DROP CONSTRAINT [FK_UciteljOdeljenje];
 GO
-IF OBJECT_ID(N'[dbo].[FK_Kontrolna_tackaCas_Kontrolna_tacka]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[Kontrolna_tackaCas] DROP CONSTRAINT [FK_Kontrolna_tackaCas_Kontrolna_tacka];
-GO
-IF OBJECT_ID(N'[dbo].[FK_Kontrolna_tackaCas_Cas]', 'F') IS NOT NULL
-    ALTER TABLE [dbo].[Kontrolna_tackaCas] DROP CONSTRAINT [FK_Kontrolna_tackaCas_Cas];
-GO
 IF OBJECT_ID(N'[dbo].[FK_UcionicaZauzetostUcionice]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[ZauzetostUcionices] DROP CONSTRAINT [FK_UcionicaZauzetostUcionice];
 GO
 IF OBJECT_ID(N'[dbo].[FK_CasZauzetostUcionice]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[Cas] DROP CONSTRAINT [FK_CasZauzetostUcionice];
+GO
+IF OBJECT_ID(N'[dbo].[FK_OdeljenjeZauzetostUcionice]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[ZauzetostUcionices] DROP CONSTRAINT [FK_OdeljenjeZauzetostUcionice];
+GO
+IF OBJECT_ID(N'[dbo].[FK_Kontrolna_tackaOblast]', 'F') IS NOT NULL
+    ALTER TABLE [dbo].[Kontrolna_tacka] DROP CONSTRAINT [FK_Kontrolna_tackaOblast];
 GO
 IF OBJECT_ID(N'[dbo].[FK_Nastavnik_inherits_Zaposleni]', 'F') IS NOT NULL
     ALTER TABLE [dbo].[Zaposlenici_Nastavnik] DROP CONSTRAINT [FK_Nastavnik_inherits_Zaposleni];
@@ -157,9 +157,6 @@ GO
 IF OBJECT_ID(N'[dbo].[Kontrolna_tacka_Kontrolni]', 'U') IS NOT NULL
     DROP TABLE [dbo].[Kontrolna_tacka_Kontrolni];
 GO
-IF OBJECT_ID(N'[dbo].[Kontrolna_tackaCas]', 'U') IS NOT NULL
-    DROP TABLE [dbo].[Kontrolna_tackaCas];
-GO
 
 -- --------------------------------------------------
 -- Creating all tables
@@ -177,7 +174,8 @@ GO
 CREATE TABLE [dbo].[Kontrolna_tacka] (
     [Id_kontrolne_tacke] int IDENTITY(1,1) NOT NULL,
     [zadatak] nvarchar(max)  NOT NULL,
-    [ZaposleniId_zaposlenog] int  NOT NULL
+    [ZaposleniId_zaposlenog] int  NOT NULL,
+    [Oblast_Id_oblasti] int  NOT NULL
 );
 GO
 
@@ -313,13 +311,6 @@ CREATE TABLE [dbo].[Kontrolna_tacka_Kontrolni] (
 );
 GO
 
--- Creating table 'Kontrolna_tackaCas'
-CREATE TABLE [dbo].[Kontrolna_tackaCas] (
-    [Kontrolna_tacka_Id_kontrolne_tacke] int  NOT NULL,
-    [Casovi_Id_casa] int  NOT NULL
-);
-GO
-
 -- --------------------------------------------------
 -- Creating all PRIMARY KEY constraints
 -- --------------------------------------------------
@@ -430,12 +421,6 @@ GO
 ALTER TABLE [dbo].[Kontrolna_tacka_Kontrolni]
 ADD CONSTRAINT [PK_Kontrolna_tacka_Kontrolni]
     PRIMARY KEY CLUSTERED ([Id_kontrolne_tacke] ASC);
-GO
-
--- Creating primary key on [Kontrolna_tacka_Id_kontrolne_tacke], [Casovi_Id_casa] in table 'Kontrolna_tackaCas'
-ALTER TABLE [dbo].[Kontrolna_tackaCas]
-ADD CONSTRAINT [PK_Kontrolna_tackaCas]
-    PRIMARY KEY CLUSTERED ([Kontrolna_tacka_Id_kontrolne_tacke], [Casovi_Id_casa] ASC);
 GO
 
 -- --------------------------------------------------
@@ -703,30 +688,6 @@ ON [dbo].[Odeljenja]
     ([Ucitelj_Id_zaposlenog]);
 GO
 
--- Creating foreign key on [Kontrolna_tacka_Id_kontrolne_tacke] in table 'Kontrolna_tackaCas'
-ALTER TABLE [dbo].[Kontrolna_tackaCas]
-ADD CONSTRAINT [FK_Kontrolna_tackaCas_Kontrolna_tacka]
-    FOREIGN KEY ([Kontrolna_tacka_Id_kontrolne_tacke])
-    REFERENCES [dbo].[Kontrolna_tacka]
-        ([Id_kontrolne_tacke])
-    ON DELETE NO ACTION ON UPDATE NO ACTION;
-GO
-
--- Creating foreign key on [Casovi_Id_casa] in table 'Kontrolna_tackaCas'
-ALTER TABLE [dbo].[Kontrolna_tackaCas]
-ADD CONSTRAINT [FK_Kontrolna_tackaCas_Cas]
-    FOREIGN KEY ([Casovi_Id_casa])
-    REFERENCES [dbo].[Cas]
-        ([Id_casa])
-    ON DELETE NO ACTION ON UPDATE NO ACTION;
-GO
-
--- Creating non-clustered index for FOREIGN KEY 'FK_Kontrolna_tackaCas_Cas'
-CREATE INDEX [IX_FK_Kontrolna_tackaCas_Cas]
-ON [dbo].[Kontrolna_tackaCas]
-    ([Casovi_Id_casa]);
-GO
-
 -- Creating foreign key on [UcionicaId_ucionice] in table 'ZauzetostUcionices'
 ALTER TABLE [dbo].[ZauzetostUcionices]
 ADD CONSTRAINT [FK_UcionicaZauzetostUcionice]
@@ -770,6 +731,21 @@ GO
 CREATE INDEX [IX_FK_OdeljenjeZauzetostUcionice]
 ON [dbo].[ZauzetostUcionices]
     ([OdeljenjeId_odeljenja]);
+GO
+
+-- Creating foreign key on [Oblast_Id_oblasti] in table 'Kontrolna_tacka'
+ALTER TABLE [dbo].[Kontrolna_tacka]
+ADD CONSTRAINT [FK_Kontrolna_tackaOblast]
+    FOREIGN KEY ([Oblast_Id_oblasti])
+    REFERENCES [dbo].[Oblasti]
+        ([Id_oblasti])
+    ON DELETE NO ACTION ON UPDATE NO ACTION;
+GO
+
+-- Creating non-clustered index for FOREIGN KEY 'FK_Kontrolna_tackaOblast'
+CREATE INDEX [IX_FK_Kontrolna_tackaOblast]
+ON [dbo].[Kontrolna_tacka]
+    ([Oblast_Id_oblasti]);
 GO
 
 -- Creating foreign key on [Id_zaposlenog] in table 'Zaposlenici_Nastavnik'

@@ -26,8 +26,6 @@ public partial class Cas
 
         this.Prisustva = new HashSet<Prisustvo>();
 
-        this.Kontrolna_tacka = new HashSet<Kontrolna_tacka>();
-
     }
 
 
@@ -50,10 +48,6 @@ public partial class Cas
     public virtual ICollection<Prisustvo> Prisustva { get; set; }
 
     public virtual Zaposleni Zaposleni { get; set; }
-
-    [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-
-    public virtual ICollection<Kontrolna_tacka> Kontrolna_tacka { get; set; }
 
     public virtual ZauzetostUcionice ZauzetostUcionice { get; set; }
 

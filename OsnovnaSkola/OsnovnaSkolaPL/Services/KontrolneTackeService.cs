@@ -15,30 +15,65 @@ namespace OsnovnaSkolaPL.Services
     {
         private static DomaciDAO domaciDAO = new DomaciDAO();
         private static KontrolniDAO kontrolniDAO = new KontrolniDAO();
+        private static OblastDAO oblastDAO = new OblastDAO();
 
-        public bool AddDomaci(DomaciIM domaci)
+        public bool AddDomaci(DomaciIM domaci, OblastIM oblast)
         {
-            Domaci d = new Domaci()
+            using(var db = new ModelOsnovnaSkolaContainer())
             {
-                ZaposleniId_zaposlenog = domaci.ZaposleniId_zaposlenog,
-                dan_predaje = domaci.dan_predaje,
-                dan_zadavanja = domaci.dan_zadavanja,
-                zadatak = domaci.zadatak,
-            };
+                try
+                {
+                    Oblast o = db.Oblasti.Include(x => x.Kontrolna_tacka).SingleOrDefault(x => x.Id_oblasti == oblast.Id_oblasti);
+                    Domaci d = new Domaci()
+                    {
+                        ZaposleniId_zaposlenog = domaci.ZaposleniId_zaposlenog,
+                        dan_predaje = domaci.dan_predaje,
+                        dan_zadavanja = domaci.dan_zadavanja,
+                        zadatak = domaci.zadatak,
+                        Oblast = o
+                    };
 
-            return domaciDAO.Insert(d);
+                    db.Kontrolna_tacka.Add(d);
+                    db.SaveChanges();
+                    return true;
+                }catch(Exception e)
+                {
+                    Console.WriteLine("Message: " + e.Message + "\nInner: " + e.InnerException.Message);
+                    return false;
+                }
+                
+
+            }
         }
 
-        public bool AddKontrolni(KontrolniIM kontrolni)
+        public bool AddKontrolni(KontrolniIM kontrolni, OblastIM oblast)
         {
-            Kontrolni k = new Kontrolni()
-            {
-                ZaposleniId_zaposlenog = kontrolni.ZaposleniId_zaposlenog,
-                datum_odrzavanja = kontrolni.datum_odrzavanja,
-                zadatak = kontrolni.zadatak
-            };
 
-            return kontrolniDAO.Insert(k);
+            using (var db = new ModelOsnovnaSkolaContainer())
+            {
+                try
+                {
+                    Oblast o = db.Oblasti.Find(oblast.Id_oblasti);
+                    Kontrolni d = new Kontrolni()
+                    {
+                        ZaposleniId_zaposlenog = kontrolni.ZaposleniId_zaposlenog,
+                        datum_odrzavanja = kontrolni.datum_odrzavanja,
+                        zadatak = kontrolni.zadatak,
+                        Oblast = o
+                    };
+
+                    db.Kontrolna_tacka.Add(d);
+                    db.SaveChanges();
+                    return true;
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine("Message: " + e.Message + "\nInner: " + e.InnerException.Message);
+                    return false;
+                }
+
+
+            }
         }
 
         public bool ChangeDomaci(DomaciIM domaci)

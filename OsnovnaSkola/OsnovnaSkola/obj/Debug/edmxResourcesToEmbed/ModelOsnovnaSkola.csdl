@@ -89,21 +89,6 @@
       <End Role="Ucitelj" EntitySet="Zaposlenici" />
       <End Role="Odeljenje" EntitySet="Odeljenja" />
     </AssociationSet>
-    <AssociationSet Name="Kontrolna_tackaCas" Association="ModelOsnovnaSkola.Kontrolna_tackaCas">
-      <End Role="Kontrolna_tacka" EntitySet="Kontrolna_tacka" />
-      <End Role="Cas" EntitySet="Cas" />
-    </AssociationSet>
-    <FunctionImport Name="DodajKontrolnuTackuUceniku">
-      <Parameter Name="idUcenika" Mode="In" Type="Int32" />
-      <Parameter Name="idZaposlenog" Mode="In" Type="Int32" />
-      <Parameter Name="idKontrolneTacke" Mode="In" Type="Int32" />
-      <Parameter Name="ocena" Mode="In" Type="Int16" />
-      <Parameter Name="success" Mode="InOut" Type="Boolean" />
-    </FunctionImport>
-    <FunctionImport Name="GetKontrolnuTackuAndRadeForZaposleniAndKontrolnaTacka" IsComposable="true" ReturnType="Collection(ModelOsnovnaSkola.GetKontrolnuTackuAndRadeForZaposleniAndKontrolnaTacka_Result)">
-      <Parameter Name="idZaposlenog" Mode="In" Type="Int32" />
-      <Parameter Name="idKontrolneTacke" Mode="In" Type="Int32" />
-    </FunctionImport>
     <EntitySet Name="Ucionicas" EntityType="ModelOsnovnaSkola.Ucionica" />
     <EntitySet Name="ZauzetostUcionices" EntityType="ModelOsnovnaSkola.ZauzetostUcionice" />
     <AssociationSet Name="UcionicaZauzetostUcionice" Association="ModelOsnovnaSkola.UcionicaZauzetostUcionice">
@@ -118,6 +103,21 @@
       <End Role="Odeljenje" EntitySet="Odeljenja" />
       <End Role="ZauzetostUcionice" EntitySet="ZauzetostUcionices" />
     </AssociationSet>
+    <AssociationSet Name="Kontrolna_tackaOblast" Association="ModelOsnovnaSkola.Kontrolna_tackaOblast">
+      <End Role="Kontrolna_tacka" EntitySet="Kontrolna_tacka" />
+      <End Role="Oblast" EntitySet="Oblasti" />
+    </AssociationSet>
+    <FunctionImport Name="DodajKontrolnuTackuUceniku">
+      <Parameter Name="idUcenika" Mode="In" Type="Int32" />
+      <Parameter Name="idZaposlenog" Mode="In" Type="Int32" />
+      <Parameter Name="idKontrolneTacke" Mode="In" Type="Int32" />
+      <Parameter Name="ocena" Mode="In" Type="Int16" />
+      <Parameter Name="success" Mode="InOut" Type="Boolean" />
+    </FunctionImport>
+    <FunctionImport Name="GetKontrolnuTackuAndRadeForZaposleniAndKontrolnaTacka" IsComposable="true" ReturnType="Collection(ModelOsnovnaSkola.GetKontrolnuTackuAndRadeForZaposleniAndKontrolnaTacka_Result)">
+      <Parameter Name="idZaposlenog" Mode="In" Type="Int32" />
+      <Parameter Name="idKontrolneTacke" Mode="In" Type="Int32" />
+    </FunctionImport>
   </EntityContainer>
   <EntityType Name="Zaposleni">
     <Key>
@@ -130,7 +130,7 @@
     <NavigationProperty Name="Prisustva" Relationship="ModelOsnovnaSkola.Evidentira" FromRole="Zaposleni" ToRole="Prisustvo" />
     <NavigationProperty Name="Radovi" Relationship="ModelOsnovnaSkola.ZaposleniRadi" FromRole="Zaposleni" ToRole="Radi" />
     <NavigationProperty Name="Predavanja" Relationship="ModelOsnovnaSkola.ZaposleniPredavanje" FromRole="Zaposleni" ToRole="Predavanje" />
-    <Property Name="korisnicko_ime" Type="String" Nullable="false" />
+    <Property Name="korisnicko_ime" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
   </EntityType>
   <EntityType Name="Ucitelj" BaseType="ModelOsnovnaSkola.Zaposleni">
     <NavigationProperty Name="Odeljenje" Relationship="ModelOsnovnaSkola.UciteljOdeljenje" FromRole="Ucitelj" ToRole="Odeljenje" />
@@ -149,7 +149,7 @@
     <NavigationProperty Name="Zaposleni" Relationship="ModelOsnovnaSkola.Zadaje" FromRole="Kontrolna_tacka" ToRole="Zaposleni" />
     <Property Name="ZaposleniId_zaposlenog" Type="Int32" Nullable="false" />
     <NavigationProperty Name="Rade" Relationship="ModelOsnovnaSkola.Kontrolna_tackaRadi" FromRole="Kontrolna_tacka" ToRole="Radi" />
-    <NavigationProperty Name="Casovi" Relationship="ModelOsnovnaSkola.Kontrolna_tackaCas" FromRole="Kontrolna_tacka" ToRole="Cas" />
+    <NavigationProperty Name="Oblast" Relationship="ModelOsnovnaSkola.Kontrolna_tackaOblast" FromRole="Kontrolna_tacka" ToRole="Oblast" />
   </EntityType>
   <EntityType Name="Domaci" BaseType="ModelOsnovnaSkola.Kontrolna_tacka">
     <Property Name="dan_zadavanja" Type="DateTime" Nullable="false" Precision="3" />
@@ -180,6 +180,7 @@
     <NavigationProperty Name="Predmet" Relationship="ModelOsnovnaSkola.PredmetOblast" FromRole="Oblast" ToRole="Predmet" />
     <Property Name="PredmetId_predmeta" Type="Int32" Nullable="false" />
     <NavigationProperty Name="Casovi" Relationship="ModelOsnovnaSkola.Predjena" FromRole="Oblast" ToRole="Cas" />
+    <NavigationProperty Name="Kontrolna_tacka" Relationship="ModelOsnovnaSkola.Kontrolna_tackaOblast" FromRole="Oblast" ToRole="Kontrolna_tacka" />
   </EntityType>
   <EntityType Name="Cas">
     <Key>
@@ -192,7 +193,6 @@
     <NavigationProperty Name="Prisustva" Relationship="ModelOsnovnaSkola.CasPrisustvo" FromRole="Cas" ToRole="Prisustvo" />
     <NavigationProperty Name="Zaposleni" Relationship="ModelOsnovnaSkola.Drzi" FromRole="Cas" ToRole="Zaposleni" />
     <Property Name="ZaposleniId_zaposlenog" Type="Int32" Nullable="false" />
-    <NavigationProperty Name="Kontrolna_tacka" Relationship="ModelOsnovnaSkola.Kontrolna_tackaCas" FromRole="Cas" ToRole="Kontrolna_tacka" />
     <NavigationProperty Name="ZauzetostUcionice" Relationship="ModelOsnovnaSkola.CasZauzetostUcionice" FromRole="Cas" ToRole="ZauzetostUcionice" />
   </EntityType>
   <EntityType Name="Predmet">
@@ -228,7 +228,7 @@
     <NavigationProperty Name="Odeljenje" Relationship="ModelOsnovnaSkola.Pripada" FromRole="Ucenik" ToRole="Odeljenje" />
     <NavigationProperty Name="Prisustva" Relationship="ModelOsnovnaSkola.UcenikPrisustvo" FromRole="Ucenik" ToRole="Prisustvo" />
     <NavigationProperty Name="Rade" Relationship="ModelOsnovnaSkola.UcenikRadi" FromRole="Ucenik" ToRole="Radi" />
-    <Property Name="Roditelj" Type="String" Nullable="true" />
+    <Property Name="Roditelj" Type="String" Nullable="true" MaxLength="Max" Unicode="true" FixedLength="false" />
   </EntityType>
   <Association Name="Zadaje">
     <End Type="ModelOsnovnaSkola.Zaposleni" Role="Zaposleni" Multiplicity="1" />
@@ -489,33 +489,6 @@
     <End Type="ModelOsnovnaSkola.Ucitelj" Role="Ucitelj" Multiplicity="0..1" />
     <End Type="ModelOsnovnaSkola.Odeljenje" Role="Odeljenje" Multiplicity="0..1" />
   </Association>
-  <Association Name="Kontrolna_tackaCas">
-    <End Type="ModelOsnovnaSkola.Kontrolna_tacka" Role="Kontrolna_tacka" Multiplicity="*" />
-    <End Type="ModelOsnovnaSkola.Cas" Role="Cas" Multiplicity="*" />
-  </Association>
-  <ComplexType Name="GetKontrolnuTackuAndRade_Result">
-    <Property Type="Int32" Name="Id_kontrolne_tacke" Nullable="true" />
-    <Property Type="String" Name="zadatak" Nullable="true" MaxLength="100" />
-    <Property Type="Int16" Name="ocena" Nullable="true" />
-  </ComplexType>
-  <ComplexType Name="GetKontrolnuTackuAndRadeForZaposleni_Result">
-    <Property Type="Int32" Name="Id_kontrolne_tacke" Nullable="true" />
-    <Property Type="String" Name="zadatak" Nullable="true" MaxLength="100" />
-    <Property Type="Int16" Name="ocena" Nullable="true" />
-  </ComplexType>
-  <ComplexType Name="GetKontrolnuTackuAndRadeForZaposleniAndKT_Result">
-    <Property Type="Int32" Name="Id_kontrolne_tacke" Nullable="true" />
-    <Property Type="String" Name="zadatak" Nullable="true" MaxLength="100" />
-    <Property Type="Int16" Name="ocena" Nullable="true" />
-    <Property Type="Int32" Name="UcenikId_ucenika" Nullable="true" />
-  </ComplexType>
-  <ComplexType Name="GetKontrolnuTackuAndRadeForZaposleniAndKontrolnaTacka_Result">
-    <Property Type="Int32" Name="Id_kontrolne_tacke" Nullable="true" />
-    <Property Type="String" Name="zadatak" Nullable="true" MaxLength="100" />
-    <Property Type="Int16" Name="ocena" Nullable="true" />
-    <Property Type="Int32" Name="UcenikId_ucenika" Nullable="true" />
-    <Property Type="Int32" Name="ZaposleniId_zaposlenog" Nullable="true" />
-  </ComplexType>
   <EntityType Name="Ucionica">
     <Key>
       <PropertyRef Name="Id_ucionice" />
@@ -523,7 +496,7 @@
     <Property Name="Id_ucionice" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="broj_ucenika" Type="Int32" Nullable="false" />
     <NavigationProperty Name="ZauzetostUcionices" Relationship="ModelOsnovnaSkola.UcionicaZauzetostUcionice" FromRole="Ucionica" ToRole="ZauzetostUcionice" />
-    <Property Name="naziv" Type="String" Nullable="false" />
+    <Property Name="naziv" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
   </EntityType>
   <EntityType Name="ZauzetostUcionice">
     <Key>
@@ -533,8 +506,8 @@
     <NavigationProperty Name="Ucionica" Relationship="ModelOsnovnaSkola.UcionicaZauzetostUcionice" FromRole="ZauzetostUcionice" ToRole="Ucionica" />
     <Property Name="UcionicaId_ucionice" Type="Int32" Nullable="false" />
     <NavigationProperty Name="Cas" Relationship="ModelOsnovnaSkola.CasZauzetostUcionice" FromRole="ZauzetostUcionice" ToRole="Cas" />
-    <Property Name="pocetak" Type="Time" Nullable="false" />
-    <Property Name="datum" Type="DateTime" Nullable="false" />
+    <Property Name="pocetak" Type="Time" Nullable="false" Precision="7" />
+    <Property Name="datum" Type="DateTime" Nullable="false" Precision="3" />
     <NavigationProperty Name="Odeljenje" Relationship="ModelOsnovnaSkola.OdeljenjeZauzetostUcionice" FromRole="ZauzetostUcionice" ToRole="Odeljenje" />
     <Property Name="OdeljenjeId_odeljenja" Type="Int32" Nullable="false" />
   </EntityType>
@@ -566,4 +539,15 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="Kontrolna_tackaOblast">
+    <End Type="ModelOsnovnaSkola.Kontrolna_tacka" Role="Kontrolna_tacka" Multiplicity="0..1" />
+    <End Type="ModelOsnovnaSkola.Oblast" Role="Oblast" Multiplicity="1" />
+  </Association>
+  <ComplexType Name="GetKontrolnuTackuAndRadeForZaposleniAndKontrolnaTacka_Result">
+    <Property Type="Int32" Name="Id_kontrolne_tacke" Nullable="true" />
+    <Property Type="String" Name="zadatak" Nullable="true" MaxLength="100" />
+    <Property Type="Int16" Name="ocena" Nullable="true" />
+    <Property Type="Int32" Name="UcenikId_ucenika" Nullable="true" />
+    <Property Type="Int32" Name="ZaposleniId_zaposlenog" Nullable="true" />
+  </ComplexType>
 </Schema>

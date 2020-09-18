@@ -648,7 +648,8 @@
         <Button Content="IzmeniUcionicu" Command="{Binding ChangeUcionicaCommand}" Visibility="{Binding AuthorizeAdmin}" Background="Transparent"  FontFamily="Segoe UI" Foreground="#FFFBFB9F" BorderBrush="white" Width="162" FontSize="22" Margin="231,595,0,0" HorizontalAlignment="Left" Height="44" VerticalAlignment="Top" RenderTransformOrigin="0.47,5.777" />
         <Button Content="ObrisiUcionicu" Command="{Binding DeleteUcionicaCommand}" Visibility="{Binding AuthorizeAdmin}" Background="Transparent"  FontFamily="Segoe UI" Foreground="#FFFBFB9F" BorderBrush="white" Width="162" FontSize="22" Margin="150,639,0,0" HorizontalAlignment="Left" Height="44" VerticalAlignment="Top" RenderTransformOrigin="0.47,5.777" />
         
-        <Button Content="Raspored" HorizontalAlignment="Left" Command="{Binding GetRasporedCommand}" Visibility="{Binding IsAdmin}" Height="44" Margin="994,76,0,0" VerticalAlignment="Top" Width="170" Foreground="#FFFBFB9F" Background="Transparent"  FontFamily="Segoe UI" BorderBrush="YellowGreen" FontSize="22" />
+        <Button Content="Raspored" HorizontalAlignment="Left" Command="{Binding GetRasporedCommand}" Visibility="{Binding IsAdmin}" Height="44" Margin="10,235,0,0" VerticalAlignment="Top" Width="170" Foreground="#FFFBFB9F" Background="Transparent"  FontFamily="Segoe UI" BorderBrush="YellowGreen" FontSize="22" />
+        <Button Content="Pošalji izveštaje" HorizontalAlignment="Left" Command="{Binding SendReportsCommand}" Visibility="{Binding IsAdmin}" Height="44" Margin="1010,76,0,0" VerticalAlignment="Top" Width="170" Foreground="#FFFBFB9F" Background="Transparent"  FontFamily="Segoe UI" BorderBrush="YellowGreen" FontSize="22" />
 
     </Grid>
 </Window>

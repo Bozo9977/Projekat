@@ -48,6 +48,7 @@ namespace OsnovnaSkolaUI.ViewModel
         public MyICommand ChangeUcionicaCommand { get; set; }
         public MyICommand DeleteUcionicaCommand { get; set; }
         public MyICommand GetRasporedCommand { get; set; }
+        public MyICommand SendReportsCommand { get; set; }
 
         #endregion
 
@@ -266,6 +267,13 @@ namespace OsnovnaSkolaUI.ViewModel
             DeleteUcionicaCommand = new MyICommand(ObrisiUcionicu);
 
             GetRasporedCommand = new MyICommand(OnGetRaspored);
+
+            SendReportsCommand = new MyICommand(OnSendReports);
+        }
+
+        public void OnSendReports()
+        {
+            Channel.Instance.ZaposleniProxy.SendReportsToParents(LoggedInZaposleni.Instance.Id_zaposlenog);
         }
 
         public void OnGetRaspored()
@@ -359,7 +367,7 @@ namespace OsnovnaSkolaUI.ViewModel
         {
             if (SelectedPredmet != null)
             {
-                new OblastiPredmetaWindow(SelectedPredmet, true, false).ShowDialog();
+                new OblastiPredmetaWindow(SelectedPredmet, true, false, null, 0).ShowDialog();
                 OnZhangeZaposleni();
             }
             else
@@ -609,7 +617,7 @@ namespace OsnovnaSkolaUI.ViewModel
 
         public void OnChangeOblast()
         {
-            new OblastiPredmetaWindow(SelectedPredmet, false, false).ShowDialog();
+            new OblastiPredmetaWindow(SelectedPredmet, false, false, null, 0).ShowDialog();
             OnChange();
         }
         public void OnChange()

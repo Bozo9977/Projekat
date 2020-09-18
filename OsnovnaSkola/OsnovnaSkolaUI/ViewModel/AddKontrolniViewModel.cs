@@ -1,5 +1,6 @@
 ﻿using OsnovnaSkolaPL.Helpers;
 using OsnovnaSkolaPL.IntermediaryModels;
+using OsnovnaSkolaUI.Views;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,6 +22,16 @@ namespace OsnovnaSkolaUI.ViewModel
         private string naslov { get; set; }
         private string visible { get; set; }
         private string visible2 { get; set; }
+        private List<PredmetIM> predmeti;
+        public List<PredmetIM> Predmeti
+        {
+            get { return predmeti; }
+            set
+            {
+                predmeti = value;
+                OnPropertyChanged("Predmeti");
+            }
+        }
         public string Naslov
         {
             get { return naslov; }
@@ -94,6 +105,7 @@ namespace OsnovnaSkolaUI.ViewModel
         public string DeletionEnabled { get; set; }
 
         public string ButtonContent { get; set; }
+        public PredmetIM SelectedPredmet { get; set; }
 
 
         public OdeljenjeIM SelectedOdeljenje { get; set; }
@@ -105,7 +117,7 @@ namespace OsnovnaSkolaUI.ViewModel
                 changing = true;
                 Visible = "Hidden";
                 Visible2 = "Visible";
-                Naslov = "Promena domaceg";
+                Naslov = "Promena kontrolnog";
                 ButtonContent = "Izmeni";
                 DeletionEnabled = "Visible";
             }
@@ -114,7 +126,7 @@ namespace OsnovnaSkolaUI.ViewModel
                 NoviKontrolni = new KontrolniIM();
                 Visible = "Visible";
                 Visible2 = "Hidden";
-                Naslov = "Novi domaci";
+                Naslov = "Novi kontrolni";
                 NoviKontrolni.datum_odrzavanja = DateTime.Today;
                 ButtonContent = "Dodaj";
                 DeletionEnabled = "Hidden";
@@ -124,6 +136,8 @@ namespace OsnovnaSkolaUI.ViewModel
             SelectedOdeljenje = odeljenje;
             AddKontrolniCommand = new MyICommand(OnAddKontrolni);
             DeleteKontrolniCommand = new MyICommand(OnDeleteKontrolni);
+
+            Predmeti = Channel.Instance.PredmetiProxy.GetPredmetiForZaposleni(LoggedInZaposleni.Instance.Id_zaposlenog);
         }
 
 
@@ -139,8 +153,15 @@ namespace OsnovnaSkolaUI.ViewModel
             {
                 ErrorDatumZadavanja = "Morate izabrati datum zadavanja.";
             }
+            else if (SelectedPredmet == null)
+            {
+                ErrorDatumZadavanja = "Morate izabrati predmet.";
+            }
             else
             {
+
+
+
                 if (changing)
                 {
                     if (Channel.Instance.KTProxy.ChangeKontrolni(NoviKontrolni))
@@ -154,21 +175,22 @@ namespace OsnovnaSkolaUI.ViewModel
                 }
                 else
                 {
-                    if (Channel.Instance.KTProxy.AddKontrolni(NoviKontrolni))
-                    {
-                        if(Channel.Instance.ZaposleniProxy.DodeliKontrolneTackeUcenicima(LoggedInZaposleni.Instance.Id_zaposlenog, SelectedOdeljenje.Id_odeljenja, 0))
-                        {
+                    new OblastiPredmetaWindow(SelectedPredmet, false, true, NoviKontrolni, SelectedOdeljenje.Id_odeljenja).ShowDialog();
+                    //if (Channel.Instance.KTProxy.AddKontrolni(NoviKontrolni))
+                    //{
+                    //    if(Channel.Instance.ZaposleniProxy.DodeliKontrolneTackeUcenicima(LoggedInZaposleni.Instance.Id_zaposlenog, SelectedOdeljenje.Id_odeljenja, 0))
+                    //    {
 
-                        }
-                        else
-                        {
-                            MessageBox.Show("Greška pri dodeljivanju KT ucenicima.", "Greška!", MessageBoxButton.OK, MessageBoxImage.Error);
-                        }
-                    }
-                    else
-                    {
-                        MessageBox.Show("Greška pri dodavanju.", "Greška!", MessageBoxButton.OK, MessageBoxImage.Error);
-                    }
+                    //    }
+                    //    else
+                    //    {
+                    //        MessageBox.Show("Greška pri dodeljivanju KT ucenicima.", "Greška!", MessageBoxButton.OK, MessageBoxImage.Error);
+                    //    }
+                    //}
+                    //else
+                    //{
+                    //    MessageBox.Show("Greška pri dodavanju.", "Greška!", MessageBoxButton.OK, MessageBoxImage.Error);
+                    //}
                 }
                 Window.Close();
             }

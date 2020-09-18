@@ -25,6 +25,14 @@ namespace OsnovnaSkola.DataAccess
             }
         }
 
+        public List<Oblast> GetOblastiForPredmetForKT(int id)
+        {
+            using(var db = new ModelOsnovnaSkolaContainer())
+            {
+                return db.Oblasti.Include(k => k.Kontrolna_tacka).Where(x => x.PredmetId_predmeta == id && x.Kontrolna_tacka == null).ToList();
+            }
+        }
+
         public override bool Delete(object id)
         {
             try

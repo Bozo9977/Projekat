@@ -82,15 +82,6 @@
     <Compile Include="GetKontrolnuTackuAndRadeForZaposleniAndKontrolnaTacka_Result.cs">
       <DependentUpon>ModelOsnovnaSkola.tt</DependentUpon>
     </Compile>
-    <Compile Include="GetKontrolnuTackuAndRadeForZaposleniAndKT_Result.cs">
-      <DependentUpon>ModelOsnovnaSkola.tt</DependentUpon>
-    </Compile>
-    <Compile Include="GetKontrolnuTackuAndRadeForZaposleni_Result.cs">
-      <DependentUpon>ModelOsnovnaSkola.tt</DependentUpon>
-    </Compile>
-    <Compile Include="GetKontrolnuTackuAndRade_Result.cs">
-      <DependentUpon>ModelOsnovnaSkola.tt</DependentUpon>
-    </Compile>
     <Compile Include="Ima.cs">
       <DependentUpon>ModelOsnovnaSkola.tt</DependentUpon>
     </Compile>

@@ -23,5 +23,7 @@ namespace OsnovnaSkolaPL.Interfaces
         bool ChangePredmet(PredmetIM predmet);
         [OperationContract]
         List<PredmetIM> GetPredmetiForZaposleni(int id);
+        [OperationContract]
+        List<OblastIM> GetOblastiForPredmetForKT(int id);
     }
 }

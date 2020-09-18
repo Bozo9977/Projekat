@@ -47,6 +47,8 @@ public partial class Oblast
 
     public virtual ICollection<Cas> Casovi { get; set; }
 
+    public virtual Kontrolna_tacka Kontrolna_tacka { get; set; }
+
 }
 
 }

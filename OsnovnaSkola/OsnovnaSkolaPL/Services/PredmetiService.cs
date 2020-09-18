@@ -50,6 +50,17 @@ namespace OsnovnaSkolaPL.Services
             return retVal;
         }
 
+        public List<OblastIM> GetOblastiForPredmetForKT(int id)
+        {
+            List<Oblast> lista = dao.GetOblastiForPredmetForKT(id);
+            List<OblastIM> retVal = new List<OblastIM>();
+            foreach (var item in lista)
+            {
+                retVal.Add(new OblastIM() { Id_oblasti = item.Id_oblasti, naziv = item.naziv, PredmetId_predmeta = item.PredmetId_predmeta });
+            }
+            return retVal;
+        }
+
         public List<PredmetIM> GetPredmeti()
         {
             List<Predmet> lista = dao.GetAll();
