@@ -312,3 +312,5 @@ C:\Users\Bozo\Desktop\Projekat\Projekat\OsnovnaSkola\OsnovnaSkolaUI\obj\Debug\Vi
 C:\Users\Bozo\Desktop\Projekat\Projekat\OsnovnaSkola\OsnovnaSkolaUI\obj\Debug\Views\AddUcionicaWindow.baml
 C:\Users\Bozo\Desktop\Projekat\Projekat\OsnovnaSkola\OsnovnaSkolaUI\obj\Debug\Views\OblasUcioniceWindow.g.cs
 C:\Users\Bozo\Desktop\Projekat\Projekat\OsnovnaSkola\OsnovnaSkolaUI\obj\Debug\Views\OblasUcioniceWindow.baml
+C:\Users\Bozo\Desktop\Projekat\Projekat\OsnovnaSkola\OsnovnaSkolaUI\obj\Debug\Views\RasporedCasovaWindow.g.cs
+C:\Users\Bozo\Desktop\Projekat\Projekat\OsnovnaSkola\OsnovnaSkolaUI\obj\Debug\Views\RasporedCasovaWindow.baml

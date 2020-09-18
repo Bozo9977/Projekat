@@ -1,4 +1,5 @@
-﻿using System;
+﻿using OsnovnaSkolaUI.ViewModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -22,6 +23,8 @@ namespace OsnovnaSkolaUI.Views
         public RasporedCasovaWindow()
         {
             InitializeComponent();
+            DataContext = new RasporedCasovaViewModel() { Window = this };
         }
+
     }
 }

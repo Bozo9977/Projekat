@@ -47,6 +47,7 @@ namespace OsnovnaSkolaUI.ViewModel
         public MyICommand AddUcionicaCommand { get; set; }
         public MyICommand ChangeUcionicaCommand { get; set; }
         public MyICommand DeleteUcionicaCommand { get; set; }
+        public MyICommand GetRasporedCommand { get; set; }
 
         #endregion
 
@@ -263,6 +264,13 @@ namespace OsnovnaSkolaUI.ViewModel
             AddUcionicaCommand = new MyICommand(NovaUcionica);
             ChangeUcionicaCommand = new MyICommand(IzmeniUcionicu);
             DeleteUcionicaCommand = new MyICommand(ObrisiUcionicu);
+
+            GetRasporedCommand = new MyICommand(OnGetRaspored);
+        }
+
+        public void OnGetRaspored()
+        {
+            new RasporedCasovaWindow().ShowDialog();
         }
 
         public void NovaUcionica()

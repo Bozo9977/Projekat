@@ -22,5 +22,9 @@ namespace OsnovnaSkolaPL.IntermediaryModels
         public int ZaposleniId_zaposlenog { get; set; }
         [DataMember]
         public string ucionica { get; set; }
+        [DataMember]
+        public string odeljenje { get; set; }
+        [DataMember]
+        public string naziv_oblasti { get; set; }
     }
 }

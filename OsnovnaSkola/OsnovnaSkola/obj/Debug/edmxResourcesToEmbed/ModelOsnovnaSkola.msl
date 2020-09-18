@@ -152,6 +152,7 @@
           <ScalarProperty Name="UcionicaId_ucionice" ColumnName="UcionicaId_ucionice" />
           <ScalarProperty Name="pocetak" ColumnName="pocetak" />
           <ScalarProperty Name="datum" ColumnName="datum" />
+          <ScalarProperty Name="OdeljenjeId_odeljenja" ColumnName="OdeljenjeId_odeljenja" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

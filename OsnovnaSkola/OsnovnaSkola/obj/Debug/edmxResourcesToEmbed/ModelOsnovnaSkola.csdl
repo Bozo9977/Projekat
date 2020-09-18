@@ -114,6 +114,10 @@
       <End Role="Cas" EntitySet="Cas" />
       <End Role="ZauzetostUcionice" EntitySet="ZauzetostUcionices" />
     </AssociationSet>
+    <AssociationSet Name="OdeljenjeZauzetostUcionice" Association="ModelOsnovnaSkola.OdeljenjeZauzetostUcionice">
+      <End Role="Odeljenje" EntitySet="Odeljenja" />
+      <End Role="ZauzetostUcionice" EntitySet="ZauzetostUcionices" />
+    </AssociationSet>
   </EntityContainer>
   <EntityType Name="Zaposleni">
     <Key>
@@ -212,6 +216,7 @@
     <NavigationProperty Name="Imaju" Relationship="ModelOsnovnaSkola.OdeljenjeIma" FromRole="Odeljenje" ToRole="Ima" />
     <NavigationProperty Name="NastavnikOdeljenjes" Relationship="ModelOsnovnaSkola.OdeljenjeNastavnikOdeljenje" FromRole="Odeljenje" ToRole="NastavnikOdeljenje" />
     <NavigationProperty Name="Ucitelj" Relationship="ModelOsnovnaSkola.UciteljOdeljenje" FromRole="Odeljenje" ToRole="Ucitelj" />
+    <NavigationProperty Name="ZauzetostUcionices" Relationship="ModelOsnovnaSkola.OdeljenjeZauzetostUcionice" FromRole="Odeljenje" ToRole="ZauzetostUcionice" />
   </EntityType>
   <EntityType Name="Ucenik">
     <Key>
@@ -530,6 +535,8 @@
     <NavigationProperty Name="Cas" Relationship="ModelOsnovnaSkola.CasZauzetostUcionice" FromRole="ZauzetostUcionice" ToRole="Cas" />
     <Property Name="pocetak" Type="Time" Nullable="false" />
     <Property Name="datum" Type="DateTime" Nullable="false" />
+    <NavigationProperty Name="Odeljenje" Relationship="ModelOsnovnaSkola.OdeljenjeZauzetostUcionice" FromRole="ZauzetostUcionice" ToRole="Odeljenje" />
+    <Property Name="OdeljenjeId_odeljenja" Type="Int32" Nullable="false" />
   </EntityType>
   <Association Name="UcionicaZauzetostUcionice">
     <End Type="ModelOsnovnaSkola.Ucionica" Role="Ucionica" Multiplicity="1" />
@@ -546,5 +553,17 @@
   <Association Name="CasZauzetostUcionice">
     <End Type="ModelOsnovnaSkola.Cas" Role="Cas" Multiplicity="1" />
     <End Type="ModelOsnovnaSkola.ZauzetostUcionice" Role="ZauzetostUcionice" Multiplicity="1" />
+  </Association>
+  <Association Name="OdeljenjeZauzetostUcionice">
+    <End Type="ModelOsnovnaSkola.Odeljenje" Role="Odeljenje" Multiplicity="1" />
+    <End Type="ModelOsnovnaSkola.ZauzetostUcionice" Role="ZauzetostUcionice" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Odeljenje">
+        <PropertyRef Name="Id_odeljenja" />
+      </Principal>
+      <Dependent Role="ZauzetostUcionice">
+        <PropertyRef Name="OdeljenjeId_odeljenja" />
+      </Dependent>
+    </ReferentialConstraint>
   </Association>
 </Schema>

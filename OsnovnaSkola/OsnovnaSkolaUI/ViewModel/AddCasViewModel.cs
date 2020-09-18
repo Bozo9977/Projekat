@@ -90,8 +90,21 @@ namespace OsnovnaSkolaUI.ViewModel
         }
         OblastIM Oblast;
         //string button;
+
+        private List<OdeljenjeIM> odeljenja;
+        public List<OdeljenjeIM> Odeljenja
+        {
+            get { return odeljenja; }
+            set
+            {
+                odeljenja = value;
+                OnPropertyChanged("Odeljenja");
+            }
+        }
         public string ButtonContent { get; set; }
+        public OdeljenjeIM SelectedOdeljenje { get; set; }
         public string DeletionEnabled { get; set; }
+        public string Modification { get; set; }
         public AddCasViewModel(OblastIM oblast, UcionicaIM ucionica, CasIM cas)
         {
             if (cas != null)
@@ -102,8 +115,9 @@ namespace OsnovnaSkolaUI.ViewModel
                 //SelectedDatum = DateTime.Today;
                 SelectedDatum = cas.datum;
                 
-                Pocetak = cas.pocetak.ToString();
+                Pocetak = cas.pocetak.ToString("h\\:mm",CultureInfo.CurrentCulture);
                 DeletionEnabled = "Visible";
+                Modification = "Hidden";
             }
             else
             {
@@ -112,8 +126,11 @@ namespace OsnovnaSkolaUI.ViewModel
                 SelectedUcionica = ucionica;
                 SelectedDatum = DateTime.Today.AddDays(1);
                 DeletionEnabled = "Hidden";
+                Modification = "Visible";
             }
             //Pocetak = TimeSpan.N
+
+            Odeljenja = Channel.Instance.OdeljenjaProxy.GetOdeljenjaForZaposleni(LoggedInZaposleni.Instance.Id_zaposlenog);
             AddCasCommand = new MyICommand(OnAddCas);
             DeleteCasCommand = new MyICommand(OnDeleteCas);
         }
@@ -138,27 +155,29 @@ namespace OsnovnaSkolaUI.ViewModel
             {
                 PocetakError = "Časovi se ne mogu održavati pre 07:00h.";
             }
+            else if(SelectedOdeljenje == null && !Izmena)
+            {
+                PocetakError = "Morate izabrati odeljenje.";
+            }
             else
             {
                 if (Izmena)
                 {
                     SelectedCas.datum = SelectedDatum.Date;
                     SelectedCas.pocetak = ts;
-                   
 
-                    if (Channel.Instance.CasovyProxy.ChangeCas(SelectedCas))
+                    string retMsg = "";
+                    if (Channel.Instance.CasovyProxy.ChangeCas(SelectedCas, out retMsg))
                     {
                         MessageBox.Show("Čas uspešno izmenjen.", "Uspeh!", MessageBoxButton.OK, MessageBoxImage.Information);
                     }
                     else
                     {
-                        MessageBox.Show("Greška prilikom menjanja.", "Greška!", MessageBoxButton.OK, MessageBoxImage.Error);
+                        MessageBox.Show(retMsg, "Greška!", MessageBoxButton.OK, MessageBoxImage.Error);
                     }
                 }
                 else
                 {
-                    
-
                     CasIM noviCas = new CasIM()
                     {
                         datum = SelectedDatum.Date,
@@ -168,7 +187,7 @@ namespace OsnovnaSkolaUI.ViewModel
                         ZaposleniId_zaposlenog = LoggedInZaposleni.Instance.Id_zaposlenog
                     };
                     string res;
-                    if (( res = Channel.Instance.CasovyProxy.AddCas(noviCas, SelectedUcionica)) == "")
+                    if (( res = Channel.Instance.CasovyProxy.AddCas(noviCas, SelectedUcionica, SelectedOdeljenje)) == "")
                     //if(!Channel.Instance.CasovyProxy.CheckZauzetostUcionice(SelectedCas, SelectedUcionica))
                     {
                         MessageBox.Show("Čas uspešno dodat.", "Uspeh!", MessageBoxButton.OK, MessageBoxImage.Information);
