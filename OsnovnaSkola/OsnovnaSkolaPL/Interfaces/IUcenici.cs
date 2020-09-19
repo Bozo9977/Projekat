@@ -22,5 +22,7 @@ namespace OsnovnaSkolaPL.Interfaces
 
         [OperationContract]
         bool AddOdeljenjeUceniku(UcenikIM ucenik, OdeljenjeIM odeljenje);
+        [OperationContract]
+        List<UcenikIM> GetUcenikeForCas(CasIM cas);
     }
 }

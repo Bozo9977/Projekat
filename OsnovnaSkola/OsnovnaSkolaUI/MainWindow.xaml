@@ -134,7 +134,7 @@
                     </DataGrid.Columns>
                 </DataGrid>
             </TabItem>
-            
+
             <!--Ucenici-->
             <TabItem Header="Ucenici" Visibility="{Binding AuthorizeAdmin}">
                 <DataGrid Visibility="{Binding AuthorizeAdmin}" ItemsSource="{Binding Ucenici, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" SelectedItem="{Binding SelectedUcenik}" ColumnWidth="*" AutoGenerateColumns="False" IsReadOnly="True">
@@ -616,8 +616,8 @@
                     </DataGrid.Columns>
                 </DataGrid>
             </TabItem>
-            
-            
+
+
 
 
         </TabControl>
@@ -636,20 +636,21 @@
         <Button Content="IzmeniPredmet" Command="{Binding ChangePredmetCommand}" Visibility="{Binding AuthorizeAdmin}" Background="Transparent"  FontFamily="Segoe UI" Foreground="#FFFBFB9F" BorderBrush="white" Width="162" FontSize="22" Margin="231,507,0,0" HorizontalAlignment="Left" Height="44" VerticalAlignment="Top" RenderTransformOrigin="0.47,5.777" />
 
 
-        <Button Content="DodajPredavanje" HorizontalAlignment="Left" Command="{Binding CreatePredavanjeCommand}" Visibility="{Binding IsAdmin}" Height="44" Margin="472,160,0,0" VerticalAlignment="Top" Width="206" Foreground="#FFFBFB9F" Background="Transparent"  FontFamily="Segoe UI" BorderBrush="White" FontSize="22" />
-        <Button Content="IzmeniPredavanje" HorizontalAlignment="Left" Command="{Binding ChangePredavanjeCommand}" Visibility="{Binding IsAdmin}" Height="44" Margin="678,160,0,0" VerticalAlignment="Top" Width="206" Foreground="#FFFBFB9F" Background="Transparent"  FontFamily="Segoe UI" BorderBrush="White" FontSize="22" />
-        <Button Content="ObrisiPredavanje" HorizontalAlignment="Left" Command="{Binding DeletePredavanjeCommand}" Visibility="{Binding IsAdmin}" Height="44" Margin="884,160,0,0" VerticalAlignment="Top" Width="206" Foreground="#FFFBFB9F" Background="Transparent"  FontFamily="Segoe UI" BorderBrush="White" FontSize="22" />
+        <Button Content="NovoPredavanje" HorizontalAlignment="Left" Command="{Binding CreatePredavanjeCommand}" Visibility="{Binding IsAdmin}" Height="44" Margin="493,160,0,0" VerticalAlignment="Top" Width="185" Foreground="#FFFBFB9F" Background="Transparent"  FontFamily="Segoe UI" BorderBrush="White" FontSize="22" />
+        <Button Content="IzmeniPredavanje" HorizontalAlignment="Left" Command="{Binding ChangePredavanjeCommand}" Visibility="{Binding IsAdmin}" Height="44" Margin="678,160,0,0" VerticalAlignment="Top" Width="182" Foreground="#FFFBFB9F" Background="Transparent"  FontFamily="Segoe UI" BorderBrush="White" FontSize="22" />
+        <Button Content="ObrisiPredavanje" HorizontalAlignment="Left" Command="{Binding DeletePredavanjeCommand}" Visibility="{Binding IsAdmin}" Height="44" Margin="860,160,0,0" VerticalAlignment="Top" Width="176" Foreground="#FFFBFB9F" Background="Transparent"  FontFamily="Segoe UI" BorderBrush="White" FontSize="22" />
 
 
-        <Button Content="DodajCas" HorizontalAlignment="Left" Command="{Binding CreateCasCommand}" Visibility="{Binding IsAdmin}" Height="44" Margin="472,76,0,0" VerticalAlignment="Top" Width="122" Foreground="#FFFBFB9F" Background="Transparent"  FontFamily="Segoe UI" BorderBrush="White" FontSize="22" />
-        <Button Content="DodajDomaci" HorizontalAlignment="Left" Command="{Binding CreateDomaciCommand}" Visibility="{Binding IsAdmin}" Height="44" Margin="594,76,0,0" VerticalAlignment="Top" Width="169" Foreground="#FFFBFB9F" Background="Transparent"  FontFamily="Segoe UI" BorderBrush="White" FontSize="22" />
-        <Button Content="DodajKontrolni" HorizontalAlignment="Left" Command="{Binding CreateKontrolniCommand}" Visibility="{Binding IsAdmin}" Height="44" Margin="763,76,0,0" VerticalAlignment="Top" Width="170" Foreground="#FFFBFB9F" Background="Transparent"  FontFamily="Segoe UI" BorderBrush="White" FontSize="22" />
+        <Button Content="DodajCas" HorizontalAlignment="Left" Command="{Binding CreateCasCommand}" Visibility="{Binding IsAdmin}" Height="44" Margin="340,76,0,0" VerticalAlignment="Top" Width="122" Foreground="#FFFBFB9F" Background="Transparent"  FontFamily="Segoe UI" BorderBrush="White" FontSize="22" />
+        <Button Content="DodajDomaci" HorizontalAlignment="Left" Command="{Binding CreateDomaciCommand}" Visibility="{Binding IsAdmin}" Height="44" Margin="521,76,0,0" VerticalAlignment="Top" Width="169" Foreground="#FFFBFB9F" Background="Transparent"  FontFamily="Segoe UI" BorderBrush="White" FontSize="22" />
+        <Button Content="DodajKontrolni" HorizontalAlignment="Left" Command="{Binding CreateKontrolniCommand}" Visibility="{Binding IsAdmin}" Height="44" Margin="690,76,0,0" VerticalAlignment="Top" Width="170" Foreground="#FFFBFB9F" Background="Transparent"  FontFamily="Segoe UI" BorderBrush="White" FontSize="22" />
         <Button Content="NovaUcionica" Command="{Binding AddUcionicaCommand}" Visibility="{Binding AuthorizeAdmin}" Background="Transparent"  FontFamily="Segoe UI" Foreground="#FFFBFB9F" BorderBrush="white" Width="162" FontSize="22" Margin="69,595,0,0" HorizontalAlignment="Left" Height="44" VerticalAlignment="Top" RenderTransformOrigin="0.47,5.777" />
         <Button Content="IzmeniUcionicu" Command="{Binding ChangeUcionicaCommand}" Visibility="{Binding AuthorizeAdmin}" Background="Transparent"  FontFamily="Segoe UI" Foreground="#FFFBFB9F" BorderBrush="white" Width="162" FontSize="22" Margin="231,595,0,0" HorizontalAlignment="Left" Height="44" VerticalAlignment="Top" RenderTransformOrigin="0.47,5.777" />
         <Button Content="ObrisiUcionicu" Command="{Binding DeleteUcionicaCommand}" Visibility="{Binding AuthorizeAdmin}" Background="Transparent"  FontFamily="Segoe UI" Foreground="#FFFBFB9F" BorderBrush="white" Width="162" FontSize="22" Margin="150,639,0,0" HorizontalAlignment="Left" Height="44" VerticalAlignment="Top" RenderTransformOrigin="0.47,5.777" />
-        
+
         <Button Content="Raspored" HorizontalAlignment="Left" Command="{Binding GetRasporedCommand}" Visibility="{Binding IsAdmin}" Height="44" Margin="10,235,0,0" VerticalAlignment="Top" Width="170" Foreground="#FFFBFB9F" Background="Transparent"  FontFamily="Segoe UI" BorderBrush="YellowGreen" FontSize="22" />
         <Button Content="Pošalji izveštaje" HorizontalAlignment="Left" Command="{Binding SendReportsCommand}" Visibility="{Binding IsAdmin}" Height="44" Margin="1010,76,0,0" VerticalAlignment="Top" Width="170" Foreground="#FFFBFB9F" Background="Transparent"  FontFamily="Segoe UI" BorderBrush="YellowGreen" FontSize="22" />
+        <Button Content="Prisustva" HorizontalAlignment="Left" Command="{Binding EvidentirajPrisustvaCommand}" Visibility="{Binding IsAdmin}" Height="44" Margin="340,128,0,0" VerticalAlignment="Top" Width="122" Foreground="#FFFBFB9F" Background="Transparent"  FontFamily="Segoe UI" BorderBrush="White" FontSize="22" />
 
     </Grid>
 </Window>

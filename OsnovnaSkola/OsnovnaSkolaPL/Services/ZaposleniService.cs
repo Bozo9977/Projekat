@@ -392,16 +392,32 @@ namespace OsnovnaSkolaPL.Services
             int od = odsustva;
             Dictionary<string, Tuple<int, int>> d = predmetiOcene;
 
+            string ocene = "Ocene:\n";
+            double ocena = 0;
+
+            if(predmetiOcene.Keys.Count == 0)
+            {
+                ocene += "Trenutno nije uneta nijedna ocena za Vaše dete.";
+            }
+            else
+            {
+                foreach (var predmet in predmetiOcene.Keys)
+                {
+                    ocena = (double)predmetiOcene[predmet].Item1 / (double)predmetiOcene[predmet].Item2;
+                    ocene += $" {predmet} : {Math.Round(ocena,2)} \n";
+                }
+            }
+            
+
             string to = ucenik.Roditelj;
             string from = "bokimaric97@gmail.com";
             MailMessage message = new MailMessage(from, to);
-            message.Subject = "Izveštaj o uspehu učenika";
-            message.Body = $"Vaše dete {ucenik.ime} + {ucenik.prezime}"+
+            message.Subject = "Izveštaj o postignućima učenika";
+            message.Body = $"Vaše dete {ucenik.ime}  {ucenik.prezime}\n"
+                + $"Je ukupno odsustvovalo sa {odsustva} časova.\n\n"
+                + ocene;
 
-
-
-                "\nMolimo Vas da je obavezno promenite pri prvoj prijavi na sistem, radi sigurnosti Vašeg naloga."
-                + "\nVaše korisničko ime je: " ;
+                
             try
             {
                 SmtpClient smtpClient = new SmtpClient("smtp.gmail.com", 587);

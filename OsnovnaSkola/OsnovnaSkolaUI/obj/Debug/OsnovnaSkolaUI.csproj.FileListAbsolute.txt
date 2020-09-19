@@ -314,3 +314,5 @@ C:\Users\Bozo\Desktop\Projekat\Projekat\OsnovnaSkola\OsnovnaSkolaUI\obj\Debug\Vi
 C:\Users\Bozo\Desktop\Projekat\Projekat\OsnovnaSkola\OsnovnaSkolaUI\obj\Debug\Views\OblasUcioniceWindow.baml
 C:\Users\Bozo\Desktop\Projekat\Projekat\OsnovnaSkola\OsnovnaSkolaUI\obj\Debug\Views\RasporedCasovaWindow.g.cs
 C:\Users\Bozo\Desktop\Projekat\Projekat\OsnovnaSkola\OsnovnaSkolaUI\obj\Debug\Views\RasporedCasovaWindow.baml
+C:\Users\Bozo\Desktop\Projekat\Projekat\OsnovnaSkola\OsnovnaSkolaUI\obj\Debug\Views\PrisustvaWindow.g.cs
+C:\Users\Bozo\Desktop\Projekat\Projekat\OsnovnaSkola\OsnovnaSkolaUI\obj\Debug\Views\PrisustvaWindow.baml

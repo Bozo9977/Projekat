@@ -49,6 +49,7 @@ namespace OsnovnaSkolaUI.ViewModel
         public MyICommand DeleteUcionicaCommand { get; set; }
         public MyICommand GetRasporedCommand { get; set; }
         public MyICommand SendReportsCommand { get; set; }
+        public MyICommand EvidentirajPrisustvaCommand { get; set; }
 
         #endregion
 
@@ -269,6 +270,20 @@ namespace OsnovnaSkolaUI.ViewModel
             GetRasporedCommand = new MyICommand(OnGetRaspored);
 
             SendReportsCommand = new MyICommand(OnSendReports);
+
+            EvidentirajPrisustvaCommand = new MyICommand(OnEvidentirajPrisustvo);
+        }
+
+        public void OnEvidentirajPrisustvo()
+        {
+            if(SelectedCas != null)
+            {
+                new PrisustvaWindow(SelectedCas).ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("Prvo izaberite čas.", "Greška!", MessageBoxButton.OK, MessageBoxImage.Warning);
+            }
         }
 
         public void OnSendReports()
@@ -432,9 +447,18 @@ namespace OsnovnaSkolaUI.ViewModel
         }
         public void OnChangeCas()
         {
-            new AddCasWindow(null, null, SelectedCas).ShowDialog();
-            OnZhangeZaposleni();
+            if(SelectedCas != null)
+            {
+                new AddCasWindow(null, null, SelectedCas).ShowDialog();
+                OnZhangeZaposleni();
+            }
+            else
+            {
+                MessageBox.Show("Prvo izaberite čas.", "Greška!", MessageBoxButton.OK, MessageBoxImage.Warning);
+            }
+            
         }
+
         public void OnChangePredavanje()
         {
             if (SelectedPredavanje != null)

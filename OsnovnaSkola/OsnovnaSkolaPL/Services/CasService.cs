@@ -33,6 +33,7 @@ namespace OsnovnaSkolaPL.Services
                         OdeljenjeId_odeljenja = odeljenje.Id_odeljenja
                     }
                 };
+                c.Imaju.Add(new Ima() { Cas = c, OdeljenjeId_odeljenja = odeljenje.Id_odeljenja });
 
                 if (dao.Insert(c))
                     return "";
@@ -260,6 +261,31 @@ namespace OsnovnaSkolaPL.Services
             }
 
             return retVal;
+        }
+
+        public bool EvidentirajPrisustvo(List<UcenikIM> prisutni, CasIM cas)
+        {
+            try
+            {
+                using(var db = new ModelOsnovnaSkolaContainer())
+                {
+                    Cas c = db.Cas.Include(x => x.Prisustva).SingleOrDefault(p => p.Id_casa == cas.Id_casa);
+
+                    foreach(var ucenik in prisutni)
+                    {
+                        c.Prisustva.Add(new Prisustvo() { CasId_casa = c.Id_casa, UcenikId_ucenika = ucenik.Id_ucenika, ZaposleniId_zaposlenog = cas.ZaposleniId_zaposlenog });
+
+                    }
+
+                    db.Entry(c).State = EntityState.Modified;
+                    db.SaveChanges();
+                }
+                return true;
+            }catch(Exception e)
+            {
+                Console.WriteLine("MEssage: "+ e.Message+"\nInner: " + e.InnerException.Message);
+                return false;
+            }
         }
     }
 }

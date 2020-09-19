@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Data.Entity;
 
 namespace OsnovnaSkolaPL.Services
 {
@@ -56,6 +57,26 @@ namespace OsnovnaSkolaPL.Services
             }
 
             return retVal;
+        }
+
+        public List<UcenikIM> GetUcenikeForCas(CasIM cas)
+        {
+            using(var db = new ModelOsnovnaSkolaContainer())
+            {
+                Cas c = db.Cas.Include(p => p.Imaju.Select(t=>t.Odeljenje.Ucenici)).SingleOrDefault(x => x.Id_casa == cas.Id_casa);
+
+                Odeljenje o = c.Imaju.First().Odeljenje;
+
+
+                List<UcenikIM> retVal = new List<UcenikIM>();
+
+                foreach(var u in o.Ucenici)
+                {
+                    retVal.Add(new UcenikIM() { Id_ucenika = u.Id_ucenika, ime = u.ime, prezime = u.prezime, OdeljenjeId_odeljenja = u.Odeljenje.Id_odeljenja });
+                }
+
+                return retVal;
+            }
         }
     }
 }

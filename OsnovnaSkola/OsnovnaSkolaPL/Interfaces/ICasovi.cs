@@ -21,6 +21,8 @@ namespace OsnovnaSkolaPL.Interfaces
         bool DeleteCas(int idCasa);
         [OperationContract]
         List<CasIM> GetCasoviForZaposleniByDate(int idZaposlenog, DateTime date);
+        [OperationContract]
+        bool EvidentirajPrisustvo(List<UcenikIM> prisutni, CasIM cas);
         
     }
 }
