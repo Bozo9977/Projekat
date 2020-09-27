@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:OsnovnaSkolaUI"
         mc:Ignorable="d"
-        Title="MainWindow" WindowStartupLocation="CenterScreen"  Height="764.65" Width="1359" ResizeMode="NoResize" WindowState="Maximized">
+        Title="MainWindow" WindowStartupLocation="CenterScreen"  Height="608.65" Width="918" ResizeMode="CanMinimize" WindowState="Maximized">
     <Grid Background="Black">
         <Grid>
             <Label Content="Ime" FontWeight="Bold" HorizontalAlignment="Left" Margin="10,0,0,0" VerticalAlignment="Top" Foreground="gold"/>
@@ -16,18 +16,78 @@
 
             <Label Content="Zvanje"  FontWeight="Bold" HorizontalAlignment="Left" Margin="10,89,0,0" VerticalAlignment="Top" Foreground="gold" RenderTransformOrigin="0.405,-1.945"/>
             <TextBlock x:Name="Zvanje" HorizontalAlignment="Left" Margin="10,115,0,0" TextWrapping="Wrap" Text="{Binding LoggedIn.zvanje}" VerticalAlignment="Top" Width="124" Foreground="#FFFBFB9F"/>
-            <Button Content="Promeni" Command="{Binding ChangeInfoCommand}" Visibility="{Binding IsAdmin}" Background="Black" HorizontalAlignment="Center" Margin="10,136,1236,0" VerticalAlignment="Top" Width="107" FontSize="22" Foreground="#FFFBFB9F" BorderBrush="gold" Height="40"/>
-            <Button Content="Promeni Lozinku" Command="{Binding ChangePasswordCommand}"  Background="Black" HorizontalAlignment="Center" Margin="10,181,1177,0" VerticalAlignment="Top" Width="166" FontSize="22" Foreground="#FFFBFB9F" BorderBrush="gold" Height="40"/>
+            <!--<Button Content="Promeni" Command="{Binding ChangeInfoCommand}" Visibility="{Binding IsAdmin}" Background="Black" HorizontalAlignment="Center" Margin="10,136,1236,0" VerticalAlignment="Top" Width="107" FontSize="22" Foreground="#FFFBFB9F" BorderBrush="gold" Height="40"/>-->
+            <!--<Button Content="Promeni Lozinku" Command="{Binding ChangePasswordCommand}"  Background="Black" HorizontalAlignment="Center" Margin="10,181,1177,0" VerticalAlignment="Top" Width="166" FontSize="22" Foreground="#FFFBFB9F" BorderBrush="gold" Height="40"/>-->
+            <!--Meni opcije zaposleni-->
+            <Menu HorizontalAlignment="Left" FontSize="16" Height="32" Margin="206,3,0,0" VerticalAlignment="Top" Width="489" Visibility="{Binding AuthorizeZaposleni}">
+                <MenuItem Header="Časovi" Height="32">
+                    <MenuItem Header="Dodaj čas" Command="{Binding CreateCasCommand}"/>
+                    <MenuItem Header="Evidentiraj prisustva" Command="{Binding EvidentirajPrisustvaCommand}"/>
+                </MenuItem>
+                <MenuItem Header="Kontrolne tačke">
+                    <MenuItem Header="Dodaj domaći" Command="{Binding CreateDomaciCommand}"/>
+                    <MenuItem Header="Dodaj kontrolni" Command="{Binding CreateKontrolniCommand}"/>
+                </MenuItem>
+                <MenuItem Header="Predavanja">
+                    <MenuItem Header="Dodaj Predavanje" Command="{Binding CreatePredavanjeCommand}"/>
+                    <MenuItem Header="Izmeni predavanje" Command="{Binding ChangePredavanjeCommand}"/>
+                    <MenuItem Header="Obriši predavanje"  Command="{Binding DeletePredavanjeCommand}"/>
+                </MenuItem>
+                <MenuItem Header="Izveštaji/Raspored">
+                    <MenuItem Header="Pošalji izveštaje o učenicima" Command="{Binding SendReportsCommand}"/>
+                    <MenuItem Header="Prikaži raspored" Command="{Binding GetRasporedCommand}"/>
+                </MenuItem>
+            </Menu>
+            <!--Meni promena info zaposleni-->
+            <Menu HorizontalAlignment="Left" Height="28" Margin="10,131,0,0" VerticalAlignment="Top" Width="77" Visibility="{Binding AuthorizeZaposleni}">
+                <MenuItem Header="Promeni" FontSize="16" >
+                    <MenuItem Header="Lične informacije" Command="{Binding ChangeInfoCommand}" />
+                    <MenuItem Header="Lozinku" Command="{Binding ChangePasswordCommand}"/>
+                </MenuItem>
+            </Menu>
+            <!--Meni promena info admin-->
+            <Menu HorizontalAlignment="Left" Height="28" Margin="10,131,0,0" VerticalAlignment="Top" Width="77" Visibility="{Binding AuthorizeAdmin}">
+                <MenuItem Header="Promeni" FontSize="16" Height="28" Width="77" >
+                    <MenuItem Header="Lozinku" Command="{Binding ChangePasswordCommand}"/>
+                </MenuItem>
+            </Menu>
+            <!--Meni opcije admin-->
+            <Menu HorizontalAlignment="Left" Visibility="{Binding AuthorizeAdmin}" FontSize="16" Height="31" Margin="206,4,0,0" VerticalAlignment="Top" Width="381">
+                <MenuItem Header="Zaposleni" Height="31">
+                    <MenuItem Header="Dodaj zaposlenog" Command="{Binding AddZaposleniCommand}"/>
+                    <MenuItem Header="Obriši zaposlenog" Command="{Binding DeleteZaposleniCommand}"/>
+                </MenuItem>
+                <MenuItem Header="Učenici">
+                    <MenuItem Header="Dodaj učenika" Command="{Binding AddUcenikCommand}"/>
+                    <MenuItem Header="Izmeni učenika" Command="{Binding ChangeUcenikCommand}"/>
+                    <MenuItem Header="Obriši učenika" Command="{Binding DeleteUcenikCommand}"/>
+                </MenuItem>
+                <MenuItem Header="Odeljenja">
+                    <MenuItem Header="Dodaj odeljenje" Command="{Binding AddOdeljenjeCommand}"/>
+                    <MenuItem Header="Izmeni odeljenje"  Command="{Binding ChangeOdeljenjeCommand}"/>
+                    <MenuItem Header="Obriši odeljenje" Command="{Binding DeleteOdeljenjeCommand}"/>
+                </MenuItem>
+                <MenuItem Header="Predmeti">
+                    <MenuItem Header="Dodaj predmet" Command="{Binding AddPredmetCommand}"/>
+                    <MenuItem Header="Izmeni predmet" Command="{Binding ChangePredmetCommand}"/>
+                    <MenuItem Header="Obriši predmet" Command="{Binding DeletePredmetCommand}"/>
+                </MenuItem>
+                <MenuItem Header="Učionice">
+                    <MenuItem Header="Dodaj učionicu" Command="{Binding AddUcionicaCommand}"/>
+                    <MenuItem Header="Izmeni učionicu" Command="{Binding ChangeUcionicaCommand}"/>
+                    <MenuItem Header="Obriši učionicu" Command="{Binding DeleteUcionicaCommand}"/>
+                </MenuItem>
+            </Menu>
+
+
         </Grid>
 
-
-
-        <TabControl Name="TabControl" Margin="472,236,10,10">
+        <TabControl Name="TabControlAdmin" Margin="133,212,90,10" Visibility="{Binding AuthorizeAdmin}">
             <!--Zaposleni-->
             <TabItem Header="Zaposleni" Visibility="{Binding AuthorizeAdmin}">
                 <DataGrid Visibility="{Binding AuthorizeAdmin}" ItemsSource="{Binding Zaposleni, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" SelectedItem="{Binding SelectedZaposleni}" ColumnWidth="*" AutoGenerateColumns="False" IsReadOnly="True">
                     <DataGrid.Columns>
-                        <DataGridTextColumn Header="Id" TextBlock.TextAlignment="Center" Binding="{Binding Id_zaposlenog}" IsReadOnly="True">
+                        <!--<DataGridTextColumn Header="Id" TextBlock.TextAlignment="Center" Binding="{Binding Id_zaposlenog}" IsReadOnly="True">
                             <DataGridTextColumn.ElementStyle>
                                 <Style TargetType="TextBlock">
                                     <Setter Property="TextWrapping" Value="Wrap" />
@@ -35,7 +95,7 @@
                                     <Setter Property="VerticalAlignment" Value="Center" />
                                 </Style>
                             </DataGridTextColumn.ElementStyle>
-                        </DataGridTextColumn>
+                        </DataGridTextColumn>-->
 
                         <DataGridTextColumn Header="Ime" TextBlock.TextAlignment="Center" Binding="{Binding ime}" IsReadOnly="True">
                             <DataGridTextColumn.ElementStyle>
@@ -75,16 +135,15 @@
                             </DataGridTemplateColumn.CellTemplate>
                         </DataGridTemplateColumn>
 
-
                     </DataGrid.Columns>
                 </DataGrid>
             </TabItem>
 
             <!--Ucionice-->
-            <TabItem Header="Ucionice"  Visibility="{Binding AuthorizeAdmin}">
+            <TabItem Header="Učionice"  Visibility="{Binding AuthorizeAdmin}">
                 <DataGrid  Visibility="{Binding AuthorizeAdmin}" ItemsSource="{Binding Ucionice, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" SelectedItem="{Binding SelectedUcionica}" ColumnWidth="*" AutoGenerateColumns="False" IsReadOnly="True">
                     <DataGrid.Columns>
-                        <DataGridTextColumn Header="Id" TextBlock.TextAlignment="Center" Binding="{Binding Id_ucionice}" IsReadOnly="True">
+                        <!--<DataGridTextColumn Header="Id" TextBlock.TextAlignment="Center" Binding="{Binding Id_ucionice}" IsReadOnly="True">
                             <DataGridTextColumn.ElementStyle>
                                 <Style TargetType="TextBlock">
                                     <Setter Property="TextWrapping" Value="Wrap" />
@@ -92,7 +151,7 @@
                                     <Setter Property="VerticalAlignment" Value="Center" />
                                 </Style>
                             </DataGridTextColumn.ElementStyle>
-                        </DataGridTextColumn>
+                        </DataGridTextColumn>-->
 
                         <DataGridTextColumn Header="Naziv" TextBlock.TextAlignment="Center" Binding="{Binding naziv}" IsReadOnly="True">
                             <DataGridTextColumn.ElementStyle>
@@ -105,7 +164,7 @@
                         </DataGridTextColumn>
 
 
-                        <DataGridTextColumn Header="Broj ucenika" TextBlock.TextAlignment="Center" Binding="{Binding broj_ucenika}" IsReadOnly="True">
+                        <DataGridTextColumn Header="Broj učenika" TextBlock.TextAlignment="Center" Binding="{Binding broj_ucenika}" IsReadOnly="True">
                             <DataGridTextColumn.ElementStyle>
                                 <Style TargetType="TextBlock">
                                     <Setter Property="TextWrapping" Value="Wrap" />
@@ -136,10 +195,10 @@
             </TabItem>
 
             <!--Ucenici-->
-            <TabItem Header="Ucenici" Visibility="{Binding AuthorizeAdmin}">
+            <TabItem Header="Učenici" Visibility="{Binding AuthorizeAdmin}">
                 <DataGrid Visibility="{Binding AuthorizeAdmin}" ItemsSource="{Binding Ucenici, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" SelectedItem="{Binding SelectedUcenik}" ColumnWidth="*" AutoGenerateColumns="False" IsReadOnly="True">
                     <DataGrid.Columns>
-                        <DataGridTextColumn Header="Id" TextBlock.TextAlignment="Center" Binding="{Binding Id_ucenika}" IsReadOnly="True">
+                        <!--<DataGridTextColumn Header="Id" TextBlock.TextAlignment="Center" Binding="{Binding Id_ucenika}" IsReadOnly="True">
                             <DataGridTextColumn.ElementStyle>
                                 <Style TargetType="TextBlock">
                                     <Setter Property="TextWrapping" Value="Wrap" />
@@ -147,7 +206,7 @@
                                     <Setter Property="VerticalAlignment" Value="Center" />
                                 </Style>
                             </DataGridTextColumn.ElementStyle>
-                        </DataGridTextColumn>
+                        </DataGridTextColumn>-->
 
                         <DataGridTextColumn Header="Ime" TextBlock.TextAlignment="Center" Binding="{Binding ime}" IsReadOnly="True">
                             <DataGridTextColumn.ElementStyle>
@@ -185,7 +244,7 @@
             <TabItem Header="Odeljenja" Visibility="{Binding AuthorizeAdmin}">
                 <DataGrid Visibility="{Binding AuthorizeAdmin}" ItemsSource="{Binding Odeljenja, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" SelectedItem="{Binding SelectedOdeljenje}" ColumnWidth="*" AutoGenerateColumns="False" IsReadOnly="True">
                     <DataGrid.Columns>
-                        <DataGridTextColumn Header="Id" TextBlock.TextAlignment="Center" Binding="{Binding Id_odeljenja}" IsReadOnly="True">
+                        <!--<DataGridTextColumn Header="Id" TextBlock.TextAlignment="Center" Binding="{Binding Id_odeljenja}" IsReadOnly="True">
                             <DataGridTextColumn.ElementStyle>
                                 <Style TargetType="TextBlock">
                                     <Setter Property="TextWrapping" Value="Wrap" />
@@ -193,7 +252,7 @@
                                     <Setter Property="VerticalAlignment" Value="Center" />
                                 </Style>
                             </DataGridTextColumn.ElementStyle>
-                        </DataGridTextColumn>
+                        </DataGridTextColumn>-->
 
                         <DataGridTextColumn Header="Razred" TextBlock.TextAlignment="Center" Binding="{Binding razred}" IsReadOnly="True">
                             <DataGridTextColumn.ElementStyle>
@@ -236,14 +295,11 @@
                 </DataGrid>
             </TabItem>
 
-
-
-
-            <!--Predmeti-->
+            <!--Predmeti Admin-->
             <TabItem Header="Predmeti" Visibility="{Binding AuthorizeAdmin}">
                 <DataGrid Visibility="{Binding AuthorizeAdmin}" ItemsSource="{Binding Predmeti, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" SelectedItem="{Binding SelectedPredmet}" ColumnWidth="*" AutoGenerateColumns="False" IsReadOnly="True">
                     <DataGrid.Columns>
-                        <DataGridTextColumn Header="Id" TextBlock.TextAlignment="Center" Binding="{Binding Id_predmeta}" IsReadOnly="True">
+                        <!--<DataGridTextColumn Header="Id" TextBlock.TextAlignment="Center" Binding="{Binding Id_predmeta}" IsReadOnly="True">
                             <DataGridTextColumn.ElementStyle>
                                 <Style TargetType="TextBlock">
                                     <Setter Property="TextWrapping" Value="Wrap" />
@@ -251,7 +307,7 @@
                                     <Setter Property="VerticalAlignment" Value="Center" />
                                 </Style>
                             </DataGridTextColumn.ElementStyle>
-                        </DataGridTextColumn>
+                        </DataGridTextColumn>-->
 
                         <DataGridTextColumn Header="Razred" TextBlock.TextAlignment="Center" Binding="{Binding razred}" IsReadOnly="True">
                             <DataGridTextColumn.ElementStyle>
@@ -305,10 +361,16 @@
                 </DataGrid>
             </TabItem>
 
+
+        </TabControl>
+
+
+        <TabControl Name="TabControl" Margin="133,212,90,10" Visibility="{Binding IsAdmin}">
+
             <TabItem Header="Predmeti" Visibility="{Binding IsAdmin}">
                 <DataGrid Visibility="{Binding IsAdmin}" ItemsSource="{Binding Predmeti, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" SelectedItem="{Binding SelectedPredmet}" ColumnWidth="*" AutoGenerateColumns="False" IsReadOnly="True">
                     <DataGrid.Columns>
-                        <DataGridTextColumn Header="Id" TextBlock.TextAlignment="Center" Binding="{Binding Id_predmeta}" IsReadOnly="True">
+                        <!--<DataGridTextColumn Header="Id" TextBlock.TextAlignment="Center" Binding="{Binding Id_predmeta}" IsReadOnly="True">
                             <DataGridTextColumn.ElementStyle>
                                 <Style TargetType="TextBlock">
                                     <Setter Property="TextWrapping" Value="Wrap" />
@@ -316,7 +378,7 @@
                                     <Setter Property="VerticalAlignment" Value="Center" />
                                 </Style>
                             </DataGridTextColumn.ElementStyle>
-                        </DataGridTextColumn>
+                        </DataGridTextColumn>-->
 
                         <DataGridTextColumn Header="Razred" TextBlock.TextAlignment="Center" Binding="{Binding razred}" IsReadOnly="True">
                             <DataGridTextColumn.ElementStyle>
@@ -339,7 +401,7 @@
                             </DataGridTextColumn.ElementStyle>
                         </DataGridTextColumn>
 
-                        <DataGridTextColumn Header="Razred" TextBlock.TextAlignment="Center" Binding="{Binding broj_oblasti}" IsReadOnly="True">
+                        <DataGridTextColumn Header="Broj oblasti" TextBlock.TextAlignment="Center" Binding="{Binding broj_oblasti}" IsReadOnly="True">
                             <DataGridTextColumn.ElementStyle>
                                 <Style TargetType="TextBlock">
                                     <Setter Property="TextWrapping" Value="Wrap" />
@@ -373,7 +435,7 @@
             <TabItem Header="Predavanja" Visibility="{Binding AuthorizeZaposleni}" Height="22" VerticalAlignment="Top">
                 <DataGrid Visibility="{Binding AuthorizeZaposleni}" ItemsSource="{Binding Predavanja, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" SelectedItem="{Binding SelectedPredavanje}" ColumnWidth="*" AutoGenerateColumns="False" IsReadOnly="True">
                     <DataGrid.Columns>
-                        <DataGridTextColumn Header="Id" TextBlock.TextAlignment="Center" Binding="{Binding Id_predavanja}" IsReadOnly="True">
+                        <!--<DataGridTextColumn Header="Id" TextBlock.TextAlignment="Center" Binding="{Binding Id_predavanja}" IsReadOnly="True">
                             <DataGridTextColumn.ElementStyle>
                                 <Style TargetType="TextBlock">
                                     <Setter Property="TextWrapping" Value="Wrap" />
@@ -381,7 +443,7 @@
                                     <Setter Property="VerticalAlignment" Value="Center" />
                                 </Style>
                             </DataGridTextColumn.ElementStyle>
-                        </DataGridTextColumn>
+                        </DataGridTextColumn>-->
 
                         <DataGridTextColumn Header="Opis" TextBlock.TextAlignment="Center" Binding="{Binding opis}" IsReadOnly="True">
                             <DataGridTextColumn.ElementStyle>
@@ -419,7 +481,7 @@
             </TabItem>
 
             <!--Casovi-->
-            <TabItem Header="Casovi" Visibility="{Binding AuthorizeZaposleni}">
+            <TabItem Header="Časovi" Visibility="{Binding AuthorizeZaposleni}">
                 <DataGrid Visibility="{Binding AuthorizeZaposleni}" ItemsSource="{Binding Casovi, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" SelectedItem="{Binding SelectedCas}" ColumnWidth="*" AutoGenerateColumns="False" IsReadOnly="True">
                     <DataGrid.Columns>
 
@@ -433,7 +495,7 @@
                             </DataGridTextColumn.ElementStyle>
                         </DataGridTextColumn>
 
-                        <DataGridTextColumn Header="Pocetak" TextBlock.TextAlignment="Center" Binding="{Binding pocetak}" IsReadOnly="True">
+                        <DataGridTextColumn Header="Početak" TextBlock.TextAlignment="Center" Binding="{Binding pocetak}" IsReadOnly="True">
                             <DataGridTextColumn.ElementStyle>
                                 <Style TargetType="TextBlock">
                                     <Setter Property="TextWrapping" Value="Wrap" />
@@ -487,10 +549,10 @@
 
 
             <!--Kontrolne tacke-->
-            <TabItem Header="Kontrolne tacke" Visibility="{Binding AuthorizeZaposleni}">
+            <TabItem Header="Kontrolne tačke" Visibility="{Binding AuthorizeZaposleni}">
                 <DataGrid Visibility="{Binding AuthorizeZaposleni}" ItemsSource="{Binding KontrolneTacke, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" SelectedItem="{Binding SelectedKT}" ColumnWidth="*" AutoGenerateColumns="False" IsReadOnly="True">
                     <DataGrid.Columns>
-                        <DataGridTextColumn Header="Id" TextBlock.TextAlignment="Center" Binding="{Binding Id_kontrolne_tacke}" IsReadOnly="True">
+                        <!--<DataGridTextColumn Header="Id" TextBlock.TextAlignment="Center" Binding="{Binding Id_kontrolne_tacke}" IsReadOnly="True">
                             <DataGridTextColumn.ElementStyle>
                                 <Style TargetType="TextBlock">
                                     <Setter Property="TextWrapping" Value="Wrap" />
@@ -498,7 +560,7 @@
                                     <Setter Property="VerticalAlignment" Value="Center" />
                                 </Style>
                             </DataGridTextColumn.ElementStyle>
-                        </DataGridTextColumn>
+                        </DataGridTextColumn>-->
 
                         <DataGridTextColumn Header="Zadatak" TextBlock.TextAlignment="Center" Binding="{Binding zadatak}" IsReadOnly="True">
                             <DataGridTextColumn.ElementStyle>
@@ -566,7 +628,7 @@
             <TabItem Header="Odeljenja"  Visibility="{Binding IsAdmin}">
                 <DataGrid  Visibility="{Binding IsAdmin}" ItemsSource="{Binding Odeljenja, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" SelectedItem="{Binding SelectedOdeljenje}" ColumnWidth="*" AutoGenerateColumns="False" IsReadOnly="True">
                     <DataGrid.Columns>
-                        <DataGridTextColumn Header="Id" TextBlock.TextAlignment="Center" Binding="{Binding Id_odeljenja}" IsReadOnly="True">
+                        <!--<DataGridTextColumn Header="Id" TextBlock.TextAlignment="Center" Binding="{Binding Id_odeljenja}" IsReadOnly="True">
                             <DataGridTextColumn.ElementStyle>
                                 <Style TargetType="TextBlock">
                                     <Setter Property="TextWrapping" Value="Wrap" />
@@ -574,7 +636,7 @@
                                     <Setter Property="VerticalAlignment" Value="Center" />
                                 </Style>
                             </DataGridTextColumn.ElementStyle>
-                        </DataGridTextColumn>
+                        </DataGridTextColumn>-->
 
                         <DataGridTextColumn Header="Razred" TextBlock.TextAlignment="Center" Binding="{Binding razred}" IsReadOnly="True">
                             <DataGridTextColumn.ElementStyle>
@@ -623,34 +685,34 @@
         </TabControl>
 
 
-        <Button Content="NoviZaposleni" Command="{Binding AddZaposleniCommand}" Visibility="{Binding AuthorizeAdmin}" Background="Transparent"  FontFamily="Segoe UI" Foreground="#FFFBFB9F" BorderBrush="white" Width="181" FontSize="22" Margin="50,267,0,0" HorizontalAlignment="Left" Height="44" VerticalAlignment="Top" RenderTransformOrigin="0.47,5.777" />
-        <Button Content="ObrisiZaposlenog" HorizontalAlignment="Left" Command="{Binding DeleteZaposleniCommand}" Visibility="{Binding AuthorizeAdmin}" Height="44" Margin="231,267,0,0" VerticalAlignment="Top" Width="206" Foreground="#FFFBFB9F" Background="Transparent"  FontFamily="Segoe UI" BorderBrush="White" FontSize="22" />
-        <Button Content="NoviUcenik" Command="{Binding AddUcenikCommand}" Visibility="{Binding AuthorizeAdmin}" Background="Transparent"  FontFamily="Segoe UI" Foreground="#FFFBFB9F" BorderBrush="white" Width="149" FontSize="22" Margin="82,316,0,0" HorizontalAlignment="Left" Height="44" VerticalAlignment="Top" RenderTransformOrigin="0.47,5.777" />
-        <Button Content="IzmeniUcenika" Command="{Binding ChangeUcenikCommand}" Visibility="{Binding AuthorizeAdmin}" Background="Transparent"  FontFamily="Segoe UI" Foreground="#FFFBFB9F" BorderBrush="white" Width="150" FontSize="22" Margin="231,316,0,0" HorizontalAlignment="Left" Height="44" VerticalAlignment="Top" RenderTransformOrigin="0.47,5.777" />
-        <Button Content="ObrisiUcenika" Command="{Binding DeleteUcenikCommand}" Visibility="{Binding AuthorizeAdmin}" Background="Transparent"  FontFamily="Segoe UI" Foreground="#FFFBFB9F" BorderBrush="white" Width="150" FontSize="22" Margin="162,365,0,0" HorizontalAlignment="Left" Height="44" VerticalAlignment="Top" RenderTransformOrigin="0.47,5.777" />
-        <Button Content="NovoOdeljenje" Command="{Binding AddOdeljenjeCommand}" Visibility="{Binding AuthorizeAdmin}" Background="Transparent"  FontFamily="Segoe UI" Foreground="#FFFBFB9F" BorderBrush="white" Width="162" FontSize="22" Margin="70,414,0,0" HorizontalAlignment="Left" Height="44" VerticalAlignment="Top" RenderTransformOrigin="0.47,5.777" />
-        <Button Content="IzmeniOdeljenje" Command="{Binding ChangeOdeljenjeCommand}" Visibility="{Binding AuthorizeAdmin}" Background="Transparent"  FontFamily="Segoe UI" Foreground="#FFFBFB9F" BorderBrush="white" Width="167" FontSize="22" Margin="231,414,0,0" HorizontalAlignment="Left" Height="44" VerticalAlignment="Top" RenderTransformOrigin="0.47,5.777" />
-        <Button Content="ObrisiOdeljenje" Command="{Binding DeleteOdeljenjeCommand}" Visibility="{Binding AuthorizeAdmin}" Background="Transparent"  FontFamily="Segoe UI" Foreground="#FFFBFB9F" BorderBrush="white" Width="162" FontSize="22" Margin="150,463,0,0" HorizontalAlignment="Left" Height="44" VerticalAlignment="Top" RenderTransformOrigin="0.47,5.777" />
-        <Button Content="NoviPredmet" Command="{Binding AddPredmetCommand}" Visibility="{Binding AuthorizeAdmin}" Background="Transparent"  FontFamily="Segoe UI" Foreground="#FFFBFB9F" BorderBrush="white" Width="162" FontSize="22" Margin="69,507,0,0" HorizontalAlignment="Left" Height="44" VerticalAlignment="Top" RenderTransformOrigin="0.47,5.777" />
-        <Button Content="ObrisiPredmet" Command="{Binding DeletePredmetCommand}" Visibility="{Binding AuthorizeAdmin}" Background="Transparent"  FontFamily="Segoe UI" Foreground="#FFFBFB9F" BorderBrush="white" Width="162" FontSize="22" Margin="150,551,0,0" HorizontalAlignment="Left" Height="44" VerticalAlignment="Top" RenderTransformOrigin="0.47,5.777" />
-        <Button Content="IzmeniPredmet" Command="{Binding ChangePredmetCommand}" Visibility="{Binding AuthorizeAdmin}" Background="Transparent"  FontFamily="Segoe UI" Foreground="#FFFBFB9F" BorderBrush="white" Width="162" FontSize="22" Margin="231,507,0,0" HorizontalAlignment="Left" Height="44" VerticalAlignment="Top" RenderTransformOrigin="0.47,5.777" />
+        <!--<Button Content="NoviZaposleni" Command="{Binding AddZaposleniCommand}" Visibility="{Binding AuthorizeAdmin}" Background="Transparent"  FontFamily="Segoe UI" Foreground="#FFFBFB9F" BorderBrush="white" Width="181" FontSize="22" Margin="50,267,0,0" HorizontalAlignment="Left" Height="44" VerticalAlignment="Top" RenderTransformOrigin="0.47,5.777" />-->
+        <!--<Button Content="ObrisiZaposlenog" HorizontalAlignment="Left" Command="{Binding DeleteZaposleniCommand}" Visibility="{Binding AuthorizeAdmin}" Height="44" Margin="231,267,0,0" VerticalAlignment="Top" Width="206" Foreground="#FFFBFB9F" Background="Transparent"  FontFamily="Segoe UI" BorderBrush="White" FontSize="22" />-->
+        <!--<Button Content="NoviUcenik" Command="{Binding AddUcenikCommand}" Visibility="{Binding AuthorizeAdmin}" Background="Transparent"  FontFamily="Segoe UI" Foreground="#FFFBFB9F" BorderBrush="white" Width="149" FontSize="22" Margin="108,168,0,0" HorizontalAlignment="Left" Height="44" VerticalAlignment="Top" RenderTransformOrigin="0.47,5.777" />-->
+        <!--<Button Content="IzmeniUcenika" Command="{Binding ChangeUcenikCommand}" Visibility="{Binding AuthorizeAdmin}" Background="Transparent"  FontFamily="Segoe UI" Foreground="#FFFBFB9F" BorderBrush="white" Width="150" FontSize="22" Margin="257,168,0,0" HorizontalAlignment="Left" Height="44" VerticalAlignment="Top" RenderTransformOrigin="0.47,5.777" />-->
+        <!--<Button Content="ObrisiUcenika" Command="{Binding DeleteUcenikCommand}" Visibility="{Binding AuthorizeAdmin}" Background="Transparent"  FontFamily="Segoe UI" Foreground="#FFFBFB9F" BorderBrush="white" Width="150" FontSize="22" Margin="188,217,0,0" HorizontalAlignment="Left" Height="44" VerticalAlignment="Top" RenderTransformOrigin="0.47,5.777" />-->
+        <!--<Button Content="NovoOdeljenje" Command="{Binding AddOdeljenjeCommand}" Visibility="{Binding AuthorizeAdmin}" Background="Transparent"  FontFamily="Segoe UI" Foreground="#FFFBFB9F" BorderBrush="white" Width="162" FontSize="22" Margin="96,266,0,0" HorizontalAlignment="Left" Height="44" VerticalAlignment="Top" RenderTransformOrigin="0.47,5.777" />-->
+        <!--<Button Content="IzmeniOdeljenje" Command="{Binding ChangeOdeljenjeCommand}" Visibility="{Binding AuthorizeAdmin}" Background="Transparent"  FontFamily="Segoe UI" Foreground="#FFFBFB9F" BorderBrush="white" Width="167" FontSize="22" Margin="257,266,0,0" HorizontalAlignment="Left" Height="44" VerticalAlignment="Top" RenderTransformOrigin="0.47,5.777" />-->
+        <!--<Button Content="ObrisiOdeljenje" Command="{Binding DeleteOdeljenjeCommand}" Visibility="{Binding AuthorizeAdmin}" Background="Transparent"  FontFamily="Segoe UI" Foreground="#FFFBFB9F" BorderBrush="white" Width="162" FontSize="22" Margin="176,315,0,0" HorizontalAlignment="Left" Height="44" VerticalAlignment="Top" RenderTransformOrigin="0.47,5.777" />-->
+        <!--<Button Content="NoviPredmet" Command="{Binding AddPredmetCommand}" Visibility="{Binding AuthorizeAdmin}" Background="Transparent"  FontFamily="Segoe UI" Foreground="#FFFBFB9F" BorderBrush="white" Width="162" FontSize="22" Margin="108,104,0,0" HorizontalAlignment="Left" Height="44" VerticalAlignment="Top" RenderTransformOrigin="0.47,5.777" />-->
+        <!--<Button Content="ObrisiPredmet" Command="{Binding DeletePredmetCommand}" Visibility="{Binding AuthorizeAdmin}" Background="Transparent"  FontFamily="Segoe UI" Foreground="#FFFBFB9F" BorderBrush="white" Width="162" FontSize="22" Margin="189,148,0,0" HorizontalAlignment="Left" Height="44" VerticalAlignment="Top" RenderTransformOrigin="0.47,5.777" />-->
+        <!--<Button Content="IzmeniPredmet" Command="{Binding ChangePredmetCommand}" Visibility="{Binding AuthorizeAdmin}" Background="Transparent"  FontFamily="Segoe UI" Foreground="#FFFBFB9F" BorderBrush="white" Width="162" FontSize="22" Margin="270,104,0,0" HorizontalAlignment="Left" Height="44" VerticalAlignment="Top" RenderTransformOrigin="0.47,5.777" />-->
 
 
-        <Button Content="NovoPredavanje" HorizontalAlignment="Left" Command="{Binding CreatePredavanjeCommand}" Visibility="{Binding IsAdmin}" Height="44" Margin="493,160,0,0" VerticalAlignment="Top" Width="185" Foreground="#FFFBFB9F" Background="Transparent"  FontFamily="Segoe UI" BorderBrush="White" FontSize="22" />
-        <Button Content="IzmeniPredavanje" HorizontalAlignment="Left" Command="{Binding ChangePredavanjeCommand}" Visibility="{Binding IsAdmin}" Height="44" Margin="678,160,0,0" VerticalAlignment="Top" Width="182" Foreground="#FFFBFB9F" Background="Transparent"  FontFamily="Segoe UI" BorderBrush="White" FontSize="22" />
-        <Button Content="ObrisiPredavanje" HorizontalAlignment="Left" Command="{Binding DeletePredavanjeCommand}" Visibility="{Binding IsAdmin}" Height="44" Margin="860,160,0,0" VerticalAlignment="Top" Width="176" Foreground="#FFFBFB9F" Background="Transparent"  FontFamily="Segoe UI" BorderBrush="White" FontSize="22" />
+        <!--<Button Content="NovoPredavanje" HorizontalAlignment="Left" Command="{Binding CreatePredavanjeCommand}" Visibility="{Binding IsAdmin}" Height="44" Margin="493,160,0,0" VerticalAlignment="Top" Width="185" Foreground="#FFFBFB9F" Background="Transparent"  FontFamily="Segoe UI" BorderBrush="White" FontSize="22" />-->
+        <!--<Button Content="IzmeniPredavanje" HorizontalAlignment="Left" Command="{Binding ChangePredavanjeCommand}" Visibility="{Binding IsAdmin}" Height="44" Margin="678,160,0,0" VerticalAlignment="Top" Width="182" Foreground="#FFFBFB9F" Background="Transparent"  FontFamily="Segoe UI" BorderBrush="White" FontSize="22" />-->
+        <!--<Button Content="ObrisiPredavanje" HorizontalAlignment="Left" Command="{Binding DeletePredavanjeCommand}" Visibility="{Binding IsAdmin}" Height="44" Margin="860,160,0,0" VerticalAlignment="Top" Width="176" Foreground="#FFFBFB9F" Background="Transparent"  FontFamily="Segoe UI" BorderBrush="White" FontSize="22" />-->
 
 
-        <Button Content="DodajCas" HorizontalAlignment="Left" Command="{Binding CreateCasCommand}" Visibility="{Binding IsAdmin}" Height="44" Margin="340,76,0,0" VerticalAlignment="Top" Width="122" Foreground="#FFFBFB9F" Background="Transparent"  FontFamily="Segoe UI" BorderBrush="White" FontSize="22" />
-        <Button Content="DodajDomaci" HorizontalAlignment="Left" Command="{Binding CreateDomaciCommand}" Visibility="{Binding IsAdmin}" Height="44" Margin="521,76,0,0" VerticalAlignment="Top" Width="169" Foreground="#FFFBFB9F" Background="Transparent"  FontFamily="Segoe UI" BorderBrush="White" FontSize="22" />
-        <Button Content="DodajKontrolni" HorizontalAlignment="Left" Command="{Binding CreateKontrolniCommand}" Visibility="{Binding IsAdmin}" Height="44" Margin="690,76,0,0" VerticalAlignment="Top" Width="170" Foreground="#FFFBFB9F" Background="Transparent"  FontFamily="Segoe UI" BorderBrush="White" FontSize="22" />
-        <Button Content="NovaUcionica" Command="{Binding AddUcionicaCommand}" Visibility="{Binding AuthorizeAdmin}" Background="Transparent"  FontFamily="Segoe UI" Foreground="#FFFBFB9F" BorderBrush="white" Width="162" FontSize="22" Margin="69,595,0,0" HorizontalAlignment="Left" Height="44" VerticalAlignment="Top" RenderTransformOrigin="0.47,5.777" />
-        <Button Content="IzmeniUcionicu" Command="{Binding ChangeUcionicaCommand}" Visibility="{Binding AuthorizeAdmin}" Background="Transparent"  FontFamily="Segoe UI" Foreground="#FFFBFB9F" BorderBrush="white" Width="162" FontSize="22" Margin="231,595,0,0" HorizontalAlignment="Left" Height="44" VerticalAlignment="Top" RenderTransformOrigin="0.47,5.777" />
-        <Button Content="ObrisiUcionicu" Command="{Binding DeleteUcionicaCommand}" Visibility="{Binding AuthorizeAdmin}" Background="Transparent"  FontFamily="Segoe UI" Foreground="#FFFBFB9F" BorderBrush="white" Width="162" FontSize="22" Margin="150,639,0,0" HorizontalAlignment="Left" Height="44" VerticalAlignment="Top" RenderTransformOrigin="0.47,5.777" />
+        <!--<Button Content="DodajCas" HorizontalAlignment="Left" Command="{Binding CreateCasCommand}" Visibility="{Binding IsAdmin}" Height="44" Margin="340,76,0,0" VerticalAlignment="Top" Width="122" Foreground="#FFFBFB9F" Background="Transparent"  FontFamily="Segoe UI" BorderBrush="White" FontSize="22" />-->
+        <!--<Button Content="DodajDomaci" HorizontalAlignment="Left" Command="{Binding CreateDomaciCommand}" Visibility="{Binding IsAdmin}" Height="44" Margin="521,76,0,0" VerticalAlignment="Top" Width="169" Foreground="#FFFBFB9F" Background="Transparent"  FontFamily="Segoe UI" BorderBrush="White" FontSize="22" />-->
+        <!--<Button Content="DodajKontrolni" HorizontalAlignment="Left" Command="{Binding CreateKontrolniCommand}" Visibility="{Binding IsAdmin}" Height="44" Margin="690,76,0,0" VerticalAlignment="Top" Width="170" Foreground="#FFFBFB9F" Background="Transparent"  FontFamily="Segoe UI" BorderBrush="White" FontSize="22" />-->
+        <!--<Button Content="NovaUcionica" Command="{Binding AddUcionicaCommand}" Visibility="{Binding AuthorizeAdmin}" Background="Transparent"  FontFamily="Segoe UI" Foreground="#FFFBFB9F" BorderBrush="white" Width="162" FontSize="22" Margin="108,192,0,0" HorizontalAlignment="Left" Height="44" VerticalAlignment="Top" RenderTransformOrigin="0.47,5.777" />-->
+        <!--<Button Content="IzmeniUcionicu" Command="{Binding ChangeUcionicaCommand}" Visibility="{Binding AuthorizeAdmin}" Background="Transparent"  FontFamily="Segoe UI" Foreground="#FFFBFB9F" BorderBrush="white" Width="162" FontSize="22" Margin="270,192,0,0" HorizontalAlignment="Left" Height="44" VerticalAlignment="Top" RenderTransformOrigin="0.47,5.777" />-->
+        <!--<Button Content="ObrisiUcionicu" Command="{Binding DeleteUcionicaCommand}" Visibility="{Binding AuthorizeAdmin}" Background="Transparent"  FontFamily="Segoe UI" Foreground="#FFFBFB9F" BorderBrush="white" Width="162" FontSize="22" Margin="189,236,0,0" HorizontalAlignment="Left" Height="44" VerticalAlignment="Top" RenderTransformOrigin="0.47,5.777" />-->
 
-        <Button Content="Raspored" HorizontalAlignment="Left" Command="{Binding GetRasporedCommand}" Visibility="{Binding IsAdmin}" Height="44" Margin="10,235,0,0" VerticalAlignment="Top" Width="170" Foreground="#FFFBFB9F" Background="Transparent"  FontFamily="Segoe UI" BorderBrush="YellowGreen" FontSize="22" />
-        <Button Content="Pošalji izveštaje" HorizontalAlignment="Left" Command="{Binding SendReportsCommand}" Visibility="{Binding IsAdmin}" Height="44" Margin="1010,76,0,0" VerticalAlignment="Top" Width="170" Foreground="#FFFBFB9F" Background="Transparent"  FontFamily="Segoe UI" BorderBrush="YellowGreen" FontSize="22" />
-        <Button Content="Prisustva" HorizontalAlignment="Left" Command="{Binding EvidentirajPrisustvaCommand}" Visibility="{Binding IsAdmin}" Height="44" Margin="340,128,0,0" VerticalAlignment="Top" Width="122" Foreground="#FFFBFB9F" Background="Transparent"  FontFamily="Segoe UI" BorderBrush="White" FontSize="22" />
+        <!--<Button Content="Raspored" HorizontalAlignment="Left" Command="{Binding GetRasporedCommand}" Visibility="{Binding IsAdmin}" Height="44" Margin="10,235,0,0" VerticalAlignment="Top" Width="170" Foreground="#FFFBFB9F" Background="Transparent"  FontFamily="Segoe UI" BorderBrush="YellowGreen" FontSize="22" />-->
+        <!--<Button Content="Pošalji izveštaje" HorizontalAlignment="Left" Command="{Binding SendReportsCommand}" Visibility="{Binding IsAdmin}" Height="44" Margin="1010,76,0,0" VerticalAlignment="Top" Width="170" Foreground="#FFFBFB9F" Background="Transparent"  FontFamily="Segoe UI" BorderBrush="YellowGreen" FontSize="22" />-->
+        <!--<Button Content="Prisustva" HorizontalAlignment="Left" Command="{Binding EvidentirajPrisustvaCommand}" Visibility="{Binding IsAdmin}" Height="44" Margin="340,128,0,0" VerticalAlignment="Top" Width="122" Foreground="#FFFBFB9F" Background="Transparent"  FontFamily="Segoe UI" BorderBrush="White" FontSize="22" />-->
 
     </Grid>
 </Window>

@@ -8,7 +8,7 @@
         Title="RasporedCasovaWindow" Height="662" Width="800" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
 
     <Grid x:Name="LoginGrid" Background="Black" >
-        <Label Content="Novi Cas" HorizontalContentAlignment="Center" Height="66" Margin="21,10,23,0" VerticalAlignment="Top"  FontSize="26" FontFamily="Segoe UI" Foreground="#FFFBFB9F"/>
+        <Label Content="Raspored časova" HorizontalContentAlignment="Center" Height="66" Margin="21,10,23,0" VerticalAlignment="Top"  FontSize="26" FontFamily="Segoe UI" Foreground="#FFFBFB9F"/>
 
 
         <DataGrid ItemsSource="{Binding Casovi, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"  HorizontalAlignment="Left" Height="208" Margin="21,411,0,0" VerticalAlignment="Top" Width="750" SelectedItem="{Binding SelectedCas}" ColumnWidth="*" AutoGenerateColumns="False" IsReadOnly="True">
@@ -24,7 +24,7 @@
                     </DataGridTextColumn.ElementStyle>
                 </DataGridTextColumn>
 
-                <DataGridTextColumn Header="Pocetak" TextBlock.TextAlignment="Center" Binding="{Binding pocetak}" IsReadOnly="True">
+                <DataGridTextColumn Header="Početak" TextBlock.TextAlignment="Center" Binding="{Binding pocetak}" IsReadOnly="True">
                     <DataGridTextColumn.ElementStyle>
                         <Style TargetType="TextBlock">
                             <Setter Property="TextWrapping" Value="Wrap" />

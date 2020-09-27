@@ -28,11 +28,11 @@
         <Label Content="{Binding OpisError, UpdateSourceTrigger=PropertyChanged}" Name="imeError" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" HorizontalAlignment="Left" Height="34" Margin="21,176,0,0" VerticalAlignment="Top" Width="440" FontFamily="Segoe UI" Foreground="red" FontSize="16" />
 
 
-        <Label Content="Datum odrzavanja:" HorizontalContentAlignment="Center" HorizontalAlignment="Left" Height="38" Margin="113,218,0,0" VerticalAlignment="Top" Width="244" FontFamily="Segoe UI" Foreground="#FFFBFB9F" FontSize="20" />
+        <Label Content="Datum održavanja:" HorizontalContentAlignment="Center" HorizontalAlignment="Left" Height="38" Margin="113,218,0,0" VerticalAlignment="Top" Width="244" FontFamily="Segoe UI" Foreground="#FFFBFB9F" FontSize="20" />
         <!--<DatePicker SelectedDate="{Binding SelectedDatum}" HorizontalAlignment="Left" Background="#FF2E2E2E" BorderThickness="1" BorderBrush="#FF282829" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" Height="34" Width="243" Foreground="#FFFBFB9F" Margin="114,261,0,169">
 
         </DatePicker>-->
-        <DatePicker SelectedDate="{Binding SelectedDatum}"  Margin="113,261,127,186"></DatePicker>
+        <DatePicker SelectedDate="{Binding SelectedDatum}" Margin="113,261,127,186"></DatePicker>
 
         <Label Content="{Binding DateError, UpdateSourceTrigger=PropertyChanged}" Name="prezimeError" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" HorizontalAlignment="Left" Height="34" Margin="21,323,0,0" VerticalAlignment="Top" Width="440" FontFamily="Segoe UI" Foreground="red" FontSize="16" />
 

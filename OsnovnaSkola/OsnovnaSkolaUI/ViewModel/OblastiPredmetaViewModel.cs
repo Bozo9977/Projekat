@@ -38,17 +38,28 @@ namespace OsnovnaSkolaUI.ViewModel
         private int odeljenjeID;
         public OblastiPredmetaViewModel(PredmetIM predmet, bool creatingPredavanje, bool creatingKt, KontrolnaTackaIM kt, int odeljenjeID)
         {
-            Oblasti = Channel.Instance.PredmetiProxy.GetOblastiForPredmetForKT(predmet.Id_predmeta);
+            
             ChangeOblastCommand = new MyICommand(OnChangeOblast);
             DeleteOblastCommand = new MyICommand(OnDeleteOblast);
             SelectedPredmet = predmet;
 
-            if (creatingPredavanje || creatingKt)
+           
+            if (creatingKt)
             {
                 CreatingPredavanje = "Visible";
                 IzmenaOblasti = "Hidden";
                 kontrolna_tacka = kt;
                 this.odeljenjeID = odeljenjeID;
+                Oblasti = Channel.Instance.PredmetiProxy.GetOblastiForPredmetForKT(predmet.Id_predmeta);
+            }
+            else if (creatingPredavanje)
+            {
+                CreatingPredavanje = "Visible";
+                IzmenaOblasti = "Hidden";
+                kontrolna_tacka = kt;
+                this.odeljenjeID = odeljenjeID;
+                Oblasti = Channel.Instance.PredmetiProxy.GetOblastiForPRedmet(predmet.Id_predmeta);
+
             }
             else
             {

@@ -9,7 +9,7 @@
     <Grid Background="Black">
         <DataGrid  ItemsSource="{Binding Radovi, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" CanUserAddRows="False"  ColumnWidth="*" AutoGenerateColumns="False"  Margin="0,0,0,97">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Kontrolna tacka:" TextBlock.TextAlignment="Center" Binding="{Binding Kontrolna_tackaId_kontrolne_tacke}" IsReadOnly="True">
+                <DataGridTextColumn Header="Kontrolna tačka:" TextBlock.TextAlignment="Center" Binding="{Binding Kontrolna_tackaId_kontrolne_tacke}" IsReadOnly="True">
                     <DataGridTextColumn.ElementStyle>
                         <Style TargetType="TextBlock">
                             <Setter Property="TextWrapping" Value="Wrap" />
@@ -19,7 +19,7 @@
                     </DataGridTextColumn.ElementStyle>
                 </DataGridTextColumn>
 
-                <DataGridTextColumn Header="Ucenik" TextBlock.TextAlignment="Center" Binding="{Binding UcenikId_ucenika}" IsReadOnly="True">
+                <DataGridTextColumn Header="Učenik" TextBlock.TextAlignment="Center" Binding="{Binding UcenikId_ucenika}" IsReadOnly="True">
                     <DataGridTextColumn.ElementStyle>
                         <Style TargetType="TextBlock">
                             <Setter Property="TextWrapping" Value="Wrap" />
@@ -30,7 +30,7 @@
                 </DataGridTextColumn>
 
 
-                <DataGridTextColumn Header="Zapsleni" TextBlock.TextAlignment="Center" Binding="{Binding ZaposleniId_zaposlenog}" IsReadOnly="True">
+                <DataGridTextColumn Header="Zaposleni" TextBlock.TextAlignment="Center" Binding="{Binding ZaposleniId_zaposlenog}" IsReadOnly="True">
                     <DataGridTextColumn.ElementStyle>
                         <Style TargetType="TextBlock">
                             <Setter Property="TextWrapping" Value="Wrap" />

@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:OsnovnaSkolaUI.Views"
         mc:Ignorable="d"
-        Title="OblasUcioniceWindow" Height="450" Width="800" WindowStartupLocation="CenterScreen">
+        Title="Izaberite učionicu i oblast" Height="450" Width="800" WindowStartupLocation="CenterScreen">
     <Grid Background="Black">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="7*"/>
@@ -14,7 +14,7 @@
 
         <DataGrid   ItemsSource="{Binding Ucionice, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"  HorizontalAlignment="Left" Height="224" Margin="0,60,0,0" VerticalAlignment="Top" Width="397" SelectedItem="{Binding SelectedUcionica}" ColumnWidth="*" AutoGenerateColumns="False" IsReadOnly="True" Grid.ColumnSpan="2">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Id" TextBlock.TextAlignment="Center" Binding="{Binding Id_ucionice}" IsReadOnly="True">
+                <!--<DataGridTextColumn Header="Id" TextBlock.TextAlignment="Center" Binding="{Binding Id_ucionice}" IsReadOnly="True">
                     <DataGridTextColumn.ElementStyle>
                         <Style TargetType="TextBlock">
                             <Setter Property="TextWrapping" Value="Wrap" />
@@ -22,7 +22,7 @@
                             <Setter Property="VerticalAlignment" Value="Center" />
                         </Style>
                     </DataGridTextColumn.ElementStyle>
-                </DataGridTextColumn>
+                </DataGridTextColumn>-->
 
                 <DataGridTextColumn Header="Naziv" TextBlock.TextAlignment="Center" Binding="{Binding naziv}" IsReadOnly="True">
                     <DataGridTextColumn.ElementStyle>
@@ -35,7 +35,7 @@
                 </DataGridTextColumn>
 
 
-                <DataGridTextColumn Header="Broj ucenika" TextBlock.TextAlignment="Center" Binding="{Binding broj_ucenika}" IsReadOnly="True">
+                <DataGridTextColumn Header="Broj učenika" TextBlock.TextAlignment="Center" Binding="{Binding broj_ucenika}" IsReadOnly="True">
                     <DataGridTextColumn.ElementStyle>
                         <Style TargetType="TextBlock">
                             <Setter Property="TextWrapping" Value="Wrap" />
@@ -67,7 +67,7 @@
 
         <DataGrid  ItemsSource="{Binding Oblasti, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" SelectedItem="{Binding SelectedOblast}" ColumnWidth="*" AutoGenerateColumns="False" IsReadOnly="True" HorizontalAlignment="Left" Height="224" Margin="248.396,60,0,0" VerticalAlignment="Top" Width="390" Grid.Column="1">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Id" TextBlock.TextAlignment="Center" Binding="{Binding Id_oblasti}" IsReadOnly="True">
+                <!--<DataGridTextColumn Header="Id" TextBlock.TextAlignment="Center" Binding="{Binding Id_oblasti}" IsReadOnly="True">
                     <DataGridTextColumn.ElementStyle>
                         <Style TargetType="TextBlock">
                             <Setter Property="TextWrapping" Value="Wrap" />
@@ -75,7 +75,7 @@
                             <Setter Property="VerticalAlignment" Value="Center" />
                         </Style>
                     </DataGridTextColumn.ElementStyle>
-                </DataGridTextColumn>
+                </DataGridTextColumn>-->
 
                 <DataGridTextColumn Header="Naziv" TextBlock.TextAlignment="Center" Binding="{Binding naziv}" IsReadOnly="True">
                     <DataGridTextColumn.ElementStyle>
@@ -103,7 +103,7 @@
 
 
         <Button x:Name="button" Content="Napravi čas" Command="{Binding NapraviCasCommand}" Background="Transparent" FontFamily="Segoe UI" Foreground="#FFFBFB9F" BorderBrush="Gold" FontSize="22" HorizontalAlignment="Left" Height="44" Margin="175.396,365,0,0" VerticalAlignment="Top" Width="132" Grid.Column="1"/>
-        <Label x:Name="label" Content="Izaberite ucionicu" Foreground="#FFFBFB9F" FontSize="22" HorizontalAlignment="Left" Height="45" Margin="10,10,0,0" VerticalAlignment="Top" Width="341" Grid.ColumnSpan="2"/>
+        <Label x:Name="label" Content="Izaberite učionicu" Foreground="#FFFBFB9F" FontSize="22" HorizontalAlignment="Left" Height="45" Margin="10,10,0,0" VerticalAlignment="Top" Width="341" Grid.ColumnSpan="2"/>
         <Label x:Name="label_Copy" Content="Izaberite oblast" Foreground="#FFFBFB9F" FontSize="22" HorizontalAlignment="Left" Height="45" Margin="248.396,10,0,0" VerticalAlignment="Top" Width="341" Grid.Column="1"/>
         <Label x:Name="label1" Content="{Binding ErrorLabel, UpdateSourceTrigger=PropertyChanged}" Foreground="Red" FontSize="24" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" HorizontalAlignment="Left" Height="43" Margin="0,300,0,0" VerticalAlignment="Top" Width="792" Grid.ColumnSpan="2"/>
 

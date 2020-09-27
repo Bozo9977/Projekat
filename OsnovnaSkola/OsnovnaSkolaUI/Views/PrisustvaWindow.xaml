@@ -7,6 +7,7 @@
         mc:Ignorable="d"
         Title="Evidentiraj prisustvo" Height="450" Width="711.5" WindowStartupLocation="CenterScreen">
     <Grid Background="Black">
+        <Label Content="Evidencija prisustva" HorizontalContentAlignment="Center" Height="66" Margin="21,10,23,0" VerticalAlignment="Top"  FontSize="26" FontFamily="Segoe UI" Foreground="#FFFBFB9F"/>
         <DataGrid  ItemsSource="{Binding Ucenici, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" SelectionMode="Extended" SelectedItem="{Binding SelectedUcenik}" ColumnWidth="*" AutoGenerateColumns="False" IsReadOnly="True" Margin="0,95,0,107">
             <DataGrid.Columns>
                 <!--<DataGridTextColumn Header="Id" TextBlock.TextAlignment="Center" Binding="{Binding Id_ucenika}" IsReadOnly="True">

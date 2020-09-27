@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:OsnovnaSkolaUI.Views"
         mc:Ignorable="d"
-        Title="AddPredmetWindow" Height="717" Width="566" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
+        Title="Predmet" Height="717" Width="566" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
     <Window.Resources>
         <ControlTemplate x:Key="TextBoxBaseControlTemplate" TargetType="{x:Type TextBoxBase}">
             <Border Background="{TemplateBinding Background}" 
@@ -38,12 +38,12 @@
         <Label  Content="Razred:" HorizontalAlignment="Left" Height="42" Margin="170,217,0,0" VerticalAlignment="Top" Width="227" FontFamily="Segoe UI" Foreground="#FFFBFB9F" FontSize="22" HorizontalContentAlignment="Center"/>
         <Label  Content="Broj oblasti:" HorizontalAlignment="Left" Height="36" Margin="170,315,0,0" VerticalAlignment="Top" Width="227" FontFamily="Segoe UI" Foreground="#FFFBFB9F" FontSize="22" HorizontalContentAlignment="Center"/>
         <!--<Label  Content="Password:" HorizontalAlignment="Left" Height="37" Margin="170,409,0,0" VerticalAlignment="Top" Width="227" FontFamily="Segoe UI" Foreground="#FFFBFB9F" FontSize="22" HorizontalContentAlignment="Center"/>-->
-        <Button Content="ADD" Visibility="{Binding Visible}" Command="{Binding AddPredmetCommand}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="221" Margin="176,582,0,0" Height="63" FontFamily="Segoe UI" Foreground="#FFFBFB9F" Background="Transparent" BorderBrush="White" FontSize="36" FontWeight="Bold"/>
+        <Button Content="DODAJ" Visibility="{Binding Visible}" Command="{Binding AddPredmetCommand}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="221" Margin="176,582,0,0" Height="63" FontFamily="Segoe UI" Foreground="#FFFBFB9F" Background="Transparent" BorderBrush="White" FontSize="36" FontWeight="Bold"/>
         <!--<CheckBox Visibility="{Binding Visible}" FontFamily="Segoe UI" Foreground="#FFFBFB9F" Content="Admin" IsChecked="{Binding Admin, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Left" Height="45" Margin="235,518,0,0" VerticalAlignment="Top" Width="95"  FontSize="24" Background="#FFFBFB9F" BorderBrush="#FF1F5076"/>-->
         <Label  Content="{Binding ErrorNaziv}" HorizontalAlignment="Left" Height="29" Margin="170,194,0,0" VerticalAlignment="Top" Width="227" FontFamily="Segoe UI" Foreground="red" FontSize="14"/>
         <Label  Content="{Binding ErrorRazred}" HorizontalAlignment="Left" Height="29" Margin="170,286,0,0" VerticalAlignment="Top" Width="227" FontFamily="Segoe UI" Foreground="red" FontSize="14"/>
         <Label  Content="{Binding ErrorBrojOblasti}" HorizontalAlignment="Left" Height="30" Margin="170,384,0,0" VerticalAlignment="Top" Width="227" FontFamily="Segoe UI" Foreground="red" FontSize="14"/>
-        <Button Content="CHANGE" Visibility="{Binding Visible2}" Command="{Binding ChangePredmetCommand}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="221" Margin="176,582,0,0" Height="63" FontFamily="Segoe UI" Foreground="#FFFBFB9F" Background="Transparent" BorderBrush="White" FontSize="36" FontWeight="Bold"/>
+        <Button Content="IZMENA" Visibility="{Binding Visible2}" Command="{Binding ChangePredmetCommand}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="221" Margin="176,582,0,0" Height="63" FontFamily="Segoe UI" Foreground="#FFFBFB9F" Background="Transparent" BorderBrush="White" FontSize="36" FontWeight="Bold"/>
 
 
     </Grid>

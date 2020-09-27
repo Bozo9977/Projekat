@@ -17,9 +17,9 @@
     </Window.Resources>
 
     <Grid x:Name="LoginGrid" Background="Black" Style="{StaticResource FocusTextBox}">
-        <Label Content="Novi Cas" HorizontalContentAlignment="Center" Height="66" Margin="21,10,23,0" VerticalAlignment="Top"  FontSize="26" FontFamily="Segoe UI" Foreground="#FFFBFB9F"/>
+        <Label Content="ČAS" HorizontalContentAlignment="Center" Height="66" Margin="21,10,23,0" VerticalAlignment="Top"  FontSize="26" FontFamily="Segoe UI" Foreground="#FFFBFB9F"/>
 
-        <Label Content="Pocetak:" HorizontalContentAlignment="Center" HorizontalAlignment="Left" Height="34" Margin="275,188,0,0" VerticalAlignment="Top" Width="244" FontFamily="Segoe UI" Foreground="#FFFBFB9F" FontSize="20" />
+        <Label Content="Početak:" HorizontalContentAlignment="Center" HorizontalAlignment="Left" Height="34" Margin="275,188,0,0" VerticalAlignment="Top" Width="244" FontFamily="Segoe UI" Foreground="#FFFBFB9F" FontSize="20" />
         <TextBox x:Name="ImeBox" HorizontalAlignment="Left" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" Text="{Binding Pocetak, UpdateSourceTrigger=PropertyChanged}"  FontFamily="Khmer UI" FontSize="20" TextWrapping="Wrap" Width="244" Margin="275,232,0,0" Background="#FF2E2E2E" BorderBrush="#FF282829" Foreground="#FFFBFB9F" Height="39" VerticalAlignment="Top">
             <TextBox.InputBindings>
                 <KeyBinding Command="{Binding AddCasCommand}" Key="Enter"/>
@@ -80,7 +80,7 @@
             </DataGrid.Columns>
         </DataGrid>
 
-        <Label Content="Datum odrzavanja:" HorizontalContentAlignment="Center" HorizontalAlignment="Left" Height="38" Margin="275,81,0,0" VerticalAlignment="Top" Width="244" FontFamily="Segoe UI" Foreground="#FFFBFB9F" FontSize="20" />
+        <Label Content="Datum održavanja:" HorizontalContentAlignment="Center" HorizontalAlignment="Left" Height="38" Margin="275,81,0,0" VerticalAlignment="Top" Width="244" FontFamily="Segoe UI" Foreground="#FFFBFB9F" FontSize="20" />
         <!--<DatePicker SelectedDate="{Binding SelectedDatum}" HorizontalAlignment="Left" Background="#FF2E2E2E" BorderThickness="1" BorderBrush="#FF282829" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" Height="34" Width="243" Foreground="#FFFBFB9F" Margin="114,261,0,169">
 
         </DatePicker>-->
@@ -89,7 +89,7 @@
         <Label Content="{Binding DateError, UpdateSourceTrigger=PropertyChanged}" Name="prezimeError" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" HorizontalAlignment="Left" Height="34" Margin="169,149,0,0" VerticalAlignment="Top" Width="440" FontFamily="Segoe UI" Foreground="red" FontSize="16" />
 
         <Button  Content="{Binding ButtonContent}" IsDefault="True" Command="{Binding AddCasCommand}" HorizontalAlignment="Left"  FontSize="24" VerticalAlignment="Top" Width="130" Margin="331,605,0,0" Height="48" RenderTransformOrigin="0.503,0.458"  FontFamily="Segoe UI" Background="Transparent" BorderBrush="White" Foreground="#FFFBFB9F" FontWeight="Bold"/>
-        <Button  Content="Obrisi" Visibility="{Binding DeletionEnabled}" IsDefault="True" Command="{Binding DeleteCasCommand}" HorizontalAlignment="Left"  FontSize="24" VerticalAlignment="Top" Width="130" Margin="331,557,0,0" Height="48" RenderTransformOrigin="0.5,0.514"  FontFamily="Segoe UI" Background="Transparent" BorderBrush="White" Foreground="#FFFBFB9F" FontWeight="Bold"/>
+        <Button  Content="Obriši" Visibility="{Binding DeletionEnabled}" IsDefault="True" Command="{Binding DeleteCasCommand}" HorizontalAlignment="Left"  FontSize="24" VerticalAlignment="Top" Width="130" Margin="331,557,0,0" Height="48" RenderTransformOrigin="0.5,0.514"  FontFamily="Segoe UI" Background="Transparent" BorderBrush="White" Foreground="#FFFBFB9F" FontWeight="Bold"/>
 
     </Grid>
 </Window>

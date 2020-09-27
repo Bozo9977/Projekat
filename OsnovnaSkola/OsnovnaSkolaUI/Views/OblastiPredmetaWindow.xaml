@@ -9,7 +9,7 @@
     <Grid Background="Black">
         <DataGrid  ItemsSource="{Binding Oblasti, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" SelectedItem="{Binding SelectedOblast}" ColumnWidth="*" AutoGenerateColumns="False" IsReadOnly="True" Margin="0,0,0,97">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Id" TextBlock.TextAlignment="Center" Binding="{Binding Id_oblasti}" IsReadOnly="True">
+                <!--<DataGridTextColumn Header="Id" TextBlock.TextAlignment="Center" Binding="{Binding Id_oblasti}" IsReadOnly="True">
                     <DataGridTextColumn.ElementStyle>
                         <Style TargetType="TextBlock">
                             <Setter Property="TextWrapping" Value="Wrap" />
@@ -17,7 +17,7 @@
                             <Setter Property="VerticalAlignment" Value="Center" />
                         </Style>
                     </DataGridTextColumn.ElementStyle>
-                </DataGridTextColumn>
+                </DataGridTextColumn>-->
 
                 <DataGridTextColumn Header="Naziv" TextBlock.TextAlignment="Center" Binding="{Binding naziv}" IsReadOnly="True">
                     <DataGridTextColumn.ElementStyle>
@@ -43,7 +43,7 @@
             </DataGrid.Columns>
         </DataGrid>
         <Button Visibility="{Binding IzmenaOblasti}" Content="Izmeni" Command="{Binding ChangeOblastCommand}" FontSize="18" Background="Transparent" Foreground="Gold" Margin="185,356,365,0" VerticalAlignment="Top" Height="40"/>
-        <Button Visibility="{Binding IzmenaOblasti}" Content="Obrisi" Command="{Binding DeleteOblastCommand}" FontSize="18" Background="Transparent" Foreground="Gold" Margin="344,356,206,0" VerticalAlignment="Top" Height="40"/>
+        <Button Visibility="{Binding IzmenaOblasti}" Content="Obriši" Command="{Binding DeleteOblastCommand}" FontSize="18" Background="Transparent" Foreground="Gold" Margin="344,356,206,0" VerticalAlignment="Top" Height="40"/>
         <Button Visibility="{Binding CreatingPredavanje}" Content="Izaberi Oblast" Command="{Binding CreatePredavanjeCommand}" FontSize="18" Background="Transparent" Foreground="Gold" Margin="271,356,279,0" VerticalAlignment="Top" Height="40"/>
 
 

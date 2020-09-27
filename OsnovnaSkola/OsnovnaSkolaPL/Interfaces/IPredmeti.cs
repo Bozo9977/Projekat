@@ -25,5 +25,7 @@ namespace OsnovnaSkolaPL.Interfaces
         List<PredmetIM> GetPredmetiForZaposleni(int id);
         [OperationContract]
         List<OblastIM> GetOblastiForPredmetForKT(int id);
+        //[OperationContract]
+        //List<OblastIM> GetOblastiForPredmetForPredavanje(int id);
     }
 }

@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:OsnovnaSkolaUI.Views"
         mc:Ignorable="d"
-        Title="AddZaposleniWindow" Height="713.2" Width="566" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
+        Title="Zaposleni" Height="713.2" Width="566" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
     <Window.Resources>
         <ControlTemplate x:Key="TextBoxBaseControlTemplate" TargetType="{x:Type TextBoxBase}">
             <Border Background="{TemplateBinding Background}" 
@@ -38,7 +38,7 @@
         <Label  Content="Prezime:" HorizontalAlignment="Left" Height="42" Margin="170,217,0,0" VerticalAlignment="Top" Width="227" FontFamily="Segoe UI" Foreground="#FFFBFB9F" FontSize="22" HorizontalContentAlignment="Center"/>
         <Label  Content="Zvanje:" HorizontalAlignment="Left" Height="36" Margin="170,315,0,0" VerticalAlignment="Top" Width="227" FontFamily="Segoe UI" Foreground="#FFFBFB9F" FontSize="22" HorizontalContentAlignment="Center"/>
         <!--<Label  Content="Password:" HorizontalAlignment="Left" Height="37" Margin="170,409,0,0" VerticalAlignment="Top" Width="227" FontFamily="Segoe UI" Foreground="#FFFBFB9F" FontSize="22" HorizontalContentAlignment="Center"/>-->
-        <Button Content="ADD" Visibility="{Binding Visible}" Command="{Binding AddUserCommand}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="221" Margin="176,584,0,0" Height="63" FontFamily="Segoe UI" Foreground="#FFFBFB9F" Background="Transparent" BorderBrush="White" FontSize="36" FontWeight="Bold"/>
+        <Button Content="DODAJ" Visibility="{Binding Visible}" Command="{Binding AddUserCommand}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="221" Margin="176,584,0,0" Height="63" FontFamily="Segoe UI" Foreground="#FFFBFB9F" Background="Transparent" BorderBrush="White" FontSize="36" FontWeight="Bold"/>
         <!--<CheckBox Visibility="{Binding Visible}" FontFamily="Segoe UI" Foreground="#FFFBFB9F" Content="Admin" IsChecked="{Binding Admin, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Left" Height="45" Margin="235,518,0,0" VerticalAlignment="Top" Width="95"  FontSize="24" Background="#FFFBFB9F" BorderBrush="#FF1F5076"/>-->
         <RadioButton Name="radioButtonU" IsChecked="{Binding UciteljChecked}" IsEnabled="{Binding RBIsEnabled}" GroupName="RadioButtonTip" Content="Učitelj" Foreground="#FFFBFB9F" FontFamily="Segoe UI" HorizontalAlignment="Left" Height="45" Margin="137,534,0,0" VerticalAlignment="Top" Width="95"  FontSize="24" Background="#FFFBFB9F" BorderBrush="#FF1F5076"/>
         <RadioButton Name="radioButtonN" IsChecked="{Binding NastavnikChecked}" IsEnabled="{Binding RBIsEnabled}" GroupName="RadioButtonTip" Content="Nastavnik" Foreground="#FFFBFB9F" FontFamily="Segoe UI" HorizontalAlignment="Left" Height="45" Margin="298,534,0,0" VerticalAlignment="Top" Width="138"  FontSize="24" Background="#FFFBFB9F" BorderBrush="#FF1F5076"/>
@@ -47,7 +47,7 @@
         <Label  Content="{Binding ErrorZvanje}" HorizontalAlignment="Left" Height="30" Margin="170,384,0,0" VerticalAlignment="Top" Width="227" FontFamily="Segoe UI" Foreground="red" FontSize="14"/>
         <!--<Label  Content="{Binding ErrorPassword}" HorizontalAlignment="Left" Height="30" Margin="170,483,0,0" VerticalAlignment="Top" Width="227" FontFamily="Segoe UI" Foreground="red" FontSize="14"/>-->
         <!--<Label  Content="{Binding CheckUsername}" HorizontalAlignment="Left" Height="30" Margin="170,384,0,0" VerticalAlignment="Top" Width="227" FontFamily="Segoe UI" Foreground="red" FontSize="14"/>-->
-        <Button Content="CHANGE" Visibility="{Binding Visible2}" Command="{Binding ChangeInfoCommand}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="221" Margin="176,584,0,0" Height="63" FontFamily="Segoe UI" Foreground="#FFFBFB9F" Background="Transparent" BorderBrush="White" FontSize="36" FontWeight="Bold"/>
+        <Button Content="IZMENA" Visibility="{Binding Visible2}" Command="{Binding ChangeInfoCommand}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="221" Margin="176,584,0,0" Height="63" FontFamily="Segoe UI" Foreground="#FFFBFB9F" Background="Transparent" BorderBrush="White" FontSize="36" FontWeight="Bold"/>
         <Label  Content="Korisničko ime:" HorizontalAlignment="Left" Height="36" Margin="170,419,0,0" VerticalAlignment="Top" Width="227" FontFamily="Segoe UI" Foreground="#FFFBFB9F" FontSize="22" HorizontalContentAlignment="Center"/>
         <TextBox  Template="{StaticResource TextBoxBaseControlTemplate}" HorizontalAlignment="Left" Height="39" Margin="170,455,0,0" TextWrapping="Wrap" Text="{Binding NoviZaposleni.KorisnickoIme, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="227" Background="#FF2E2E2E" Foreground="#FFA7A9A8" FontSize="22"/>
         <Label  Content="{Binding ErrorKorisnickoIme}" HorizontalAlignment="Left" Height="30" Margin="170,499,0,0" VerticalAlignment="Top" Width="227" FontFamily="Segoe UI" Foreground="red" FontSize="14"/>

@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:OsnovnaSkolaUI.Views"
         mc:Ignorable="d"
-        Title="LoginWindow" Height="505" Width="490" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
+        Title="Prijava" Height="505" Width="490" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
     <Window.Resources>
         <Style x:Key="FocusTextBox" TargetType="Grid">
             <Style.Triggers>
@@ -29,7 +29,7 @@
 
 
         <Label Content="Lozinka:" HorizontalContentAlignment="Center" HorizontalAlignment="Left" Height="38" Margin="113,218,0,0" VerticalAlignment="Top" Width="244" FontFamily="Segoe UI" Foreground="#FFFBFB9F" FontSize="20" />
-        <PasswordBox x:Name="PrezimeBox"  HorizontalAlignment="Left" Background="#FF2E2E2E" BorderThickness="1" BorderBrush="#FF282829" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" Height="34" Width="243" Foreground="#FFFBFB9F" Margin="114,261,0,169">
+        <PasswordBox x:Name="PrezimeBox" FontSize="20"  HorizontalAlignment="Left" Background="#FF2E2E2E" BorderThickness="1" BorderBrush="#FF282829" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" Height="34" Width="243" Foreground="#FFFBFB9F" Margin="114,261,0,169">
 
         </PasswordBox>
 

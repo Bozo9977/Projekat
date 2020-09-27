@@ -9,7 +9,7 @@
     <Grid Background="Black">
         <DataGrid  ItemsSource="{Binding Predmeti, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" SelectedItem="{Binding SelectedPredmet}" ColumnWidth="*" AutoGenerateColumns="False" IsReadOnly="True" Margin="0,0,0,97">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Id" TextBlock.TextAlignment="Center" Binding="{Binding Id_predmeta}" IsReadOnly="True">
+                <!--<DataGridTextColumn Header="Id" TextBlock.TextAlignment="Center" Binding="{Binding Id_predmeta}" IsReadOnly="True">
                     <DataGridTextColumn.ElementStyle>
                         <Style TargetType="TextBlock">
                             <Setter Property="TextWrapping" Value="Wrap" />
@@ -17,7 +17,7 @@
                             <Setter Property="VerticalAlignment" Value="Center" />
                         </Style>
                     </DataGridTextColumn.ElementStyle>
-                </DataGridTextColumn>
+                </DataGridTextColumn>-->
 
                 <DataGridTextColumn Header="Razred" TextBlock.TextAlignment="Center" Binding="{Binding razred}" IsReadOnly="True">
                     <DataGridTextColumn.ElementStyle>
@@ -40,7 +40,7 @@
                     </DataGridTextColumn.ElementStyle>
                 </DataGridTextColumn>
 
-                <DataGridTextColumn Header="Razred" TextBlock.TextAlignment="Center" Binding="{Binding broj_oblasti}" IsReadOnly="True">
+                <DataGridTextColumn Header="Broj oblasti" TextBlock.TextAlignment="Center" Binding="{Binding broj_oblasti}" IsReadOnly="True">
                     <DataGridTextColumn.ElementStyle>
                         <Style TargetType="TextBlock">
                             <Setter Property="TextWrapping" Value="Wrap" />

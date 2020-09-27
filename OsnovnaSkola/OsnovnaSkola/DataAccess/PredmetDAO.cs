@@ -33,6 +33,13 @@ namespace OsnovnaSkola.DataAccess
             }
         }
 
+        //public List<Oblast> GetOblastiForPredmetForPredavanje(int id)
+        //{
+        //    using(var db = new ModelOsnovnaSkolaContainer())
+        //    {
+        //        return db.Oblasti.Where(x => x.PredmetId_predmeta == id).ToList();
+        //    }
+        //}
         public override bool Delete(object id)
         {
             try
