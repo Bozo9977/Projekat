@@ -18,6 +18,7 @@
             <TextBlock x:Name="Zvanje" HorizontalAlignment="Left" Margin="10,115,0,0" TextWrapping="Wrap" Text="{Binding LoggedIn.zvanje}" VerticalAlignment="Top" Width="124" Foreground="#FFFBFB9F"/>
             <!--<Button Content="Promeni" Command="{Binding ChangeInfoCommand}" Visibility="{Binding IsAdmin}" Background="Black" HorizontalAlignment="Center" Margin="10,136,1236,0" VerticalAlignment="Top" Width="107" FontSize="22" Foreground="#FFFBFB9F" BorderBrush="gold" Height="40"/>-->
             <!--<Button Content="Promeni Lozinku" Command="{Binding ChangePasswordCommand}"  Background="Black" HorizontalAlignment="Center" Margin="10,181,1177,0" VerticalAlignment="Top" Width="166" FontSize="22" Foreground="#FFFBFB9F" BorderBrush="gold" Height="40"/>-->
+            
             <!--Meni opcije zaposleni-->
             <Menu HorizontalAlignment="Left" FontSize="16" Height="32" Margin="206,3,0,0" VerticalAlignment="Top" Width="489" Visibility="{Binding AuthorizeZaposleni}">
                 <MenuItem Header="Časovi" Height="32">
