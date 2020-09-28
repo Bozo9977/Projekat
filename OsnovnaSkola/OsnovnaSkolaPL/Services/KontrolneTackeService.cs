@@ -170,8 +170,8 @@ namespace OsnovnaSkolaPL.Services
         public List<KontrolnaTackaIM> GetKTForZaposleni(int idZaposlenog)
         {
 
-            List<Domaci> domaci = domaciDAO.GetAll().ToList();
-            List<Kontrolni> kontrolni = kontrolniDAO.GetAll().ToList();
+            List<Domaci> domaci = domaciDAO.GetDomaciForZaposleni(idZaposlenog);
+            List<Kontrolni> kontrolni = kontrolniDAO.GetKontrolniForZaposleni(idZaposlenog);
             //using(var db = new ModelOsnovnaSkolaContainer())
             //{
             //    List<GetKontrolnuTackuAndRadeForZaposleni_Result> list = db.GetKontrolnuTackuAndRadeForZaposleni(idZaposlenog).ToList();

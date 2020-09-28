@@ -379,6 +379,56 @@ namespace OsnovnaSkolaPL.Services
                     }
 
                 }
+                else
+                {
+                    NastavnikOdeljenje nO;
+                    if (( nO = db.NastavnikOdeljenjes.SingleOrDefault(x => x.NastavnikId_zaposlenog == zaposleniID && x.Razredni == true)) != null)
+                    {
+                        List<Odeljenje> odeljenja = db.Odeljenja.Include(o => o.Ucenici.Select(p => p.Prisustva)).Include(no => no.NastavnikOdeljenjes.Select(n => n.Nastavnik)).ToList().FindAll(x => x.NastavnikOdeljenjes.Contains(nO));
+
+                        List<Cas> casovi;
+
+                        List<Radi> radovi;
+
+                        foreach (var odeljenje in odeljenja)
+                        {
+                            casovi = db.Cas.Include(x => x.Prisustva.Select(u => u.Ucenik)).Include(za => za.ZauzetostUcionice.Odeljenje).Where(zc => zc.ZaposleniId_zaposlenog == zaposleniID && zc.ZauzetostUcionice.OdeljenjeId_odeljenja == odeljenje.Id_odeljenja).ToList();
+
+                            foreach (var ucenik in odeljenje.Ucenici)
+                            {
+                                int ucenikOdsustvovao = 0;
+                                Dictionary<string, Tuple<int, int>> ocenePoPredmetima = new Dictionary<string, Tuple<int, int>>();
+
+                                radovi = db.Rade.Include(kt => kt.Kontrolna_tacka.Oblast.Predmet).Include(u => u.Ucenik).Where(x => x.UcenikId_ucenika == ucenik.Id_ucenika).ToList();
+
+                                foreach (var cas in casovi)
+                                {
+                                    if (cas.Prisustva.SingleOrDefault(x => x.Ucenik == ucenik) == null)
+                                        ++ucenikOdsustvovao;
+                                }
+
+                                foreach (var rad in radovi)
+                                {
+                                    if (rad.ocena != 0)
+                                    {
+                                        if (!ocenePoPredmetima.ContainsKey(rad.Kontrolna_tacka.Oblast.Predmet.naziv))
+                                        {
+                                            ocenePoPredmetima.Add(rad.Kontrolna_tacka.Oblast.Predmet.naziv, new Tuple<int, int>(rad.ocena, 1));
+                                        }
+                                        else
+                                        {
+                                            ocenePoPredmetima[rad.Kontrolna_tacka.Oblast.Predmet.naziv] = new Tuple<int, int>(ocenePoPredmetima[rad.Kontrolna_tacka.Oblast.Predmet.naziv].Item1 + rad.ocena, ocenePoPredmetima[rad.Kontrolna_tacka.Oblast.Predmet.naziv].Item2 + 1);
+                                        }
+
+                                    }
+                                }
+
+                                SendEmailToParent(ucenik, ucenikOdsustvovao, ocenePoPredmetima);
+                            }
+                        }
+                    }
+                    
+                }
 
 
             }

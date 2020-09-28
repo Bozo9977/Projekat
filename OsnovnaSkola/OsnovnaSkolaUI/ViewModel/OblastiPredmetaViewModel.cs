@@ -34,6 +34,7 @@ namespace OsnovnaSkolaUI.ViewModel
         public string CreatingPredavanje { get; set; }
         public string IzmenaOblasti { get; set; }
         bool CreatingKT { get; set; } = false;
+        bool CreatingPR { get; set; } = false;
         private KontrolnaTackaIM kontrolna_tacka;
         private int odeljenjeID;
         public OblastiPredmetaViewModel(PredmetIM predmet, bool creatingPredavanje, bool creatingKt, KontrolnaTackaIM kt, int odeljenjeID)
@@ -66,9 +67,11 @@ namespace OsnovnaSkolaUI.ViewModel
                 kontrolna_tacka = kt;
                 CreatingPredavanje = "Hidden";
                 IzmenaOblasti = "Visible";
+                Oblasti = Channel.Instance.PredmetiProxy.GetOblastiForPRedmet(predmet.Id_predmeta);
             }
 
             CreatingKT = creatingKt;
+            CreatingPR = creatingPredavanje;
             CreatePredavanjeCommand = new MyICommand(OnCreatePredavanje);
         }
 
@@ -127,9 +130,9 @@ namespace OsnovnaSkolaUI.ViewModel
                     }
 
                 }
-                else
+                else if(CreatingPR)
                 {
-                    //new AddPRedavanjeWindow(SelectedOblast, null).ShowDialog();
+                    new AddPRedavanjeWindow(SelectedOblast, null).ShowDialog();
                 }
                 Window.Close();
             }
