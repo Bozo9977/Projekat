@@ -5,9 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:OsnovnaSkolaUI"
         mc:Ignorable="d"
-        Title="MainWindow" WindowStartupLocation="CenterScreen"  Height="608.65" Width="918" ResizeMode="CanMinimize" WindowState="Maximized">
+        Title="MainWindow" WindowStartupLocation="CenterScreen"  Height="608.65" Width="918" >
     <Grid Background="Black">
-        <Grid>
+        <!--<Grid>-->
             <Label Content="Ime" FontWeight="Bold" HorizontalAlignment="Left" Margin="10,0,0,0" VerticalAlignment="Top" Foreground="gold"/>
             <TextBlock x:Name="Ime" HorizontalAlignment="Left" Margin="10,26,0,0" TextWrapping="Wrap" Text="{Binding LoggedIn.ime}" VerticalAlignment="Top" Width="124" Foreground="#FFFBFB9F"/>
 
@@ -20,7 +20,7 @@
             <!--<Button Content="Promeni Lozinku" Command="{Binding ChangePasswordCommand}"  Background="Black" HorizontalAlignment="Center" Margin="10,181,1177,0" VerticalAlignment="Top" Width="166" FontSize="22" Foreground="#FFFBFB9F" BorderBrush="gold" Height="40"/>-->
             
             <!--Meni opcije zaposleni-->
-            <Menu HorizontalAlignment="Left" FontSize="16" Height="32" Margin="206,3,0,0" VerticalAlignment="Top" Width="489" Visibility="{Binding AuthorizeZaposleni}">
+            <Menu HorizontalAlignment="Center" FontSize="16" Height="32"  VerticalAlignment="Top" Width="489" Visibility="{Binding AuthorizeZaposleni}">
                 <MenuItem Header="Časovi" Height="32">
                     <MenuItem Header="Dodaj čas" Command="{Binding CreateCasCommand}"/>
                     <MenuItem Header="Evidentiraj prisustva" Command="{Binding EvidentirajPrisustvaCommand}"/>
@@ -53,7 +53,7 @@
                 </MenuItem>
             </Menu>
             <!--Meni opcije admin-->
-            <Menu HorizontalAlignment="Left" Visibility="{Binding AuthorizeAdmin}" FontSize="16" Height="31" Margin="206,4,0,0" VerticalAlignment="Top" Width="381">
+            <Menu HorizontalAlignment="Center" Visibility="{Binding AuthorizeAdmin}" FontSize="16" Height="31"  VerticalAlignment="Top" Width="381">
                 <MenuItem Header="Zaposleni" Height="31">
                     <MenuItem Header="Dodaj zaposlenog" Command="{Binding AddZaposleniCommand}"/>
                     <MenuItem Header="Obriši zaposlenog" Command="{Binding DeleteZaposleniCommand}"/>
@@ -81,7 +81,7 @@
             </Menu>
 
 
-        </Grid>
+        <!--</Grid>-->
 
         <TabControl Name="TabControlAdmin" Margin="133,212,90,10" Visibility="{Binding AuthorizeAdmin}">
             <!--Zaposleni-->
