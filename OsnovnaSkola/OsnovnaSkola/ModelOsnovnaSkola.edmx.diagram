@@ -4,36 +4,36 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="28fbda95b3ec4775aed521afa1c93401" Name="Diagram1" ZoomLevel="106" >
-        <EntityTypeShape EntityType="ModelOsnovnaSkola.Zaposleni" Width="1.5" PointX="22" PointY="27.25" />
-        <EntityTypeShape EntityType="ModelOsnovnaSkola.Ucitelj" Width="1.5" PointX="24" PointY="30.75" />
+      <Diagram DiagramId="28fbda95b3ec4775aed521afa1c93401" Name="Diagram1" ZoomLevel="82" >
+        <EntityTypeShape EntityType="ModelOsnovnaSkola.Zaposleni" Width="2.625" PointX="45.75" PointY="22.25" />
+        <EntityTypeShape EntityType="ModelOsnovnaSkola.Ucitelj" Width="1.5" PointX="12.75" PointY="37.75" />
         <InheritanceConnector EntityType="ModelOsnovnaSkola.Ucitelj" />
-        <EntityTypeShape EntityType="ModelOsnovnaSkola.Nastavnik" Width="1.5" PointX="19.375" PointY="30.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ModelOsnovnaSkola.Nastavnik" Width="1.5" PointX="15.375" PointY="38.125" IsExpanded="true" />
         <InheritanceConnector EntityType="ModelOsnovnaSkola.Nastavnik" />
-        <EntityTypeShape EntityType="ModelOsnovnaSkola.Kontrolna_tacka" Width="1.5" PointX="36.5" PointY="22.5" />
-        <EntityTypeShape EntityType="ModelOsnovnaSkola.Domaci" Width="1.5" PointX="33" PointY="19.375" />
+        <EntityTypeShape EntityType="ModelOsnovnaSkola.Kontrolna_tacka" Width="2.25" PointX="38.75" PointY="21" />
+        <EntityTypeShape EntityType="ModelOsnovnaSkola.Domaci" Width="1.5" PointX="37.875" PointY="18.625" />
         <InheritanceConnector EntityType="ModelOsnovnaSkola.Domaci" />
-        <EntityTypeShape EntityType="ModelOsnovnaSkola.Kontrolni" Width="1.5" PointX="40.375" PointY="19.5" />
+        <EntityTypeShape EntityType="ModelOsnovnaSkola.Kontrolni" Width="2.25" PointX="41" PointY="18.625" />
         <InheritanceConnector EntityType="ModelOsnovnaSkola.Kontrolni" />
-        <EntityTypeShape EntityType="ModelOsnovnaSkola.Predavanje" Width="1.5" PointX="40.875" PointY="31.25" />
-        <EntityTypeShape EntityType="ModelOsnovnaSkola.Oblast" Width="1.875" PointX="46" PointY="44" />
-        <EntityTypeShape EntityType="ModelOsnovnaSkola.Cas" Width="1.5" PointX="52.125" PointY="29.375" />
+        <EntityTypeShape EntityType="ModelOsnovnaSkola.Predavanje" Width="2.25" PointX="42.125" PointY="29.125" />
+        <EntityTypeShape EntityType="ModelOsnovnaSkola.Oblast" Width="1.875" PointX="46.25" PointY="29.375" />
+        <EntityTypeShape EntityType="ModelOsnovnaSkola.Cas" Width="2.25" PointX="53.25" PointY="35.375" />
         <EntityTypeShape EntityType="ModelOsnovnaSkola.Predmet" Width="1.5" PointX="43.25" PointY="44.25" />
-        <EntityTypeShape EntityType="ModelOsnovnaSkola.Odeljenje" Width="1.5" PointX="26.25" PointY="30.125" />
-        <EntityTypeShape EntityType="ModelOsnovnaSkola.Ucenik" Width="1.5" PointX="28.5" PointY="30.125" />
+        <EntityTypeShape EntityType="ModelOsnovnaSkola.Odeljenje" Width="2.125" PointX="56" PointY="39.25" />
+        <EntityTypeShape EntityType="ModelOsnovnaSkola.Ucenik" Width="1.5" PointX="39.75" PointY="23.625" />
         <AssociationConnector Association="ModelOsnovnaSkola.Zadaje" />
         <AssociationConnector Association="ModelOsnovnaSkola.Vezana" ManuallyRouted="false" >
         </AssociationConnector>
         <AssociationConnector Association="ModelOsnovnaSkola.PredmetOblast" />
         <AssociationConnector Association="ModelOsnovnaSkola.Pripada" />
         <AssociationConnector Association="ModelOsnovnaSkola.Predjena" />
-        <EntityTypeShape EntityType="ModelOsnovnaSkola.Ima" Width="1.5" PointX="49.125" PointY="35.375" />
+        <EntityTypeShape EntityType="ModelOsnovnaSkola.Ima" Width="1.875" PointX="41.25" PointY="36" />
         <AssociationConnector Association="ModelOsnovnaSkola.OdeljenjeIma" />
         <AssociationConnector Association="ModelOsnovnaSkola.CasIma" />
-        <EntityTypeShape EntityType="ModelOsnovnaSkola.Prisustvo" Width="1.5" PointX="36.75" PointY="42.5" />
+        <EntityTypeShape EntityType="ModelOsnovnaSkola.Prisustvo" Width="2" PointX="53.5" PointY="32" />
         <AssociationConnector Association="ModelOsnovnaSkola.UcenikPrisustvo" />
         <AssociationConnector Association="ModelOsnovnaSkola.CasPrisustvo" />
-        <EntityTypeShape EntityType="ModelOsnovnaSkola.Radi" Width="1.5" PointX="34.5" PointY="39.125" />
+        <EntityTypeShape EntityType="ModelOsnovnaSkola.Radi" Width="2.125" PointX="42.5" PointY="23.5" />
         <AssociationConnector Association="ModelOsnovnaSkola.Kontrolna_tackaRadi" />
         <AssociationConnector Association="ModelOsnovnaSkola.UcenikRadi" />
         <AssociationConnector Association="ModelOsnovnaSkola.Drzi" />
@@ -45,8 +45,8 @@
         <AssociationConnector Association="ModelOsnovnaSkola.OdeljenjeNastavnikOdeljenje" />
         <AssociationConnector Association="ModelOsnovnaSkola.PredmetNastavnik" />
         <AssociationConnector Association="ModelOsnovnaSkola.UciteljOdeljenje" />
-        <EntityTypeShape EntityType="ModelOsnovnaSkola.Ucionica" Width="1.5" PointX="60.625" PointY="29.125" />
-        <EntityTypeShape EntityType="ModelOsnovnaSkola.ZauzetostUcionice" Width="1.5" PointX="56.5" PointY="30.125" />
+        <EntityTypeShape EntityType="ModelOsnovnaSkola.Ucionica" Width="2" PointX="62.5" PointY="33.25" />
+        <EntityTypeShape EntityType="ModelOsnovnaSkola.ZauzetostUcionice" Width="2.5" PointX="61" PointY="36.5" />
         <AssociationConnector Association="ModelOsnovnaSkola.UcionicaZauzetostUcionice" />
         <AssociationConnector Association="ModelOsnovnaSkola.CasZauzetostUcionice" />
         <AssociationConnector Association="ModelOsnovnaSkola.OdeljenjeZauzetostUcionice" />
