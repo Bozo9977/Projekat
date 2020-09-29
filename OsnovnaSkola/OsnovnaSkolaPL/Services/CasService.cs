@@ -33,7 +33,7 @@ namespace OsnovnaSkolaPL.Services
                         OdeljenjeId_odeljenja = odeljenje.Id_odeljenja
                     }
                 };
-                c.Imaju.Add(new Ima() { Cas = c, OdeljenjeId_odeljenja = odeljenje.Id_odeljenja });
+                //c.Imaju.Add(new Ima() { Cas = c, OdeljenjeId_odeljenja = odeljenje.Id_odeljenja });
 
                 if (dao.Insert(c))
                     return "";

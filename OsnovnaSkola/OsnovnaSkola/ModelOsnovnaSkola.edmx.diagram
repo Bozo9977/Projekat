@@ -27,9 +27,6 @@
         <AssociationConnector Association="ModelOsnovnaSkola.PredmetOblast" />
         <AssociationConnector Association="ModelOsnovnaSkola.Pripada" />
         <AssociationConnector Association="ModelOsnovnaSkola.Predjena" />
-        <EntityTypeShape EntityType="ModelOsnovnaSkola.Ima" Width="1.875" PointX="41.25" PointY="36" />
-        <AssociationConnector Association="ModelOsnovnaSkola.OdeljenjeIma" />
-        <AssociationConnector Association="ModelOsnovnaSkola.CasIma" />
         <EntityTypeShape EntityType="ModelOsnovnaSkola.Prisustvo" Width="2" PointX="53.5" PointY="32" />
         <AssociationConnector Association="ModelOsnovnaSkola.UcenikPrisustvo" />
         <AssociationConnector Association="ModelOsnovnaSkola.CasPrisustvo" />

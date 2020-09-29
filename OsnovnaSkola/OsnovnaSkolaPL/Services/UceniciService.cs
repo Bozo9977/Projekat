@@ -63,9 +63,9 @@ namespace OsnovnaSkolaPL.Services
         {
             using(var db = new ModelOsnovnaSkolaContainer())
             {
-                Cas c = db.Cas.Include(p => p.Imaju.Select(t=>t.Odeljenje.Ucenici)).SingleOrDefault(x => x.Id_casa == cas.Id_casa);
+                Cas c = db.Cas.Include(p => p.ZauzetostUcionice.Odeljenje).SingleOrDefault(x => x.Id_casa == cas.Id_casa);
 
-                Odeljenje o = c.Imaju.First().Odeljenje;
+                Odeljenje o = c.ZauzetostUcionice.Odeljenje;
 
 
                 List<UcenikIM> retVal = new List<UcenikIM>();

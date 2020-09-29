@@ -35,7 +35,6 @@ namespace OsnovnaSkola
         public virtual DbSet<Predmet> Predmeti { get; set; }
         public virtual DbSet<Odeljenje> Odeljenja { get; set; }
         public virtual DbSet<Ucenik> Ucenici { get; set; }
-        public virtual DbSet<Ima> Imaju { get; set; }
         public virtual DbSet<Prisustvo> Prisustva { get; set; }
         public virtual DbSet<Radi> Rade { get; set; }
         public virtual DbSet<NastavnikOdeljenje> NastavnikOdeljenjes { get; set; }

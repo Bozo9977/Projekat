@@ -18,7 +18,6 @@ namespace OsnovnaSkola
         public Odeljenje()
         {
             this.Ucenici = new HashSet<Ucenik>();
-            this.Imaju = new HashSet<Ima>();
             this.NastavnikOdeljenjes = new HashSet<NastavnikOdeljenje>();
             this.ZauzetostUcionices = new HashSet<ZauzetostUcionice>();
         }
@@ -28,8 +27,6 @@ namespace OsnovnaSkola
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Ucenik> Ucenici { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Ima> Imaju { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<NastavnikOdeljenje> NastavnikOdeljenjes { get; set; }
         public virtual Ucitelj Ucitelj { get; set; }

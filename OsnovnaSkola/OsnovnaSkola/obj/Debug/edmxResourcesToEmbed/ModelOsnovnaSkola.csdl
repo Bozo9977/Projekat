@@ -29,15 +29,6 @@
       <End Role="Oblast" EntitySet="Oblasti" />
       <End Role="Cas" EntitySet="Cas" />
     </AssociationSet>
-    <EntitySet Name="Imaju" EntityType="ModelOsnovnaSkola.Ima" />
-    <AssociationSet Name="OdeljenjeIma" Association="ModelOsnovnaSkola.OdeljenjeIma">
-      <End Role="Odeljenje" EntitySet="Odeljenja" />
-      <End Role="Ima" EntitySet="Imaju" />
-    </AssociationSet>
-    <AssociationSet Name="CasIma" Association="ModelOsnovnaSkola.CasIma">
-      <End Role="Cas" EntitySet="Cas" />
-      <End Role="Ima" EntitySet="Imaju" />
-    </AssociationSet>
     <EntitySet Name="Prisustva" EntityType="ModelOsnovnaSkola.Prisustvo" />
     <AssociationSet Name="UcenikPrisustvo" Association="ModelOsnovnaSkola.UcenikPrisustvo">
       <End Role="Ucenik" EntitySet="Ucenici" />
@@ -189,7 +180,6 @@
     <Property Name="Id_casa" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <NavigationProperty Name="Oblast" Relationship="ModelOsnovnaSkola.Predjena" FromRole="Cas" ToRole="Oblast" />
     <Property Name="OblastId_oblasti" Type="Int32" Nullable="true" />
-    <NavigationProperty Name="Imaju" Relationship="ModelOsnovnaSkola.CasIma" FromRole="Cas" ToRole="Ima" />
     <NavigationProperty Name="Prisustva" Relationship="ModelOsnovnaSkola.CasPrisustvo" FromRole="Cas" ToRole="Prisustvo" />
     <NavigationProperty Name="Zaposleni" Relationship="ModelOsnovnaSkola.Drzi" FromRole="Cas" ToRole="Zaposleni" />
     <Property Name="ZaposleniId_zaposlenog" Type="Int32" Nullable="false" />
@@ -213,7 +203,6 @@
     <Property Name="Id_odeljenja" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="razred" Type="Int16" Nullable="false" />
     <NavigationProperty Name="Ucenici" Relationship="ModelOsnovnaSkola.Pripada" FromRole="Odeljenje" ToRole="Ucenik" />
-    <NavigationProperty Name="Imaju" Relationship="ModelOsnovnaSkola.OdeljenjeIma" FromRole="Odeljenje" ToRole="Ima" />
     <NavigationProperty Name="NastavnikOdeljenjes" Relationship="ModelOsnovnaSkola.OdeljenjeNastavnikOdeljenje" FromRole="Odeljenje" ToRole="NastavnikOdeljenje" />
     <NavigationProperty Name="Ucitelj" Relationship="ModelOsnovnaSkola.UciteljOdeljenje" FromRole="Odeljenje" ToRole="Ucitelj" />
     <NavigationProperty Name="ZauzetostUcionices" Relationship="ModelOsnovnaSkola.OdeljenjeZauzetostUcionice" FromRole="Odeljenje" ToRole="ZauzetostUcionice" />
@@ -279,40 +268,6 @@
       </Principal>
       <Dependent Role="Cas">
         <PropertyRef Name="OblastId_oblasti" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <EntityType Name="Ima">
-    <Key>
-      <PropertyRef Name="OdeljenjeId_odeljenja" />
-      <PropertyRef Name="CasId_casa" />
-    </Key>
-    <NavigationProperty Name="Odeljenje" Relationship="ModelOsnovnaSkola.OdeljenjeIma" FromRole="Ima" ToRole="Odeljenje" />
-    <Property Name="OdeljenjeId_odeljenja" Type="Int32" Nullable="false" />
-    <NavigationProperty Name="Cas" Relationship="ModelOsnovnaSkola.CasIma" FromRole="Ima" ToRole="Cas" />
-    <Property Name="CasId_casa" Type="Int32" Nullable="false" />
-  </EntityType>
-  <Association Name="OdeljenjeIma">
-    <End Type="ModelOsnovnaSkola.Odeljenje" Role="Odeljenje" Multiplicity="1" />
-    <End Type="ModelOsnovnaSkola.Ima" Role="Ima" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Odeljenje">
-        <PropertyRef Name="Id_odeljenja" />
-      </Principal>
-      <Dependent Role="Ima">
-        <PropertyRef Name="OdeljenjeId_odeljenja" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="CasIma">
-    <End Type="ModelOsnovnaSkola.Cas" Role="Cas" Multiplicity="1" />
-    <End Type="ModelOsnovnaSkola.Ima" Role="Ima" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Cas">
-        <PropertyRef Name="Id_casa" />
-      </Principal>
-      <Dependent Role="Ima">
-        <PropertyRef Name="CasId_casa" />
       </Dependent>
     </ReferentialConstraint>
   </Association>

@@ -17,7 +17,6 @@ namespace OsnovnaSkola
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Cas()
         {
-            this.Imaju = new HashSet<Ima>();
             this.Prisustva = new HashSet<Prisustvo>();
         }
     
@@ -26,8 +25,6 @@ namespace OsnovnaSkola
         public int ZaposleniId_zaposlenog { get; set; }
     
         public virtual Oblast Oblast { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Ima> Imaju { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Prisustvo> Prisustva { get; set; }
         public virtual Zaposleni Zaposleni { get; set; }

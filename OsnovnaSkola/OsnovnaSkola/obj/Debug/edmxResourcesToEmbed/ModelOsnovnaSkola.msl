@@ -100,14 +100,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="Imaju">
-      <EntityTypeMapping TypeName="IsTypeOf(ModelOsnovnaSkola.Ima)">
-        <MappingFragment StoreEntitySet="Imaju">
-          <ScalarProperty Name="OdeljenjeId_odeljenja" ColumnName="OdeljenjeId_odeljenja" />
-          <ScalarProperty Name="CasId_casa" ColumnName="CasId_casa" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="Prisustva">
       <EntityTypeMapping TypeName="IsTypeOf(ModelOsnovnaSkola.Prisustvo)">
         <MappingFragment StoreEntitySet="Prisustva">
@@ -190,17 +182,5 @@
         <ScalarProperty Name="Id_kontrolne_tacke" ColumnName="Id_kontrolne_tacke" />
       </EndProperty>
     </AssociationSetMapping>
-    <FunctionImportMapping FunctionImportName="DodajKontrolnuTackuUceniku" FunctionName="ModelOsnovnaSkola.Store.DodajKontrolnuTackuUceniku" />
-    <FunctionImportMapping FunctionImportName="GetKontrolnuTackuAndRadeForZaposleniAndKontrolnaTacka" FunctionName="ModelOsnovnaSkola.Store.GetKontrolnuTackuAndRadeForZaposleniAndKontrolnaTacka">
-      <ResultMapping>
-        <ComplexTypeMapping TypeName="ModelOsnovnaSkola.GetKontrolnuTackuAndRadeForZaposleniAndKontrolnaTacka_Result">
-          <ScalarProperty Name="Id_kontrolne_tacke" ColumnName="Id_kontrolne_tacke" />
-          <ScalarProperty Name="zadatak" ColumnName="zadatak" />
-          <ScalarProperty Name="ocena" ColumnName="ocena" />
-          <ScalarProperty Name="UcenikId_ucenika" ColumnName="UcenikId_ucenika" />
-          <ScalarProperty Name="ZaposleniId_zaposlenog" ColumnName="ZaposleniId_zaposlenog" />
-        </ComplexTypeMapping>
-      </ResultMapping>
-    </FunctionImportMapping>
   </EntityContainerMapping>
 </Mapping>
