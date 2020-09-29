@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="28fbda95b3ec4775aed521afa1c93401" Name="Diagram1" ZoomLevel="75" >
+      <Diagram DiagramId="28fbda95b3ec4775aed521afa1c93401" Name="Diagram1" ZoomLevel="106" >
         <EntityTypeShape EntityType="ModelOsnovnaSkola.Zaposleni" Width="1.5" PointX="22" PointY="27.25" />
         <EntityTypeShape EntityType="ModelOsnovnaSkola.Ucitelj" Width="1.5" PointX="24" PointY="30.75" />
         <InheritanceConnector EntityType="ModelOsnovnaSkola.Ucitelj" />
@@ -16,11 +16,11 @@
         <EntityTypeShape EntityType="ModelOsnovnaSkola.Kontrolni" Width="1.5" PointX="40.375" PointY="19.5" />
         <InheritanceConnector EntityType="ModelOsnovnaSkola.Kontrolni" />
         <EntityTypeShape EntityType="ModelOsnovnaSkola.Predavanje" Width="1.5" PointX="40.875" PointY="31.25" />
-        <EntityTypeShape EntityType="ModelOsnovnaSkola.Oblast" Width="1.5" PointX="46.25" PointY="29.625" />
+        <EntityTypeShape EntityType="ModelOsnovnaSkola.Oblast" Width="1.875" PointX="46" PointY="44" />
         <EntityTypeShape EntityType="ModelOsnovnaSkola.Cas" Width="1.5" PointX="52.125" PointY="29.375" />
-        <EntityTypeShape EntityType="ModelOsnovnaSkola.Predmet" Width="1.5" PointX="46.25" PointY="44" />
-        <EntityTypeShape EntityType="ModelOsnovnaSkola.Odeljenje" Width="1.5" PointX="24.375" PointY="35.875" />
-        <EntityTypeShape EntityType="ModelOsnovnaSkola.Ucenik" Width="1.5" PointX="30.5" PointY="43.5" />
+        <EntityTypeShape EntityType="ModelOsnovnaSkola.Predmet" Width="1.5" PointX="43.25" PointY="44.25" />
+        <EntityTypeShape EntityType="ModelOsnovnaSkola.Odeljenje" Width="1.5" PointX="26.25" PointY="30.125" />
+        <EntityTypeShape EntityType="ModelOsnovnaSkola.Ucenik" Width="1.5" PointX="28.5" PointY="30.125" />
         <AssociationConnector Association="ModelOsnovnaSkola.Zadaje" />
         <AssociationConnector Association="ModelOsnovnaSkola.Vezana" ManuallyRouted="false" >
         </AssociationConnector>
