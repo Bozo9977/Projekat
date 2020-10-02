@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:OsnovnaSkolaUI.Views"
         mc:Ignorable="d"
-         Title="Novi Cas" Height="692" Width="800" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
+         Title="Novi Cas" Height="713" Width="800" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
     <Window.Resources>
         <Style x:Key="FocusTextBox" TargetType="Grid">
             <Style.Triggers>
@@ -88,8 +88,8 @@
 
         <Label Content="{Binding DateError, UpdateSourceTrigger=PropertyChanged}" Name="prezimeError" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" HorizontalAlignment="Left" Height="34" Margin="169,149,0,0" VerticalAlignment="Top" Width="440" FontFamily="Segoe UI" Foreground="red" FontSize="16" />
 
-        <Button  Content="{Binding ButtonContent}" IsDefault="True" Command="{Binding AddCasCommand}" HorizontalAlignment="Left"  FontSize="24" VerticalAlignment="Top" Width="130" Margin="331,605,0,0" Height="48" RenderTransformOrigin="0.503,0.458"  FontFamily="Segoe UI" Background="Transparent" BorderBrush="White" Foreground="#FFFBFB9F" FontWeight="Bold"/>
-        <Button  Content="Obriši" Visibility="{Binding DeletionEnabled}" IsDefault="True" Command="{Binding DeleteCasCommand}" HorizontalAlignment="Left"  FontSize="24" VerticalAlignment="Top" Width="130" Margin="331,557,0,0" Height="48" RenderTransformOrigin="0.5,0.514"  FontFamily="Segoe UI" Background="Transparent" BorderBrush="White" Foreground="#FFFBFB9F" FontWeight="Bold"/>
+        <Button  Content="{Binding ButtonContent}" IsDefault="True" Command="{Binding AddCasCommand}" HorizontalAlignment="Left"  FontSize="24" VerticalAlignment="Top" Width="130" Margin="331,605,0,0" Height="48" RenderTransformOrigin="0.503,0.458"  FontFamily="Segoe UI" Background="Transparent" BorderBrush="Gold" Foreground="#FFFBFB9F" FontWeight="Bold"/>
+        <Button  Content="Obriši" Visibility="{Binding DeletionEnabled}" IsDefault="True" Command="{Binding DeleteCasCommand}" HorizontalAlignment="Left"  FontSize="24" VerticalAlignment="Top" Width="130" Margin="331,557,0,0" Height="48" RenderTransformOrigin="0.5,0.514"  FontFamily="Segoe UI" Background="Transparent" BorderBrush="Gold" Foreground="#FFFBFB9F" FontWeight="Bold"/>
 
     </Grid>
 </Window>
