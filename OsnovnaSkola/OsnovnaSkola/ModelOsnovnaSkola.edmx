@@ -12,7 +12,6 @@
           <Property Name="Id_casa" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="OblastId_oblasti" Type="int" />
           <Property Name="ZaposleniId_zaposlenog" Type="int" Nullable="false" />
-          <Property Name="ZauzetostUcionice_Id_zauzetosti" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="Kontrolna_tacka">
           <Key>
@@ -150,9 +149,12 @@
           <Property Name="pocetak" Type="time" Precision="7" Nullable="false" />
           <Property Name="datum" Type="datetime" Nullable="false" />
           <Property Name="OdeljenjeId_odeljenja" Type="int" Nullable="false" />
+          <Property Name="Cas_Id_casa" Type="int" Nullable="false" />
         </EntityType>
         <Association Name="FK_CasPrisustvo">
-          <End Role="Cas" Type="Self.Cas" Multiplicity="1" />
+          <End Role="Cas" Type="Self.Cas" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="Prisustva" Type="Self.Prisustva" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Cas">
@@ -164,14 +166,16 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_CasZauzetostUcionice">
-          <End Role="ZauzetostUcionices" Type="Self.ZauzetostUcionices" Multiplicity="1" />
-          <End Role="Cas" Type="Self.Cas" Multiplicity="*" />
+          <End Role="Cas" Type="Self.Cas" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="ZauzetostUcionices" Type="Self.ZauzetostUcionices" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="ZauzetostUcionices">
-              <PropertyRef Name="Id_zauzetosti" />
+            <Principal Role="Cas">
+              <PropertyRef Name="Id_casa" />
             </Principal>
-            <Dependent Role="Cas">
-              <PropertyRef Name="ZauzetostUcionice_Id_zauzetosti" />
+            <Dependent Role="ZauzetostUcionices">
+              <PropertyRef Name="Cas_Id_casa" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -190,7 +194,9 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Drzi">
-          <End Role="Zaposlenici" Type="Self.Zaposlenici" Multiplicity="1" />
+          <End Role="Zaposlenici" Type="Self.Zaposlenici" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="Cas" Type="Self.Cas" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Zaposlenici">
@@ -214,7 +220,9 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Kontrolna_tackaOblast">
-          <End Role="Oblasti" Type="Self.Oblasti" Multiplicity="1" />
+          <End Role="Oblasti" Type="Self.Oblasti" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="Kontrolna_tacka" Type="Self.Kontrolna_tacka" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Oblasti">
@@ -226,7 +234,9 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Kontrolna_tackaRadi">
-          <End Role="Kontrolna_tacka" Type="Self.Kontrolna_tacka" Multiplicity="1" />
+          <End Role="Kontrolna_tacka" Type="Self.Kontrolna_tacka" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="Rade" Type="Self.Rade" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Kontrolna_tacka">
@@ -266,7 +276,9 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_NastavnikNastavnikOdeljenje">
-          <End Role="Zaposlenici_Nastavnik" Type="Self.Zaposlenici_Nastavnik" Multiplicity="1" />
+          <End Role="Zaposlenici_Nastavnik" Type="Self.Zaposlenici_Nastavnik" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="NastavnikOdeljenjes" Type="Self.NastavnikOdeljenjes" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Zaposlenici_Nastavnik">
@@ -278,7 +290,9 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_OdeljenjeNastavnikOdeljenje">
-          <End Role="Odeljenja" Type="Self.Odeljenja" Multiplicity="1" />
+          <End Role="Odeljenja" Type="Self.Odeljenja" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="NastavnikOdeljenjes" Type="Self.NastavnikOdeljenjes" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Odeljenja">
@@ -290,7 +304,9 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_OdeljenjeZauzetostUcionice">
-          <End Role="Odeljenja" Type="Self.Odeljenja" Multiplicity="1" />
+          <End Role="Odeljenja" Type="Self.Odeljenja" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="ZauzetostUcionices" Type="Self.ZauzetostUcionices" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Odeljenja">
@@ -302,7 +318,9 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Predjena">
-          <End Role="Oblasti" Type="Self.Oblasti" Multiplicity="0..1" />
+          <End Role="Oblasti" Type="Self.Oblasti" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="Cas" Type="Self.Cas" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Oblasti">
@@ -326,7 +344,9 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_PredmetOblast">
-          <End Role="Predmeti" Type="Self.Predmeti" Multiplicity="1" />
+          <End Role="Predmeti" Type="Self.Predmeti" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="Oblasti" Type="Self.Oblasti" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Predmeti">
@@ -338,7 +358,9 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Pripada">
-          <End Role="Odeljenja" Type="Self.Odeljenja" Multiplicity="0..1" />
+          <End Role="Odeljenja" Type="Self.Odeljenja" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="Ucenici" Type="Self.Ucenici" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Odeljenja">
@@ -350,7 +372,9 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_UcenikPrisustvo">
-          <End Role="Ucenici" Type="Self.Ucenici" Multiplicity="1" />
+          <End Role="Ucenici" Type="Self.Ucenici" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="Prisustva" Type="Self.Prisustva" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Ucenici">
@@ -362,7 +386,9 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_UcenikRadi">
-          <End Role="Ucenici" Type="Self.Ucenici" Multiplicity="1" />
+          <End Role="Ucenici" Type="Self.Ucenici" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="Rade" Type="Self.Rade" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Ucenici">
@@ -374,7 +400,9 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_UcionicaZauzetostUcionice">
-          <End Role="Ucionicas" Type="Self.Ucionicas" Multiplicity="1" />
+          <End Role="Ucionicas" Type="Self.Ucionicas" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="ZauzetostUcionices" Type="Self.ZauzetostUcionices" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Ucionicas">
@@ -412,7 +440,9 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Vezana">
-          <End Role="Oblasti" Type="Self.Oblasti" Multiplicity="1" />
+          <End Role="Oblasti" Type="Self.Oblasti" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="Predavanja" Type="Self.Predavanja" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Oblasti">
@@ -424,7 +454,9 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Zadaje">
-          <End Role="Zaposlenici" Type="Self.Zaposlenici" Multiplicity="1" />
+          <End Role="Zaposlenici" Type="Self.Zaposlenici" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="Kontrolna_tacka" Type="Self.Kontrolna_tacka" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Zaposlenici">
@@ -436,7 +468,9 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_ZaposleniPredavanje">
-          <End Role="Zaposlenici" Type="Self.Zaposlenici" Multiplicity="1" />
+          <End Role="Zaposlenici" Type="Self.Zaposlenici" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="Predavanja" Type="Self.Predavanja" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Zaposlenici">
@@ -507,8 +541,8 @@
             <End Role="Prisustva" EntitySet="Prisustva" />
           </AssociationSet>
           <AssociationSet Name="FK_CasZauzetostUcionice" Association="Self.FK_CasZauzetostUcionice">
-            <End Role="ZauzetostUcionices" EntitySet="ZauzetostUcionices" />
             <End Role="Cas" EntitySet="Cas" />
+            <End Role="ZauzetostUcionices" EntitySet="ZauzetostUcionices" />
           </AssociationSet>
           <AssociationSet Name="FK_Domaci_inherits_Kontrolna_tacka" Association="Self.FK_Domaci_inherits_Kontrolna_tacka">
             <End Role="Kontrolna_tacka" EntitySet="Kontrolna_tacka" />
@@ -827,7 +861,9 @@
           <Property Name="Roditelj" Type="String" Nullable="true" MaxLength="Max" Unicode="true" FixedLength="false" />
         </EntityType>
         <Association Name="Zadaje">
-          <End Type="ModelOsnovnaSkola.Zaposleni" Role="Zaposleni" Multiplicity="1" />
+          <End Type="ModelOsnovnaSkola.Zaposleni" Role="Zaposleni" Multiplicity="1" >
+            <OnDelete Action="Cascade" />
+          </End>
           <End Type="ModelOsnovnaSkola.Kontrolna_tacka" Role="Kontrolna_tacka" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Zaposleni">
@@ -840,7 +876,9 @@
         </Association>
         <Association Name="Vezana">
           <End Type="ModelOsnovnaSkola.Predavanje" Role="Predavanje" Multiplicity="*" />
-          <End Type="ModelOsnovnaSkola.Oblast" Role="Oblast" Multiplicity="1" />
+          <End Type="ModelOsnovnaSkola.Oblast" Role="Oblast" Multiplicity="1" >
+            <OnDelete Action="Cascade" />
+          </End>
           <ReferentialConstraint>
             <Principal Role="Oblast">
               <PropertyRef Name="Id_oblasti" />
@@ -851,7 +889,9 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="PredmetOblast">
-          <End Type="ModelOsnovnaSkola.Predmet" Role="Predmet" Multiplicity="1" />
+          <End Type="ModelOsnovnaSkola.Predmet" Role="Predmet" Multiplicity="1" >
+            <OnDelete Action="Cascade" />
+          </End>
           <End Type="ModelOsnovnaSkola.Oblast" Role="Oblast" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Predmet">
@@ -863,11 +903,15 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="Pripada">
-          <End Type="ModelOsnovnaSkola.Odeljenje" Role="Odeljenje" Multiplicity="0..1" />
+          <End Type="ModelOsnovnaSkola.Odeljenje" Role="Odeljenje" Multiplicity="0..1" >
+            <OnDelete Action="Cascade" />
+          </End>
           <End Type="ModelOsnovnaSkola.Ucenik" Role="Ucenik" Multiplicity="*" />
         </Association>
         <Association Name="Predjena">
-          <End Type="ModelOsnovnaSkola.Oblast" Role="Oblast" Multiplicity="0..1" />
+          <End Type="ModelOsnovnaSkola.Oblast" Role="Oblast" Multiplicity="0..1" >
+            <OnDelete Action="Cascade" />
+          </End>
           <End Type="ModelOsnovnaSkola.Cas" Role="Cas" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Oblast">
@@ -891,7 +935,9 @@
           <Property Name="ZaposleniId_zaposlenog" Type="Int32" Nullable="false" />
         </EntityType>
         <Association Name="UcenikPrisustvo">
-          <End Type="ModelOsnovnaSkola.Ucenik" Role="Ucenik" Multiplicity="1" />
+          <End Type="ModelOsnovnaSkola.Ucenik" Role="Ucenik" Multiplicity="1" >
+            <OnDelete Action="Cascade" />
+          </End>
           <End Type="ModelOsnovnaSkola.Prisustvo" Role="Prisustvo" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Ucenik">
@@ -903,7 +949,9 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="CasPrisustvo">
-          <End Type="ModelOsnovnaSkola.Cas" Role="Cas" Multiplicity="1" />
+          <End Type="ModelOsnovnaSkola.Cas" Role="Cas" Multiplicity="1" >
+            <OnDelete Action="Cascade" />
+          </End>
           <End Type="ModelOsnovnaSkola.Prisustvo" Role="Prisustvo" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Cas">
@@ -929,7 +977,9 @@
           <Property Name="ocena" Type="Int16" Nullable="false" />
         </EntityType>
         <Association Name="Kontrolna_tackaRadi">
-          <End Type="ModelOsnovnaSkola.Kontrolna_tacka" Role="Kontrolna_tacka" Multiplicity="1" />
+          <End Type="ModelOsnovnaSkola.Kontrolna_tacka" Role="Kontrolna_tacka" Multiplicity="1" >
+            <OnDelete Action="Cascade" />
+          </End>
           <End Type="ModelOsnovnaSkola.Radi" Role="Radi" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Kontrolna_tacka">
@@ -941,7 +991,9 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="UcenikRadi">
-          <End Type="ModelOsnovnaSkola.Ucenik" Role="Ucenik" Multiplicity="1" />
+          <End Type="ModelOsnovnaSkola.Ucenik" Role="Ucenik" Multiplicity="1" >
+            <OnDelete Action="Cascade" />
+          </End>
           <End Type="ModelOsnovnaSkola.Radi" Role="Radi" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Ucenik">
@@ -953,7 +1005,9 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="Drzi">
-          <End Type="ModelOsnovnaSkola.Zaposleni" Role="Zaposleni" Multiplicity="1" />
+          <End Type="ModelOsnovnaSkola.Zaposleni" Role="Zaposleni" Multiplicity="1" >
+            <OnDelete Action="Cascade" />
+          </End>
           <End Type="ModelOsnovnaSkola.Cas" Role="Cas" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Zaposleni">
@@ -965,7 +1019,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="Evidentira">
-          <End Type="ModelOsnovnaSkola.Zaposleni" Role="Zaposleni" Multiplicity="1" />
+          <End Type="ModelOsnovnaSkola.Zaposleni" Role="Zaposleni" Multiplicity="1" >
+          </End>
           <End Type="ModelOsnovnaSkola.Prisustvo" Role="Prisustvo" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Zaposleni">
@@ -977,7 +1032,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="ZaposleniRadi">
-          <End Type="ModelOsnovnaSkola.Zaposleni" Role="Zaposleni" Multiplicity="1" />
+          <End Type="ModelOsnovnaSkola.Zaposleni" Role="Zaposleni" Multiplicity="1" >
+          </End>
           <End Type="ModelOsnovnaSkola.Radi" Role="Radi" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Zaposleni">
@@ -989,7 +1045,9 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="ZaposleniPredavanje">
-          <End Type="ModelOsnovnaSkola.Zaposleni" Role="Zaposleni" Multiplicity="1" />
+          <End Type="ModelOsnovnaSkola.Zaposleni" Role="Zaposleni" Multiplicity="1" >
+            <OnDelete Action="Cascade" />
+          </End>
           <End Type="ModelOsnovnaSkola.Predavanje" Role="Predavanje" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Zaposleni">
@@ -1012,8 +1070,11 @@
           <Property Name="Razredni" Type="Boolean" Nullable="false" />
         </EntityType>
         <Association Name="NastavnikNastavnikOdeljenje">
-          <End Type="ModelOsnovnaSkola.Nastavnik" Role="Nastavnik" Multiplicity="1" />
-          <End Type="ModelOsnovnaSkola.NastavnikOdeljenje" Role="NastavnikOdeljenje" Multiplicity="*" />
+          <End Type="ModelOsnovnaSkola.Nastavnik" Role="Nastavnik" Multiplicity="1" >
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="ModelOsnovnaSkola.NastavnikOdeljenje" Role="NastavnikOdeljenje" Multiplicity="*" >
+          </End>
           <ReferentialConstraint>
             <Principal Role="Nastavnik">
               <PropertyRef Name="Id_zaposlenog" />
@@ -1024,7 +1085,9 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="OdeljenjeNastavnikOdeljenje">
-          <End Type="ModelOsnovnaSkola.Odeljenje" Role="Odeljenje" Multiplicity="1" />
+          <End Type="ModelOsnovnaSkola.Odeljenje" Role="Odeljenje" Multiplicity="1" >
+            <OnDelete Action="Cascade" />
+          </End>
           <End Type="ModelOsnovnaSkola.NastavnikOdeljenje" Role="NastavnikOdeljenje" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Odeljenje">
@@ -1048,8 +1111,10 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="UciteljOdeljenje">
-          <End Type="ModelOsnovnaSkola.Ucitelj" Role="Ucitelj" Multiplicity="0..1" />
-          <End Type="ModelOsnovnaSkola.Odeljenje" Role="Odeljenje" Multiplicity="0..1" />
+          <End Type="ModelOsnovnaSkola.Ucitelj" Role="Ucitelj" Multiplicity="0..1" >
+          </End>
+          <End Type="ModelOsnovnaSkola.Odeljenje" Role="Odeljenje" Multiplicity="0..1" >
+          </End>
         </Association>
         <EntityType Name="Ucionica">
           <Key>
@@ -1074,8 +1139,11 @@
           <Property Name="OdeljenjeId_odeljenja" Type="Int32" Nullable="false" />
         </EntityType>
         <Association Name="UcionicaZauzetostUcionice">
-          <End Type="ModelOsnovnaSkola.Ucionica" Role="Ucionica" Multiplicity="1" />
-          <End Type="ModelOsnovnaSkola.ZauzetostUcionice" Role="ZauzetostUcionice" Multiplicity="*" />
+          <End Type="ModelOsnovnaSkola.Ucionica" Role="Ucionica" Multiplicity="1" >
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="ModelOsnovnaSkola.ZauzetostUcionice" Role="ZauzetostUcionice" Multiplicity="*" >
+          </End>
           <ReferentialConstraint>
             <Principal Role="Ucionica">
               <PropertyRef Name="Id_ucionice" />
@@ -1086,12 +1154,18 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="CasZauzetostUcionice">
-          <End Type="ModelOsnovnaSkola.Cas" Role="Cas" Multiplicity="1" />
-          <End Type="ModelOsnovnaSkola.ZauzetostUcionice" Role="ZauzetostUcionice" Multiplicity="1" />
+          <End Type="ModelOsnovnaSkola.Cas" Role="Cas" Multiplicity="1" >
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="ModelOsnovnaSkola.ZauzetostUcionice" Role="ZauzetostUcionice" Multiplicity="1" >
+          </End>
         </Association>
         <Association Name="OdeljenjeZauzetostUcionice">
-          <End Type="ModelOsnovnaSkola.Odeljenje" Role="Odeljenje" Multiplicity="1" />
-          <End Type="ModelOsnovnaSkola.ZauzetostUcionice" Role="ZauzetostUcionice" Multiplicity="*" />
+          <End Type="ModelOsnovnaSkola.Odeljenje" Role="Odeljenje" Multiplicity="1" >
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="ModelOsnovnaSkola.ZauzetostUcionice" Role="ZauzetostUcionice" Multiplicity="*" >
+          </End>
           <ReferentialConstraint>
             <Principal Role="Odeljenje">
               <PropertyRef Name="Id_odeljenja" />
@@ -1103,7 +1177,9 @@
         </Association>
         <Association Name="Kontrolna_tackaOblast">
           <End Type="ModelOsnovnaSkola.Kontrolna_tacka" Role="Kontrolna_tacka" Multiplicity="0..1" />
-          <End Type="ModelOsnovnaSkola.Oblast" Role="Oblast" Multiplicity="1" />
+          <End Type="ModelOsnovnaSkola.Oblast" Role="Oblast" Multiplicity="1" >
+            <OnDelete Action="Cascade" />
+          </End>
         </Association>
         <ComplexType Name="GetKontrolnuTackuAndRadeForZaposleniAndKontrolnaTacka_Result">
           <Property Type="Int32" Name="Id_kontrolne_tacke" Nullable="true" />
@@ -1283,12 +1359,12 @@
       </EndProperty>
       <Condition ColumnName="Ucitelj_Id_zaposlenog" IsNull="false" />
     </AssociationSetMapping>
-    <AssociationSetMapping Name="CasZauzetostUcionice" TypeName="ModelOsnovnaSkola.CasZauzetostUcionice" StoreEntitySet="Cas">
-      <EndProperty Name="ZauzetostUcionice">
-        <ScalarProperty Name="Id_zauzetosti" ColumnName="ZauzetostUcionice_Id_zauzetosti" />
-      </EndProperty>
+    <AssociationSetMapping Name="CasZauzetostUcionice" TypeName="ModelOsnovnaSkola.CasZauzetostUcionice" StoreEntitySet="ZauzetostUcionices">
       <EndProperty Name="Cas">
-        <ScalarProperty Name="Id_casa" ColumnName="Id_casa" />
+        <ScalarProperty Name="Id_casa" ColumnName="Cas_Id_casa" />
+      </EndProperty>
+      <EndProperty Name="ZauzetostUcionice">
+        <ScalarProperty Name="Id_zauzetosti" ColumnName="Id_zauzetosti" />
       </EndProperty>
     </AssociationSetMapping>
     <AssociationSetMapping Name="Kontrolna_tackaOblast" TypeName="ModelOsnovnaSkola.Kontrolna_tackaOblast" StoreEntitySet="Kontrolna_tacka">

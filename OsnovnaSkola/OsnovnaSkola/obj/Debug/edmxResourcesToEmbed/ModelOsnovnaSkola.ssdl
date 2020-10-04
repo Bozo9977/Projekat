@@ -7,7 +7,6 @@
     <Property Name="Id_casa" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="OblastId_oblasti" Type="int" />
     <Property Name="ZaposleniId_zaposlenog" Type="int" Nullable="false" />
-    <Property Name="ZauzetostUcionice_Id_zauzetosti" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="Kontrolna_tacka">
     <Key>
@@ -145,9 +144,12 @@
     <Property Name="pocetak" Type="time" Precision="7" Nullable="false" />
     <Property Name="datum" Type="datetime" Nullable="false" />
     <Property Name="OdeljenjeId_odeljenja" Type="int" Nullable="false" />
+    <Property Name="Cas_Id_casa" Type="int" Nullable="false" />
   </EntityType>
   <Association Name="FK_CasPrisustvo">
-    <End Role="Cas" Type="Self.Cas" Multiplicity="1" />
+    <End Role="Cas" Type="Self.Cas" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
     <End Role="Prisustva" Type="Self.Prisustva" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Cas">
@@ -159,14 +161,16 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_CasZauzetostUcionice">
-    <End Role="ZauzetostUcionices" Type="Self.ZauzetostUcionices" Multiplicity="1" />
-    <End Role="Cas" Type="Self.Cas" Multiplicity="*" />
+    <End Role="Cas" Type="Self.Cas" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="ZauzetostUcionices" Type="Self.ZauzetostUcionices" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="ZauzetostUcionices">
-        <PropertyRef Name="Id_zauzetosti" />
+      <Principal Role="Cas">
+        <PropertyRef Name="Id_casa" />
       </Principal>
-      <Dependent Role="Cas">
-        <PropertyRef Name="ZauzetostUcionice_Id_zauzetosti" />
+      <Dependent Role="ZauzetostUcionices">
+        <PropertyRef Name="Cas_Id_casa" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -185,7 +189,9 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_Drzi">
-    <End Role="Zaposlenici" Type="Self.Zaposlenici" Multiplicity="1" />
+    <End Role="Zaposlenici" Type="Self.Zaposlenici" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
     <End Role="Cas" Type="Self.Cas" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Zaposlenici">
@@ -209,7 +215,9 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_Kontrolna_tackaOblast">
-    <End Role="Oblasti" Type="Self.Oblasti" Multiplicity="1" />
+    <End Role="Oblasti" Type="Self.Oblasti" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
     <End Role="Kontrolna_tacka" Type="Self.Kontrolna_tacka" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Oblasti">
@@ -221,7 +229,9 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_Kontrolna_tackaRadi">
-    <End Role="Kontrolna_tacka" Type="Self.Kontrolna_tacka" Multiplicity="1" />
+    <End Role="Kontrolna_tacka" Type="Self.Kontrolna_tacka" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
     <End Role="Rade" Type="Self.Rade" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Kontrolna_tacka">
@@ -261,7 +271,9 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_NastavnikNastavnikOdeljenje">
-    <End Role="Zaposlenici_Nastavnik" Type="Self.Zaposlenici_Nastavnik" Multiplicity="1" />
+    <End Role="Zaposlenici_Nastavnik" Type="Self.Zaposlenici_Nastavnik" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
     <End Role="NastavnikOdeljenjes" Type="Self.NastavnikOdeljenjes" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Zaposlenici_Nastavnik">
@@ -273,7 +285,9 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_OdeljenjeNastavnikOdeljenje">
-    <End Role="Odeljenja" Type="Self.Odeljenja" Multiplicity="1" />
+    <End Role="Odeljenja" Type="Self.Odeljenja" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
     <End Role="NastavnikOdeljenjes" Type="Self.NastavnikOdeljenjes" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Odeljenja">
@@ -285,7 +299,9 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_OdeljenjeZauzetostUcionice">
-    <End Role="Odeljenja" Type="Self.Odeljenja" Multiplicity="1" />
+    <End Role="Odeljenja" Type="Self.Odeljenja" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
     <End Role="ZauzetostUcionices" Type="Self.ZauzetostUcionices" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Odeljenja">
@@ -297,7 +313,9 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_Predjena">
-    <End Role="Oblasti" Type="Self.Oblasti" Multiplicity="0..1" />
+    <End Role="Oblasti" Type="Self.Oblasti" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
     <End Role="Cas" Type="Self.Cas" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Oblasti">
@@ -321,7 +339,9 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_PredmetOblast">
-    <End Role="Predmeti" Type="Self.Predmeti" Multiplicity="1" />
+    <End Role="Predmeti" Type="Self.Predmeti" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
     <End Role="Oblasti" Type="Self.Oblasti" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Predmeti">
@@ -333,7 +353,9 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_Pripada">
-    <End Role="Odeljenja" Type="Self.Odeljenja" Multiplicity="0..1" />
+    <End Role="Odeljenja" Type="Self.Odeljenja" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
     <End Role="Ucenici" Type="Self.Ucenici" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Odeljenja">
@@ -345,7 +367,9 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_UcenikPrisustvo">
-    <End Role="Ucenici" Type="Self.Ucenici" Multiplicity="1" />
+    <End Role="Ucenici" Type="Self.Ucenici" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
     <End Role="Prisustva" Type="Self.Prisustva" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Ucenici">
@@ -357,7 +381,9 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_UcenikRadi">
-    <End Role="Ucenici" Type="Self.Ucenici" Multiplicity="1" />
+    <End Role="Ucenici" Type="Self.Ucenici" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
     <End Role="Rade" Type="Self.Rade" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Ucenici">
@@ -369,7 +395,9 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_UcionicaZauzetostUcionice">
-    <End Role="Ucionicas" Type="Self.Ucionicas" Multiplicity="1" />
+    <End Role="Ucionicas" Type="Self.Ucionicas" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
     <End Role="ZauzetostUcionices" Type="Self.ZauzetostUcionices" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Ucionicas">
@@ -407,7 +435,9 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_Vezana">
-    <End Role="Oblasti" Type="Self.Oblasti" Multiplicity="1" />
+    <End Role="Oblasti" Type="Self.Oblasti" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
     <End Role="Predavanja" Type="Self.Predavanja" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Oblasti">
@@ -419,7 +449,9 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_Zadaje">
-    <End Role="Zaposlenici" Type="Self.Zaposlenici" Multiplicity="1" />
+    <End Role="Zaposlenici" Type="Self.Zaposlenici" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
     <End Role="Kontrolna_tacka" Type="Self.Kontrolna_tacka" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Zaposlenici">
@@ -431,7 +463,9 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK_ZaposleniPredavanje">
-    <End Role="Zaposlenici" Type="Self.Zaposlenici" Multiplicity="1" />
+    <End Role="Zaposlenici" Type="Self.Zaposlenici" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
     <End Role="Predavanja" Type="Self.Predavanja" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Zaposlenici">
@@ -502,8 +536,8 @@
       <End Role="Prisustva" EntitySet="Prisustva" />
     </AssociationSet>
     <AssociationSet Name="FK_CasZauzetostUcionice" Association="Self.FK_CasZauzetostUcionice">
-      <End Role="ZauzetostUcionices" EntitySet="ZauzetostUcionices" />
       <End Role="Cas" EntitySet="Cas" />
+      <End Role="ZauzetostUcionices" EntitySet="ZauzetostUcionices" />
     </AssociationSet>
     <AssociationSet Name="FK_Domaci_inherits_Kontrolna_tacka" Association="Self.FK_Domaci_inherits_Kontrolna_tacka">
       <End Role="Kontrolna_tacka" EntitySet="Kontrolna_tacka" />

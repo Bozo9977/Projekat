@@ -166,12 +166,12 @@
       </EndProperty>
       <Condition ColumnName="Ucitelj_Id_zaposlenog" IsNull="false" />
     </AssociationSetMapping>
-    <AssociationSetMapping Name="CasZauzetostUcionice" TypeName="ModelOsnovnaSkola.CasZauzetostUcionice" StoreEntitySet="Cas">
-      <EndProperty Name="ZauzetostUcionice">
-        <ScalarProperty Name="Id_zauzetosti" ColumnName="ZauzetostUcionice_Id_zauzetosti" />
-      </EndProperty>
+    <AssociationSetMapping Name="CasZauzetostUcionice" TypeName="ModelOsnovnaSkola.CasZauzetostUcionice" StoreEntitySet="ZauzetostUcionices">
       <EndProperty Name="Cas">
-        <ScalarProperty Name="Id_casa" ColumnName="Id_casa" />
+        <ScalarProperty Name="Id_casa" ColumnName="Cas_Id_casa" />
+      </EndProperty>
+      <EndProperty Name="ZauzetostUcionice">
+        <ScalarProperty Name="Id_zauzetosti" ColumnName="Id_zauzetosti" />
       </EndProperty>
     </AssociationSetMapping>
     <AssociationSetMapping Name="Kontrolna_tackaOblast" TypeName="ModelOsnovnaSkola.Kontrolna_tackaOblast" StoreEntitySet="Kontrolna_tacka">
