@@ -95,7 +95,7 @@ namespace OsnovnaSkolaUI.ViewModel
                     if (Channel.Instance.UceniciProxy.AddUcenik(new UcenikIM() { ime = Ime, prezime = Prezime }))
                     {
 
-                        MessageBox.Show("Učenik uspešno dodat.", "Operacija uspešna!", MessageBoxButton.OK, MessageBoxImage.Information);
+                        //MessageBox.Show("Učenik uspešno dodat.", "Operacija uspešna!", MessageBoxButton.OK, MessageBoxImage.Information);
                         Window.Close();
                     }
                     else
@@ -119,7 +119,7 @@ namespace OsnovnaSkolaUI.ViewModel
                     SelectedUcenik.prezime = Prezime;
                     if (Channel.Instance.UceniciProxy.ChangeUcenik(SelectedUcenik))
                     {
-                        MessageBox.Show("Učenik uspešno izmenjen.", "Operacija uspešna.", MessageBoxButton.OK, MessageBoxImage.Information);
+                        //MessageBox.Show("Učenik uspešno izmenjen.", "Operacija uspešna.", MessageBoxButton.OK, MessageBoxImage.Information);
                         Window.Close();
                     }
                     else

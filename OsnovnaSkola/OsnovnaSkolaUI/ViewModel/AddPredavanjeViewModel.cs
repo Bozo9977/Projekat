@@ -117,7 +117,7 @@ namespace OsnovnaSkolaUI.ViewModel
                     };
                     if (Channel.Instance.PredavanjaProxy.AddPredavanjeForZaposleni(p))
                     {
-                        MessageBox.Show("Predavanje dodato.", "Uspeh!", MessageBoxButton.OK, MessageBoxImage.Information);
+                        //MessageBox.Show("Predavanje dodato.", "Uspeh!", MessageBoxButton.OK, MessageBoxImage.Information);
 
                     }
                     else
@@ -131,7 +131,7 @@ namespace OsnovnaSkolaUI.ViewModel
                     SelectedPredavanje.datum_odrzavanja = SelectedDatum;
                     if (Channel.Instance.PredavanjaProxy.ChangePredavanje(SelectedPredavanje))
                     {
-                        MessageBox.Show("Predavanje izmenjeno.", "Uspeh!", MessageBoxButton.OK, MessageBoxImage.Information);
+                        //MessageBox.Show("Predavanje izmenjeno.", "Uspeh!", MessageBoxButton.OK, MessageBoxImage.Information);
                     }
                     else
                     {

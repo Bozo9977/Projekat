@@ -149,7 +149,7 @@ namespace OsnovnaSkolaUI.ViewModel
             {
                 if (Channel.Instance.OblastiProxy.DeleteOblast(SelectedOblast))
                 {
-                    MessageBox.Show("Oblast obrisana", "Uspeh!", MessageBoxButton.OK, MessageBoxImage.Information);
+                    //MessageBox.Show("Oblast obrisana", "Uspeh!", MessageBoxButton.OK, MessageBoxImage.Information);
                 }
                 else
                 {

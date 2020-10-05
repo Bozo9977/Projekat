@@ -73,7 +73,7 @@ namespace OsnovnaSkolaUI.ViewModel
                     SelectedOdeljenje.razred = Razred;
                     if (Channel.Instance.OdeljenjaProxy.ChangeOdeljenje(SelectedOdeljenje))
                     {
-                        MessageBox.Show("Odeljenje izmenjeno.", "Operacija uspešna!", MessageBoxButton.OK, MessageBoxImage.Information);
+                        //MessageBox.Show("Odeljenje izmenjeno.", "Operacija uspešna!", MessageBoxButton.OK, MessageBoxImage.Information);
                         Window.Close();
                     }
                     else
@@ -95,7 +95,7 @@ namespace OsnovnaSkolaUI.ViewModel
                     OdeljenjeIM odeljenje = new OdeljenjeIM() { razred = Razred };
                     if (Channel.Instance.OdeljenjaProxy.AddOdeljenje(odeljenje))
                     {
-                        MessageBox.Show("Odeljenje dodato.", "Operacija uspešna!", MessageBoxButton.OK, MessageBoxImage.Information);
+                       // MessageBox.Show("Odeljenje dodato.", "Operacija uspešna!", MessageBoxButton.OK, MessageBoxImage.Information);
                         Window.Close();
                     }
                     else

@@ -169,7 +169,7 @@ namespace OsnovnaSkolaUI.ViewModel
                     string retMsg = "";
                     if (Channel.Instance.CasovyProxy.ChangeCas(SelectedCas, out retMsg))
                     {
-                        MessageBox.Show("Čas uspešno izmenjen.", "Uspeh!", MessageBoxButton.OK, MessageBoxImage.Information);
+                        //MessageBox.Show("Čas uspešno izmenjen.", "Uspeh!", MessageBoxButton.OK, MessageBoxImage.Information);
                     }
                     else
                     {
@@ -190,7 +190,7 @@ namespace OsnovnaSkolaUI.ViewModel
                     if (( res = Channel.Instance.CasovyProxy.AddCas(noviCas, SelectedUcionica, SelectedOdeljenje)) == "")
                     //if(!Channel.Instance.CasovyProxy.CheckZauzetostUcionice(SelectedCas, SelectedUcionica))
                     {
-                        MessageBox.Show("Čas uspešno dodat.", "Uspeh!", MessageBoxButton.OK, MessageBoxImage.Information);
+                        //MessageBox.Show("Čas uspešno dodat.", "Uspeh!", MessageBoxButton.OK, MessageBoxImage.Information);
                     }
                     else
                     {

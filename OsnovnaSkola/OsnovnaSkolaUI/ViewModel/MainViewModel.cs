@@ -364,7 +364,7 @@ namespace OsnovnaSkolaUI.ViewModel
             {
                 if (Channel.Instance.PredmetiProxy.DeletePredmet(SelectedPredmet.Id_predmeta))
                 {
-                    MessageBox.Show("Predmet obrisan.", "Uspeh!", MessageBoxButton.OK, MessageBoxImage.Information);
+                    //MessageBox.Show("Predmet obrisan.", "Uspeh!", MessageBoxButton.OK, MessageBoxImage.Information);
                     OnChange();
                 }
                 else
@@ -479,7 +479,7 @@ namespace OsnovnaSkolaUI.ViewModel
 
                 if (Channel.Instance.PredavanjaProxy.DeletePredavanje(SelectedPredavanje))
                 {
-                    MessageBox.Show("Predavanje obrisano.", "Greška!", MessageBoxButton.OK, MessageBoxImage.Information);
+                    //MessageBox.Show("Predavanje obrisano.", "Greška!", MessageBoxButton.OK, MessageBoxImage.Information);
                 }
                 else
                 {
@@ -549,7 +549,7 @@ namespace OsnovnaSkolaUI.ViewModel
             {
                 if (Channel.Instance.UceniciProxy.DeleteUcenik(SelectedUcenik.Id_ucenika))
                 {
-                    MessageBox.Show("Učenik obrisan.", "Operacija uspešna!", MessageBoxButton.OK, MessageBoxImage.Information);
+                    //MessageBox.Show("Učenik obrisan.", "Operacija uspešna!", MessageBoxButton.OK, MessageBoxImage.Information);
                     OnChange();
 
                 }
@@ -585,7 +585,7 @@ namespace OsnovnaSkolaUI.ViewModel
             {
                 if (Channel.Instance.OdeljenjaProxy.DeleteOdeljenje(SelectedOdeljenje))
                 {
-                    MessageBox.Show("Odeljenje obrisano.", "Operacija uspešna!", MessageBoxButton.OK, MessageBoxImage.Information);
+                    //MessageBox.Show("Odeljenje obrisano.", "Operacija uspešna!", MessageBoxButton.OK, MessageBoxImage.Information);
                     OnChange();
                 }
                 else

@@ -49,7 +49,7 @@ namespace OsnovnaSkolaUI.ViewModel
                     {
                         if (Channel.Instance.ZaposleniProxy.AddPredmetToZaposleni(SelectedZaposleni, SelectedPredmet))
                         {
-                            MessageBox.Show("Predmet dodat uspešno.", "Uspeh!", MessageBoxButton.OK, MessageBoxImage.Information);
+                            //MessageBox.Show("Predmet dodat uspešno.", "Uspeh!", MessageBoxButton.OK, MessageBoxImage.Information);
                         }
                         else
                         {
@@ -66,7 +66,7 @@ namespace OsnovnaSkolaUI.ViewModel
                 {
                     if (Channel.Instance.ZaposleniProxy.AddPredmetToZaposleni(SelectedZaposleni, SelectedPredmet))
                     {
-                        MessageBox.Show("Predmet dodat uspešno.", "Uspeh!", MessageBoxButton.OK, MessageBoxImage.Information);
+                        //MessageBox.Show("Predmet dodat uspešno.", "Uspeh!", MessageBoxButton.OK, MessageBoxImage.Information);
                     }
                     else
                     {
