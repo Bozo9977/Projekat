@@ -83,8 +83,12 @@ namespace OsnovnaSkola.DataAccess
                 }
                 else if(z is Ucitelj)
                 {
-                    short razred = (z as Ucitelj).Odeljenje.razred;
-                    lista = db.Predmeti.Where(p => p.razred == razred).ToList();
+                    if((z as Ucitelj).Odeljenje != null)
+                    {
+                        short razred = (z as Ucitelj).Odeljenje.razred;
+                        lista = db.Predmeti.Where(p => p.razred == razred).ToList();
+                    }
+                    
                 }
 
                 return lista;

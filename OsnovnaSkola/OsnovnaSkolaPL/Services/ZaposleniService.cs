@@ -315,6 +315,7 @@ namespace OsnovnaSkolaPL.Services
                 {
                     ime = appUser.ime,
                     prezime = appUser.prezime,
+                    KorisnickoIme = appUser.KorisnickoIme,
                     zvanje = "administratorSistema",
                     Id_zaposlenog = 0
                 };

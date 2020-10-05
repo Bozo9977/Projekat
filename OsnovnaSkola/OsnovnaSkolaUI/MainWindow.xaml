@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:OsnovnaSkolaUI"
         mc:Ignorable="d"
-        Title="MainWindow" WindowStartupLocation="CenterScreen"  Height="608.65" Width="918" >
+        Title="MainWindow" WindowStartupLocation="CenterScreen"  Height="608.65" Width="918" WindowState="Maximized">
     <Grid Background="Black">
         <!--<Grid>-->
             <Label Content="Ime" FontWeight="Bold" HorizontalAlignment="Left" Margin="10,0,0,0" VerticalAlignment="Top" Foreground="gold"/>

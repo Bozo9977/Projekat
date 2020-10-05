@@ -89,7 +89,7 @@ namespace OsnovnaSkolaUI.ViewModel
                     SelectedOblast.naziv = Naziv;
                     if (Channel.Instance.OblastiProxy.ChangeOblast(SelectedOblast))
                     {
-                        MessageBox.Show("Izmena uspešno.", "Uspeh!", MessageBoxButton.OK, MessageBoxImage.Information);
+                        //MessageBox.Show("Izmena uspešno.", "Uspeh!", MessageBoxButton.OK, MessageBoxImage.Information);
                     }
                     else
                     {
@@ -109,7 +109,7 @@ namespace OsnovnaSkolaUI.ViewModel
                     SelectedOblast = new OblastIM() { naziv = Naziv, PredmetId_predmeta = SelectedPredmet.Id_predmeta };
                     if (Channel.Instance.OblastiProxy.AddOblast(SelectedOblast))
                     {
-                        MessageBox.Show("Dodavanje uspešno.", "Uspeh!", MessageBoxButton.OK, MessageBoxImage.Information);
+                        //MessageBox.Show("Dodavanje uspešno.", "Uspeh!", MessageBoxButton.OK, MessageBoxImage.Information);
                     }
                     else
                     {
