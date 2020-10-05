@@ -331,7 +331,7 @@
                             </DataGridTextColumn.ElementStyle>
                         </DataGridTextColumn>
 
-                        <DataGridTextColumn Header="Razred" TextBlock.TextAlignment="Center" Binding="{Binding broj_oblasti}" IsReadOnly="True">
+                        <DataGridTextColumn Header="Broj oblasti" TextBlock.TextAlignment="Center" Binding="{Binding broj_oblasti}" IsReadOnly="True">
                             <DataGridTextColumn.ElementStyle>
                                 <Style TargetType="TextBlock">
                                     <Setter Property="TextWrapping" Value="Wrap" />

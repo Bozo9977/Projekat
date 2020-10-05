@@ -18,7 +18,7 @@
     </Window.Resources>
 
     <Grid x:Name="UcionicaGrid" Background="Black" Margin="0,0,0,-1" Style="{StaticResource FocusTextBox}">
-        <Label Content="Nova učionica" HorizontalContentAlignment="Center" Height="66" Margin="21,10,23,0" VerticalAlignment="Top"  FontSize="26" FontFamily="Segoe UI" Foreground="#FFFBFB9F"/>
+        <Label Content="Učionica" HorizontalContentAlignment="Center" Height="66" Margin="21,10,23,0" VerticalAlignment="Top"  FontSize="26" FontFamily="Segoe UI" Foreground="#FFFBFB9F"/>
 
         <Label Content="Naziv učionice:" HorizontalContentAlignment="Center" HorizontalAlignment="Left" Height="34" Margin="113,93,0,0" VerticalAlignment="Top" Width="244" FontFamily="Segoe UI" Foreground="#FFFBFB9F" FontSize="20" />
         <TextBox x:Name="NazivBox" HorizontalAlignment="Left" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" Text="{Binding NovaUcionica.naziv, UpdateSourceTrigger=PropertyChanged}"  FontFamily="Khmer UI" FontSize="20" TextWrapping="Wrap" Width="244" Margin="113,137,0,0" Background="#FF2E2E2E" BorderBrush="#FF282829" Foreground="#FFFBFB9F" Height="39" VerticalAlignment="Top">
