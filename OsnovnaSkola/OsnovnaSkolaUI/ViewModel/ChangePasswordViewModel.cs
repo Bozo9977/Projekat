@@ -40,7 +40,7 @@ namespace OsnovnaSkolaUI.ViewModel
             {
                 if(Channel.Instance.ZaposleniProxy.ChangePassword(LoggedInZaposleni.Instance, Lozinka.Password.ToString()))
                 {
-                    //new MainWindow().Show();
+                    new MainWindow().Show();
                     Lozinka.Password = PotvrdaLozinke.Password = "";
                     Window.Close();
                 }
