@@ -29,7 +29,7 @@
 
 
         <Label Content="Prezime:" HorizontalContentAlignment="Center" HorizontalAlignment="Left" Height="38" Margin="113,218,0,0" VerticalAlignment="Top" Width="244" FontFamily="Segoe UI" Foreground="#FFFBFB9F" FontSize="20" />
-        <TextBox x:Name="PrezimeBox"  HorizontalAlignment="Left" Background="#FF2E2E2E" Text="{Binding Prezime, UpdateSourceTrigger=PropertyChanged}" BorderThickness="1" BorderBrush="#FF282829" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" Height="34" Width="243" Foreground="#FFFBFB9F" Margin="114,261,0,169">
+        <TextBox x:Name="PrezimeBox" FontSize="20" HorizontalAlignment="Left" Background="#FF2E2E2E" Text="{Binding Prezime, UpdateSourceTrigger=PropertyChanged}" BorderThickness="1" BorderBrush="#FF282829" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" Height="34" Width="243" Foreground="#FFFBFB9F" Margin="114,261,0,169">
 
         </TextBox>
 

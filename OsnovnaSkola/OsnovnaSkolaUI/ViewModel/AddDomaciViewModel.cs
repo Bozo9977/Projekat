@@ -119,7 +119,7 @@ namespace OsnovnaSkolaUI.ViewModel
                 Visible = "Hidden";
                 Visible2 = "Visible";
                 Naslov = "Promena domaceg";
-                ButtonContent = "Izmeni";
+                ButtonContent = "IZMENI";
                 DeletionEnabled = "Visible";
             }
             else
@@ -130,7 +130,7 @@ namespace OsnovnaSkolaUI.ViewModel
                 Naslov = "Novi domaci";
                 NoviDomaci.dan_predaje = DateTime.Today;
                 NoviDomaci.dan_zadavanja = DateTime.Today;
-                ButtonContent = "Dodaj";
+                ButtonContent = "DODAJ";
                 DeletionEnabled = "Hidden";
             }
 

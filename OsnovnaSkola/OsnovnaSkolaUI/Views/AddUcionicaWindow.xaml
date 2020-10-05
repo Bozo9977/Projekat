@@ -30,7 +30,7 @@
 
 
         <Label Content="Smešta učenika:" HorizontalContentAlignment="Center" HorizontalAlignment="Left" Height="38" Margin="113,218,0,0" VerticalAlignment="Top" Width="244" FontFamily="Segoe UI" Foreground="#FFFBFB9F" FontSize="20" />
-        <TextBox x:Name="BroUcenikaBox" Text="{Binding NovaUcionica.broj_ucenika}" HorizontalAlignment="Left" Background="#FF2E2E2E" BorderThickness="1" BorderBrush="#FF282829" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" Height="34" Width="243" Foreground="#FFFBFB9F" Margin="114,261,0,169">
+        <TextBox x:Name="BroUcenikaBox" FontSize="20" Text="{Binding NovaUcionica.broj_ucenika}" HorizontalAlignment="Left" Background="#FF2E2E2E" BorderThickness="1" BorderBrush="#FF282829" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" Height="34" Width="243" Foreground="#FFFBFB9F" Margin="114,261,0,169">
             <TextBox.InputBindings>
                 <KeyBinding Command="{Binding AddUcionicaCommand}" Key="Enter"/>
             </TextBox.InputBindings>

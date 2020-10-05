@@ -96,7 +96,7 @@
             </DataGrid.Columns>
         </DataGrid>
 
-        <Button  Content="Obriši" Visibility="{Binding DeletionEnabled}" IsDefault="True" Command="{Binding DeleteDomaciCommand}" HorizontalAlignment="Left"  FontSize="24" VerticalAlignment="Top" Width="221" Margin="170,515,0,0" Height="48" RenderTransformOrigin="0.769,0.381"  FontFamily="Segoe UI" Background="Transparent" BorderBrush="White" Foreground="#FFFBFB9F" FontWeight="Bold"/>
+        <Button  Content="OBRIŠI" Visibility="{Binding DeletionEnabled}" IsDefault="True" Command="{Binding DeleteDomaciCommand}" HorizontalAlignment="Left"  FontSize="24" VerticalAlignment="Top" Width="221" Margin="170,515,0,0" Height="48" RenderTransformOrigin="0.769,0.381"  FontFamily="Segoe UI" Background="Transparent" BorderBrush="White" Foreground="#FFFBFB9F" FontWeight="Bold"/>
 
     </Grid>
 </Window>

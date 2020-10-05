@@ -111,7 +111,7 @@ namespace OsnovnaSkolaUI.ViewModel
             {
                 Izmena = true;
                 SelectedCas = cas;
-                ButtonContent = "Izmeni";
+                ButtonContent = "IZMENI";
                 //SelectedDatum = DateTime.Today;
                 SelectedDatum = cas.datum;
                 
@@ -122,7 +122,7 @@ namespace OsnovnaSkolaUI.ViewModel
             else
             {
                 Oblast = oblast;
-                ButtonContent = "Dodaj";
+                ButtonContent = "DODAJ";
                 SelectedUcionica = ucionica;
                 SelectedDatum = DateTime.Today.AddDays(1);
                 DeletionEnabled = "Hidden";

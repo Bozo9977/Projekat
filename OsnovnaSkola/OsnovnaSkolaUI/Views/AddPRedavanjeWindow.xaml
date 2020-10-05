@@ -36,7 +36,7 @@
 
         <Label Content="{Binding DateError, UpdateSourceTrigger=PropertyChanged}" Name="prezimeError" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" HorizontalAlignment="Left" Height="34" Margin="21,323,0,0" VerticalAlignment="Top" Width="440" FontFamily="Segoe UI" Foreground="red" FontSize="16" />
 
-        <Button  Content="Dodaj" IsDefault="True" Command="{Binding AddPredavanjeCommand}" HorizontalAlignment="Left"  FontSize="24" VerticalAlignment="Top" Width="130" Margin="168,382,0,0" Height="48" RenderTransformOrigin="0.769,0.381"  FontFamily="Segoe UI" Background="Transparent" BorderBrush="White" Foreground="#FFFBFB9F" FontWeight="Bold"/>
+        <Button  Content="DODAJ" IsDefault="True" Command="{Binding AddPredavanjeCommand}" HorizontalAlignment="Left"  FontSize="24" VerticalAlignment="Top" Width="130" Margin="168,382,0,0" Height="48" RenderTransformOrigin="0.769,0.381"  FontFamily="Segoe UI" Background="Transparent" BorderBrush="White" Foreground="#FFFBFB9F" FontWeight="Bold"/>
 
     </Grid>
 </Window>

@@ -102,7 +102,7 @@
         </DataGrid>
 
 
-        <Button x:Name="button" Content="Napravi čas" Command="{Binding NapraviCasCommand}" Background="Transparent" FontFamily="Segoe UI" Foreground="#FFFBFB9F" BorderBrush="Gold" FontSize="22" HorizontalAlignment="Left" Height="44" Margin="175.396,365,0,0" VerticalAlignment="Top" Width="132" Grid.Column="1"/>
+        <Button x:Name="button" Content="NAPRAVI ČAS" Command="{Binding NapraviCasCommand}" Background="Transparent" FontFamily="Segoe UI" Foreground="#FFFBFB9F" BorderBrush="Gold" FontSize="22" HorizontalAlignment="Left" Height="44" Margin="171,365,0,0" VerticalAlignment="Top" Width="149" Grid.Column="1"/>
         <Label x:Name="label" Content="Izaberite učionicu" Foreground="#FFFBFB9F" FontSize="22" HorizontalAlignment="Left" Height="45" Margin="10,10,0,0" VerticalAlignment="Top" Width="341" Grid.ColumnSpan="2"/>
         <Label x:Name="label_Copy" Content="Izaberite oblast" Foreground="#FFFBFB9F" FontSize="22" HorizontalAlignment="Left" Height="45" Margin="248.396,10,0,0" VerticalAlignment="Top" Width="341" Grid.Column="1"/>
         <Label x:Name="label1" Content="{Binding ErrorLabel, UpdateSourceTrigger=PropertyChanged}" Foreground="Red" FontSize="24" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" HorizontalAlignment="Left" Height="43" Margin="0,300,0,0" VerticalAlignment="Top" Width="792" Grid.ColumnSpan="2"/>

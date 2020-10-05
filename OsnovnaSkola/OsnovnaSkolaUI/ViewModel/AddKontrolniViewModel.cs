@@ -118,7 +118,7 @@ namespace OsnovnaSkolaUI.ViewModel
                 Visible = "Hidden";
                 Visible2 = "Visible";
                 Naslov = "Promena kontrolnog";
-                ButtonContent = "Izmeni";
+                ButtonContent = "IZMENI";
                 DeletionEnabled = "Visible";
             }
             else
@@ -128,7 +128,7 @@ namespace OsnovnaSkolaUI.ViewModel
                 Visible2 = "Hidden";
                 Naslov = "Novi kontrolni";
                 NoviKontrolni.datum_odrzavanja = DateTime.Today;
-                ButtonContent = "Dodaj";
+                ButtonContent = "DODAJ";
                 DeletionEnabled = "Hidden";
             }
 

@@ -63,13 +63,13 @@ namespace OsnovnaSkolaUI.ViewModel
             {
                 AddUcionicaCommand = new MyICommand(IzmeniUcionicu);
                 NovaUcionica = toChange;
-                ButtonContent = "Promeni";
+                ButtonContent = "IZMENI";
             }
             else
             {
                 AddUcionicaCommand = new MyICommand(DodajUcionicu);
                 NovaUcionica = new UcionicaIM();
-                ButtonContent = "Dodaj";
+                ButtonContent = "DODAJ";
             }
 
             

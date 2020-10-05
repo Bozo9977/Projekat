@@ -79,6 +79,6 @@
             </DataGrid.Columns>
 
         </DataGrid>
-        <Button Content="Dodaj" Command="{Binding DodajPredmetCommand}" FontSize="18" Background="Transparent" Foreground="Gold" Margin="268,369,282,0" VerticalAlignment="Top" Height="40"/>
+        <Button Content="DODAJ" Command="{Binding DodajPredmetCommand}" FontSize="18" Background="Transparent" Foreground="Gold" Margin="268,369,282,0" VerticalAlignment="Top" Height="40"/>
     </Grid>
 </Window>

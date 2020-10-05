@@ -36,13 +36,13 @@
         <Label  Content="Zadatak:" HorizontalAlignment="Left" Height="40" Margin="170,123,0,0" VerticalAlignment="Top" Width="227" FontFamily="Segoe UI" Foreground="#FFFBFB9F" FontSize="22" HorizontalContentAlignment="Center"/>
         <Label  Content="Datum održavanja:" HorizontalAlignment="Left" Height="42" Margin="170,217,0,0" VerticalAlignment="Top" Width="227" FontFamily="Segoe UI" Foreground="#FFFBFB9F" FontSize="22" HorizontalContentAlignment="Center"/>
         <!--<Label  Content="Dan predaje:" HorizontalAlignment="Left" Height="36" Margin="170,315,0,0" VerticalAlignment="Top" Width="227" FontFamily="Segoe UI" Foreground="#FFFBFB9F" FontSize="22" HorizontalContentAlignment="Center"/>-->
-        <Button Content="{Binding ButtonContent}"  Command="{Binding AddKontrolniCommand}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="221" Margin="176,582,0,0" Height="63" FontFamily="Segoe UI" Foreground="#FFFBFB9F" Background="Transparent" BorderBrush="White" FontSize="36" FontWeight="Bold"/>
+        <Button Content="{Binding ButtonContent}"  Command="{Binding AddKontrolniCommand}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="221" Margin="176,587,0,0" Height="58" FontFamily="Segoe UI" Foreground="#FFFBFB9F" Background="Transparent" BorderBrush="White" FontSize="36" FontWeight="Bold"/>
         <Label  Content="{Binding ErrorZadatak}" HorizontalAlignment="Left" Height="29" Margin="55,194,0,0" VerticalAlignment="Top" Width="464" FontFamily="Segoe UI" Foreground="red" FontSize="14"/>
         <Label  Content="{Binding ErrorDatumZadavanja}" HorizontalAlignment="Left" Height="29" Margin="55,286,0,0" VerticalAlignment="Top" Width="464" FontFamily="Segoe UI" Foreground="red" FontSize="14"/>
 
         <DataGrid ItemsSource="{Binding Predmeti, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"  HorizontalAlignment="Left" Height="194" Margin="7,321,0,0" VerticalAlignment="Top" Width="540" SelectedItem="{Binding SelectedPredmet}" ColumnWidth="*" AutoGenerateColumns="False" IsReadOnly="True">
             <DataGrid.Columns>
-                
+
 
                 <DataGridTextColumn Header="Razred" TextBlock.TextAlignment="Center" Binding="{Binding razred}" IsReadOnly="True">
                     <DataGridTextColumn.ElementStyle>
@@ -95,7 +95,7 @@
             </DataGrid.Columns>
         </DataGrid>
 
-        <Button  Content="Obriši" Visibility="{Binding DeletionEnabled}" IsDefault="True" Command="{Binding DeleteKontrolniCommand}" HorizontalAlignment="Left"  FontSize="24" VerticalAlignment="Top" Width="221" Margin="176,534,0,0" Height="48" RenderTransformOrigin="0.769,0.381"  FontFamily="Segoe UI" Background="Transparent" BorderBrush="White" Foreground="#FFFBFB9F" FontWeight="Bold"/>
+        <Button  Content="OBRIŠI" Visibility="{Binding DeletionEnabled}" IsDefault="True" Command="{Binding DeleteKontrolniCommand}" HorizontalAlignment="Left"  FontSize="24" VerticalAlignment="Top" Width="221" Margin="176,534,0,0" Height="53" RenderTransformOrigin="0.769,0.381"  FontFamily="Segoe UI" Background="Transparent" BorderBrush="White" Foreground="#FFFBFB9F" FontWeight="Bold"/>
 
     </Grid>
 </Window>

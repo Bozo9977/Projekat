@@ -51,7 +51,7 @@
 
             </DataGrid.Columns>
         </DataGrid>
-        <Button Content="Dodaj" Command="{Binding AddRazredniCommand}" FontSize="18" Background="Transparent" Foreground="Gold" Margin="276,356,274,0" VerticalAlignment="Top" Height="40"/>
+        <Button Content="DODAJ" Command="{Binding AddRazredniCommand}" FontSize="18" Background="Transparent" Foreground="Gold" Margin="276,356,274,0" VerticalAlignment="Top" Height="40"/>
 
 
     </Grid>
